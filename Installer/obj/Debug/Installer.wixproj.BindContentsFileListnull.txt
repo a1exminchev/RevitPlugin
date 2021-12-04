@@ -1,0 +1,15 @@
+D:\Repos\revitplagin\RevitPlugin\RevitPlugin\bin\Debug\ArCmd.dll
+D:\Repos\revitplagin\RevitPlugin\RevitPlugin\bin\Debug\Functions.dll
+D:\Repos\revitplagin\RevitPlugin\RevitPlugin\bin\Debug\Microsoft.Windows.Design.Extensibility.dll
+D:\Repos\revitplagin\RevitPlugin\RevitPlugin\bin\Debug\Microsoft.Windows.Design.Interaction.dll
+D:\Repos\revitplagin\RevitPlugin\RevitPlugin\bin\Debug\Microsoft.WindowsAPICodePack.dll
+D:\Repos\revitplagin\RevitPlugin\RevitPlugin\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+D:\Repos\revitplagin\RevitPlugin\RevitPlugin\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+D:\Repos\revitplagin\RevitPlugin\RevitPlugin\bin\Debug\Microsoft.Xaml.Behaviors.Design.dll
+D:\Repos\revitplagin\RevitPlugin\RevitPlugin\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\Repos\revitplagin\RevitPlugin\RevitPlugin\bin\Debug\..\..\PackageContents.xml
+D:\Repos\revitplagin\RevitPlugin\RevitPlugin\bin\Debug\PluginLogic.dll
+D:\Repos\revitplagin\RevitPlugin\RevitPlugin\bin\Debug\PluginUtils.dll
+D:\Repos\revitplagin\RevitPlugin\RevitPlugin\bin\Debug\..\..\RevitPlugin.addin
+D:\Repos\revitplagin\RevitPlugin\RevitPlugin\bin\Debug\RevitPlugin.dll
+D:\Repos\revitplagin\RevitPlugin\RevitPlugin\bin\Debug\UIBuilder.dll

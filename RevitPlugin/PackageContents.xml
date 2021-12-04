@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ApplicationPackage SchemaVersion="1.0"
+                    AutodeskProduct="Revit"
+                    ProductType="Application"
+                    Name="RevitPlugin"
+                    AppVersion="1.0.0"
+                    Description="Revit plugin"
+                    Author="Minchev Aleksey"
+                    ProductCode="{69F0B622-3DDB-4723-9134-F9D38EDABCC8}"
+                    UpgradeCode="{B5AE9F0D-4034-5CFE-B07A-8D3E70D5A96A}"
+                    FriendlyVersion="2.0.0"
+                    SupportedLocales="Enu">
+
+
+	<Components Description="Revit19">
+		<RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2019" SeriesMax="R2019" />
+		<ComponentEntry AppName="RevitPlugin" Version="2018.0.0" ModuleName="./Contents/RevitPlugin.addin"
+						AppDescription="Revit plugin" />
+	</Components>
+
+	<Components Description="Revit20">
+		<RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2020" SeriesMax="R2020" />
+		<ComponentEntry AppName="RevitPlugin" Version="2018.0.0" ModuleName="./Contents/RevitPlugin.addin"
+						AppDescription="Revit plugin" />
+	</Components>
+
+	<Components Description="Revit21">
+		<RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2021" SeriesMax="R2021" />
+		<ComponentEntry AppName="RevitPlugin" Version="2018.0.0" ModuleName="./Contents/RevitPlugin.addin"
+						AppDescription="Revit plugin" />
+	</Components>
+
+
+</ApplicationPackage>

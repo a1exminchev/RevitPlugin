@@ -1,0 +1,5 @@
+D:\Repos\revitplagin\RevitPlugin\PluginUtils\obj\Debug\PluginUtils.csproj.CoreCompileInputs.cache
+D:\Repos\revitplagin\RevitPlugin\PluginUtils\bin\Debug\PluginUtils.dll
+D:\Repos\revitplagin\RevitPlugin\PluginUtils\bin\Debug\PluginUtils.pdb
+D:\Repos\revitplagin\RevitPlugin\PluginUtils\obj\Debug\PluginUtils.dll
+D:\Repos\revitplagin\RevitPlugin\PluginUtils\obj\Debug\PluginUtils.pdb

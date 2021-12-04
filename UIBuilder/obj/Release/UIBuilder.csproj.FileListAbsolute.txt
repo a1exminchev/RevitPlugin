@@ -1,0 +1,16 @@
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\bin\Release\UIBuilder.dll
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\bin\Release\UIBuilder.pdb
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\bin\Release\Functions.dll
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\bin\Release\UIFramework.dll
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\bin\Release\Functions.pdb
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\obj\Release\UIBuilder.csprojAssemblyReference.cache
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\obj\Release\UIBuilder.csproj.CoreCompileInputs.cache
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\obj\Release\UIBuilder.csproj.CopyComplete
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\obj\Release\UIBuilder.dll
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\obj\Release\UIBuilder.pdb
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\bin\Release\ArCm.dll
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\bin\Release\PluginLogics.dll
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\bin\Release\PluginUtil.dll
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\bin\Release\ArCm.pdb
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\bin\Release\PluginLogics.pdb
+D:\Repos\revitplagin\RevitPlugin\UIBuilder\bin\Release\PluginUtil.pdb

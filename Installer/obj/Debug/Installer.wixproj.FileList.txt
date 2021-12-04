@@ -1,0 +1,6 @@
+obj\Debug\Product.wixobj
+D:\Repos\revitplagin\RevitPlugin\Installer\bin\Debug\Installer.msi
+D:\Repos\revitplagin\RevitPlugin\Installer\bin\Debug\Installer.wixpdb
+obj\Debug\Installer.wixproj.BindContentsFileListnull.txt
+obj\Debug\Installer.wixproj.BindOutputsFileListnull.txt
+obj\Debug\Installer.wixproj.BindBuiltOutputsFileListnull.txt

@@ -1,0 +1,2 @@
+D:\Repos\revitplagin\RevitPlugin\Installer\bin\Release\Installer.msi
+D:\Repos\revitplagin\RevitPlugin\Installer\bin\Release\Installer.wixpdb

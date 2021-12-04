@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<AddInId>93A75F1D-34D2-4978-BDFD-727A15E1965D</AddInId>
+		<Name>RevitPlugin</Name>
+		<Assembly>RevitPlugin/RevitPlugin.dll</Assembly>
+		<FullClassName>RevitPlugin.App</FullClassName>
+		<VendorId>aleksey.minchev@bilfinger.com</VendorId>
+		<VendorDescription>Minchev, aleksey.minchev@bilfinger.com</VendorDescription>
+	</AddIn>
+</RevitAddIns>

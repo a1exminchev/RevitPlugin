@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<?define InstallerSource="..\RevitPlugin\bin\Debug"?>
+
+	<Product Id="*" Name="RevitPlugin" Language="1033" Version="1.0.0" Manufacturer="Bilfinger"
+             UpgradeCode="B0539601-F2C8-4F16-8E13-8B5605A2A966">
+		<Package InstallerVersion="301" Compressed="yes" InstallScope="perUser" InstallPrivileges="limited"/>
+		<UIRef Id="WixUI_Minimal"/>
+		<Icon Id="logo.jpg" SourceFile="$(var.ProjectDir)logo.jpg"/>
+
+		<Property Id="ARPPRODUCTICON" Value="logo.jpg"></Property>
+
+		<!-- <WixVariable Id="WixUIBannerBmp" Value="logo-2x.jpg" />-->
+		<!-- <WixVariable Id="WixUIDialogBmp" Value="logo-2x.jpg" />-->
+		<!--<WixVariable Id="WixUILicenseRtf" Value="License.rtf"/>-->
+
+		<MajorUpgrade AllowDowngrades="yes" MigrateFeatures="no"/>
+		<MediaTemplate EmbedCab="yes"/>
+
+		<Feature Id="ProductFeature" Title="RevitPluginInstaller" Level="1">
+			<ComponentGroupRef Id="PluginDllFolder"/>
+
+			<ComponentGroupRef Id="PackageControl"/>
+			<ComponentGroupRef Id="Manifest"/>
+		</Feature>
+
+
+		<SetDirectory Id="INSTALLDIR" Value="[%APPDATA]\Autodesk\ApplicationPlugins" Sequence="both"/>
+
+	</Product>
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="INSTALLDIR">
+				<Directory Id="INSTALLDIR_ADDIN" Name="RevitPlugin.bundle">
+					<Directory Id="CONTENTS" Name="Contents">
+						<Directory Id="LIBFOLDER" Name="RevitPlugin">
+
+						</Directory>
+					</Directory>
+				</Directory>
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="PluginDllFolder" Directory="LIBFOLDER">
+
+
+			<Component Id="ArCm.dll" Guid="1216E97F-9CEF-43D0-B87E-BAAE2C3C305C">
+				<File Id="ArCm.dll" Name="ArCm.dll" Source="$(var.RevitPlugin.TargetDir)ArCm.dll"/>
+			</Component>
+
+			<Component Id="PluginLogics.dll" Guid="B2757F61-573A-47E2-93D7-C3A6828697C8">
+				<File Id="PluginLogics.dll" Name="PluginLogics.dll" Source="$(var.RevitPlugin.TargetDir)PluginLogics.dll"/>
+			</Component>
+
+			<Component Id="UIBuilder.dll" Guid="752CBDBD-DCFB-4D5E-866D-4F7809A456ED">
+				<File Id="UIBuilder.dll" Name="UIBuilder.dll" Source="$(var.RevitPlugin.TargetDir)UIBuilder.dll"/>
+			</Component>
+
+			<Component Id="Functions.dll" Guid="1AB9CA83-EA81-442B-8D7F-FF6C4579D839">
+				<File Id="Functions.dll" Name="Functions.dll" Source="$(var.RevitPlugin.TargetDir)Functions.dll"/>
+			</Component>
+			
+			<Component Id="PluginUtil.dll" Guid="14444AC4-35CC-4005-81DD-44B814CF7DCF">
+				<File Id="PluginUtil.dll" Name="PluginUtil.dll" Source="$(var.RevitPlugin.TargetDir)PluginUtil.dll"/>
+			</Component>
+
+			<Component Id="RevitPlugin.dll" Guid="E9E4113C-FA8B-4FEF-8504-2F852BB4E754">
+				<File Id="RevitPlugin.dll" Name="RevitPlugin.dll" Source="$(var.RevitPlugin.TargetDir)RevitPlugin.dll"/>
+			</Component>
+			
+			<Component Id="Microsoft.Windows.Design.Extensibility.dll" Guid="0113B94A-7939-4EAA-B92B-661A4DC19719">
+				<File Id="Microsoft.Windows.Design.Extensibility.dll" Name="Microsoft.Windows.Design.Extensibility.dll" Source="$(var.RevitPlugin.TargetDir)Microsoft.Windows.Design.Extensibility.dll"/>
+			</Component>
+			
+			<Component Id="Microsoft.Windows.Design.Interaction.dll" Guid="4B197A13-4E5A-4142-BBD0-3C5979EC6624">
+				<File Id="Microsoft.Windows.Design.Interaction.dll" Name="Microsoft.Windows.Design.Interaction.dll" Source="$(var.RevitPlugin.TargetDir)Microsoft.Windows.Design.Interaction.dll"/>
+			</Component>
+			
+			<Component Id="Microsoft.WindowsAPICodePack.dll" Guid="1926975D-0444-410C-992B-9F2D52C76D0D">
+				<File Id="Microsoft.WindowsAPICodePack.dll" Name="Microsoft.WindowsAPICodePack.dll" Source="$(var.RevitPlugin.TargetDir)Microsoft.WindowsAPICodePack.dll"/>
+			</Component>
+			
+			<Component Id="Microsoft.WindowsAPICodePack.Shell.dll" Guid="1169EDA1-F31F-4AAB-95F1-15BCA1B1E24B">
+				<File Id="Microsoft.WindowsAPICodePack.Shell.dll" Name="Microsoft.WindowsAPICodePack.Shell.dll" Source="$(var.RevitPlugin.TargetDir)Microsoft.WindowsAPICodePack.Shell.dll"/>
+			</Component>
+			
+			<Component Id="Microsoft.WindowsAPICodePack.ShellExtensions.dll" Guid="7901663D-5F64-451C-86F2-F1147BD3032F">
+				<File Id="Microsoft.WindowsAPICodePack.ShellExtensions.dll" Name="Microsoft.WindowsAPICodePack.ShellExtensions.dll" Source="$(var.RevitPlugin.TargetDir)Microsoft.WindowsAPICodePack.ShellExtensions.dll"/>
+			</Component>
+			
+			<Component Id="Microsoft.Xaml.Behaviors.Design.dll" Guid="BA769137-C248-411A-B38B-796452AD8050">
+				<File Id="Microsoft.Xaml.Behaviors.Design.dll" Name="Microsoft.Xaml.Behaviors.Design.dll" Source="$(var.RevitPlugin.TargetDir)Microsoft.Xaml.Behaviors.Design.dll"/>
+			</Component>
+			
+			<Component Id="Microsoft.Xaml.Behaviors.dll" Guid="F5AE3054-7971-4183-8D30-8AFC61BD135B">
+				<File Id="Microsoft.Xaml.Behaviors.dll" Name="Microsoft.Xaml.Behaviors.dll" Source="$(var.RevitPlugin.TargetDir)Microsoft.Xaml.Behaviors.dll"/>
+			</Component>
+
+
+
+
+		</ComponentGroup>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="PackageControl" Directory="INSTALLDIR_ADDIN">
+			<Component Id="PackageContents.xml" Guid="F633FC5D-49D6-4D62-8FB2-632EB171E454">
+				<File Id="PackageContents.xml" Name="PackageContents.xml"
+                      Source="$(var.RevitPlugin.TargetDir)..\..\PackageContents.xml"/>
+			</Component>
+		</ComponentGroup>
+
+
+	</Fragment>
+	<Fragment>
+		<ComponentGroup Id="Manifest" Directory="CONTENTS">
+			<Component Id="RevitPlugin.addin" Guid="1DE4A6C1-C6D6-4393-BA92-BFC10138E6EB">
+				<File Id="RevitPlugin.addin" Name="RevitPlugin.addin"
+                      Source="$(var.RevitPlugin.TargetDir)..\..\RevitPlugin.addin"/>
+			</Component>
+		</ComponentGroup>
+
+
+	</Fragment>
+</Wix>
