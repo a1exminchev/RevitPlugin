@@ -13,6 +13,7 @@ namespace ArCm
             string version = "First version";
             version = "second version";
             version = "3 version";
+            version = "4 version";
         }
     }
 }
