@@ -11,6 +11,7 @@ namespace ArCm
         public static void Initialize()
         {
             string version = "First version";
+            version = "second version";
         }
     }
 }
