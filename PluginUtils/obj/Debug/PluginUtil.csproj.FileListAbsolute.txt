@@ -3,3 +3,8 @@ D:\Repos\revitplagin\RevitPlugin\PluginUtils\bin\Debug\PluginUtil.pdb
 D:\Repos\revitplagin\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.csproj.CoreCompileInputs.cache
 D:\Repos\revitplagin\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.dll
 D:\Repos\revitplagin\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.pdb
+C:\Users\79518\Source\Repos\RevitPlugin\PluginUtils\bin\Debug\PluginUtil.dll
+C:\Users\79518\Source\Repos\RevitPlugin\PluginUtils\bin\Debug\PluginUtil.pdb
+C:\Users\79518\Source\Repos\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.csproj.CoreCompileInputs.cache
+C:\Users\79518\Source\Repos\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.dll
+C:\Users\79518\Source\Repos\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.pdb

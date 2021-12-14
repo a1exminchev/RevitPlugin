@@ -30,6 +30,24 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AdWindows">
       <HintPath>C:\Program Files\Autodesk\Revit 2019\AdWindows.dll</HintPath>
@@ -42,21 +60,6 @@
     <Reference Include="Microsoft.Windows.Design.Interaction, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\31601338\AppData\Roaming\Autodesk\ApplicationPlugins\BilfingerCommonAddin.bundle\Contents\BilfingerCommonAddin\Microsoft.Windows.Design.Interaction.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.WindowsAPICodePack">
-      <HintPath>C:\Users\31601338\AppData\Roaming\Autodesk\ApplicationPlugins\BilfingerCommonAddin.bundle\Contents\BilfingerCommonAddin\Microsoft.WindowsAPICodePack.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
-      <HintPath>C:\Users\31601338\AppData\Roaming\Autodesk\ApplicationPlugins\BilfingerCommonAddin.bundle\Contents\BilfingerCommonAddin\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions">
-      <HintPath>C:\Users\31601338\AppData\Roaming\Autodesk\ApplicationPlugins\BilfingerCommonAddin.bundle\Contents\BilfingerCommonAddin\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Xaml.Behaviors">
-      <HintPath>C:\Users\31601338\AppData\Roaming\Autodesk\ApplicationPlugins\BilfingerCommonAddin.bundle\Contents\BilfingerCommonAddin\Microsoft.Xaml.Behaviors.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Xaml.Behaviors.Design">
-      <HintPath>C:\Users\31601338\AppData\Roaming\Autodesk\ApplicationPlugins\BilfingerCommonAddin.bundle\Contents\BilfingerCommonAddin\Microsoft.Xaml.Behaviors.Design.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -140,12 +143,7 @@
             copy /Y "$(ProjectDir)/PackageContents.xml" "$(AppData)/Autodesk/ApplicationPlugins/$(ProjectName).bundle"
             copy /Y "$(ProjectDir)*.addin" "$(AppData)/Autodesk/ApplicationPlugins/$(ProjectName).bundle/Contents"
 
-            copy /Y "$(ProjectDir)/PackageContents.xml" "Y:\TECHNICAL_LIBRARY\BIM\06_Programs\RevitPlugin\$(Configuration)"
-            copy /Y "$(ProjectDir)*.addin" "Y:\TECHNICAL_LIBRARY\BIM\06_Programs\RevitPlugin\$(Configuration)"
-
-            xcopy /Y /E /R "$(ProjectDir)bin/$(Configuration)" "$(AppData)/Autodesk/ApplicationPlugins/$(ProjectName).bundle/Contents/$(ProjectName)"
-            xcopy /Y /E /R "$(ProjectDir)bin/$(Configuration)" "Y:\TECHNICAL_LIBRARY\BIM\06_Programs\RevitPlugin\$(Configuration)"
-            xcopy /Y /E /R "$(ProjectDir)\Images" "Y:\TECHNICAL_LIBRARY\BIM\06_Programs\RevitPlugin\$(Configuration)\Images"
+            xcopy /Y /E /R "$(ProjectDir)bin/x64/$(Configuration)" "$(AppData)/Autodesk/ApplicationPlugins/$(ProjectName).bundle/Contents/$(ProjectName)"
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

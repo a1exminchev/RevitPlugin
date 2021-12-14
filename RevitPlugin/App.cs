@@ -5,7 +5,6 @@ using PluginUtil;
 using PluginUtil.Loger;
 using UIBuilder;
 using System.IO;
-using System.Windows.Media.Imaging;
 
 namespace RevitPlugin
 {
@@ -20,7 +19,7 @@ namespace RevitPlugin
                 GlobalData.UiCApp = application;
                 ReferenceResolver.ReloadReference();
 
-                bool isRelease = true;
+                bool isRelease = false;
 
                 UserInterface.CreateUserInterface(application, isRelease);
                 

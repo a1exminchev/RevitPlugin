@@ -15,12 +15,12 @@ namespace UIBuilder
 	{
 		public static void CreateUserInterface(UIControlledApplication application, bool isRelease)
 		{
-            string folderPath = @"Y:\TECHNICAL_LIBRARY\BIM\06_Programs\RevitPlugin\Debug";
+            string folderPath = @"C:\Users\79518\source\repos\RevitPlugin\RevitPlugin\bin\x64\Debug";
             if (isRelease == true)
             {
-                folderPath = @"Y:\TECHNICAL_LIBRARY\BIM\06_Programs\RevitPlugin\Release";
+                folderPath = @"C:\Users\79518\source\repos\RevitPlugin\RevitPlugin\bin\x64\Release";
             }
-            string folderImage = Path.Combine(folderPath, "Images");
+            string folderImage = @"C:\Users\79518\source\repos\RevitPlugin\RevitPlugin\Images";
 
             string dllArCm = Path.Combine(folderPath, "ArCm.dll");
             string tabArCm = "АР";
