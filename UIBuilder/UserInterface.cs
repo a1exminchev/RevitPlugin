@@ -43,6 +43,15 @@ namespace UIBuilder
             btnLayerTagRefresh.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
             btnLayerTagRefresh.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
             btnLayerTagRefresh.ToolTip = "Update all layers tags";
+
+            string dllStudy = Path.Combine(folderPath, "Study.dll");
+            string tabStudy = "Study";
+            application.CreateRibbonTab(tabStudy);
+            RibbonPanel panelCommands = application.CreateRibbonPanel(tabStudy, "commands");
+
+            PushButton btn1 = (PushButton)panelCommands.AddItem(new PushButtonData("Study", "Study", dllStudy, typeof(Study.Class1).FullName));
+            btnLayerTagRefresh.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
+            btnLayerTagRefresh.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
         }
 	}
 }
