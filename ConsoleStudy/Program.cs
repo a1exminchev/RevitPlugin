@@ -1,6 +1,11 @@
 ﻿using System;
+using System.IO;
+using Study;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Net;
 
 namespace ConsoleStudy
 {
@@ -8,23 +13,15 @@ namespace ConsoleStudy
     {
         static void Main(string[] args)
         {
-            List<string> names = new List<string>() { "David", "Anastasia", "Aleksey", "Nadya" };
-            var list = names.Where(x => x.Contains("s")).Select(x => x.ToUpper());
+            var request = new Request("http://api.openweathermap.org/data/2.5/weather?q=Moscow&appid=fa72d984b737783c74e425cda2f273cd");
+            request.Run();
+            var response = request.Response;
+            var json = JObject.Parse(response);
+            var wind = json["wind"];
 
-            // Можно записать по другому как в SQL
-            var list2 = from x in names
-                        where x.Contains("s")
-                        select x.ToUpper();
-
-            var list3 = names.Where(x => x.Contains("s"))
-                             .OrderBy(x => x.Length) //сортирует по длине в порядке возрастания
-                             .Select(x => x.ToUpper());
-
-            foreach (string i in list3)
-            {
-                Console.WriteLine(i);
-            }
+            Console.WriteLine(wind["speed"]);
             Console.ReadKey();
         }
+        
     }
 }
