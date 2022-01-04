@@ -40,7 +40,7 @@ namespace ArCm
 				t.Start();
 				if (parList.Count == 0)
 				{
-					GlobalSharedProjectParameters.CreateProjectParameterFromExistingSharedParameter(app, parameterName, catSet, BuiltInParameterGroup.PG_DATA, false);
+					ParameterOperations.CreateProjectParameterFromExistingSharedParameter(app, parameterName, catSet, BuiltInParameterGroup.PG_DATA, false);
 				}
 				foreach (ElementId wtypeId in wallFamilyCollector)
 				{

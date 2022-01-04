@@ -65,7 +65,7 @@ namespace ArCm
 				t.Start();
 				if (parList.Count == 0)
 				{
-					Functions.GlobalSharedProjectParameters.CreateProjectParameterFromExistingSharedParameter(app, "00_Combining_Layers_Of_Construction", catSet, BuiltInParameterGroup.PG_DATA, false);
+					Functions.ParameterOperations.CreateProjectParameterFromExistingSharedParameter(app, "00_Combining_Layers_Of_Construction", catSet, BuiltInParameterGroup.PG_DATA, false);
 				}
 
 				FilteredElementCollector cl = new FilteredElementCollector(doc).OfClass(typeof(Family));

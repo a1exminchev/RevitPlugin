@@ -93,7 +93,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GlobalSharedProjectParameters.cs" />
+    <Compile Include="GeometryOperations.cs" />
+    <Compile Include="MyExtrusions.cs" />
+    <Compile Include="FamilyOperations.cs" />
+    <Compile Include="ParameterOperations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

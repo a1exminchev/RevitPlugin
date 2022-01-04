@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+using RestSharp;
 
-namespace Study
+namespace MyWPF
 {
-    public class WhiteStraightLine : LineObject
+    public interface IButtons
     {
-        public new string Colour = "White";
+        void Message();
     }
 }

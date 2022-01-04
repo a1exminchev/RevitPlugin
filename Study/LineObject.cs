@@ -7,7 +7,7 @@ using Autodesk.Revit.UI;
 
 namespace Study
 {
-    class LineObject : IUserActions, IParameters
+    public class LineObject : IUserActions, IParameters
     {
         static string colour;
         static double points; //will be counted by instance

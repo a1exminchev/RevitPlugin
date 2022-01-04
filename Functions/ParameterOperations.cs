@@ -7,7 +7,7 @@ using Autodesk.Revit.ApplicationServices;
 
 namespace Functions
 {
-	public class GlobalSharedProjectParameters
+	public class ParameterOperations
 	{
 		public static void CreateProjectParameterFromExistingSharedParameter(Application app, string name, CategorySet cats, BuiltInParameterGroup group, bool inst)
 		{
@@ -27,7 +27,8 @@ namespace Functions
 
 			BindingMap map = (new UIApplication(app)).ActiveUIDocument.Document.ParameterBindings;
 			map.Insert(def, binding, group);
-
 		}
+
+
 	}
 }
