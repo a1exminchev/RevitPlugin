@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 
-namespace Study
+namespace StudyHome
 {
     public class RestSharper
     {

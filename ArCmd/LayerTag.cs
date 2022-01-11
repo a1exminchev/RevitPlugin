@@ -1,4 +1,5 @@
 ﻿using System;
+using Logics.Parameters;
 using Autodesk.Revit.Attributes;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,7 +66,7 @@ namespace ArCm
 				t.Start();
 				if (parList.Count == 0)
 				{
-					Functions.ParameterOperations.CreateProjectParameterFromExistingSharedParameter(app, "00_Combining_Layers_Of_Construction", catSet, BuiltInParameterGroup.PG_DATA, false);
+					ParameterOperations.CreateProjectParameterFromExistingSharedParameter(app, "00_Combining_Layers_Of_Construction", catSet, BuiltInParameterGroup.PG_DATA, false);
 				}
 
 				FilteredElementCollector cl = new FilteredElementCollector(doc).OfClass(typeof(Family));

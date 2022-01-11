@@ -147,3 +147,16 @@ C:\Users\79518\Source\Repos\RevitPlugin\ArCmd\obj\Debug\ArCm.csproj.CoreCompileI
 C:\Users\79518\Source\Repos\RevitPlugin\ArCmd\obj\Debug\ArCm.csproj.CopyComplete
 C:\Users\79518\Source\Repos\RevitPlugin\ArCmd\obj\Debug\ArCm.dll
 C:\Users\79518\Source\Repos\RevitPlugin\ArCmd\obj\Debug\ArCm.pdb
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\obj\Debug\ArCm.dll
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\obj\Debug\ArCm.pdb
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\bin\Debug\ArCm.dll
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\bin\Debug\ArCm.pdb
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\bin\Debug\Functions.dll
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\bin\Debug\PluginLogics.dll
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\bin\Debug\PluginUtil.dll
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\bin\Debug\Functions.pdb
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\bin\Debug\PluginLogics.pdb
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\bin\Debug\PluginUtil.pdb
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\obj\Debug\ArCm.csprojAssemblyReference.cache
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\obj\Debug\ArCm.csproj.CoreCompileInputs.cache
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\obj\Debug\ArCm.csproj.CopyComplete

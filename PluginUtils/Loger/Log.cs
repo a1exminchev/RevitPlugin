@@ -130,8 +130,8 @@ namespace PluginUtil.Loger
 
         #region public
 
-        public static Exception _GetException(this Exception exception
-                                              , string s) => new($"({s}\n\t\t\t{exception})");
+        //public static Exception _GetException(this Exception exception
+                                              //, string s) => new($"({s}\n\t\t\t{exception})");
 
         public static void ConfigLogPath(IIiPathConfig newConfig)
 		{

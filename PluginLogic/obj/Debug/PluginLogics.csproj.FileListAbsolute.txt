@@ -34,3 +34,12 @@ C:\Users\79518\Source\Repos\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.cspro
 C:\Users\79518\Source\Repos\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.csproj.CopyComplete
 C:\Users\79518\Source\Repos\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.dll
 C:\Users\79518\Source\Repos\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.pdb
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.dll
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.pdb
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\bin\Debug\PluginLogics.dll
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\bin\Debug\PluginLogics.pdb
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\bin\Debug\Microsoft.WindowsAPICodePack.xml
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.csproj.CoreCompileInputs.cache
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.csproj.CopyComplete
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.csprojAssemblyReference.cache

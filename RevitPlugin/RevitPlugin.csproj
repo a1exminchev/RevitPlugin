@@ -49,8 +49,9 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AdWindows">
-      <HintPath>C:\Program Files\Autodesk\Revit 2019\AdWindows.dll</HintPath>
+    <Reference Include="AdWindows, Version=3.1.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Revit_All_Main_Versions_API_x64.2022.1.0\lib\net48\AdWindows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Windows.Design.Extensibility, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -63,12 +64,14 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="RevitAPI">
-      <HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPI.dll</HintPath>
+    <Reference Include="RevitAPI, Version=22.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\Revit_All_Main_Versions_API_x64.2022.1.0\lib\net48\RevitAPI.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="RevitAPIUI">
-      <HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPIUI.dll</HintPath>
+    <Reference Include="RevitAPIUI, Version=22.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\Revit_All_Main_Versions_API_x64.2022.1.0\lib\net48\RevitAPIUI.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -89,8 +92,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="UIFramework">
-      <HintPath>C:\Program Files\Autodesk\Revit 2019\UIFramework.dll</HintPath>
+    <Reference Include="UIFramework, Version=22.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\Revit_All_Main_Versions_API_x64.2022.1.0\lib\net48\UIFramework.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
     <Reference Include="WindowsBase" />
@@ -104,9 +108,9 @@
       <Project>{0f07a0b3-b1d1-4f55-b318-ee923a94fd1c}</Project>
       <Name>ArCm</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Functions\Functions.csproj">
+    <ProjectReference Include="..\Functions\Logics.csproj">
       <Project>{af5a7a5c-087f-4c13-92b3-10ffb4c8533f}</Project>
-      <Name>Functions</Name>
+      <Name>Logics</Name>
     </ProjectReference>
     <ProjectReference Include="..\PluginLogic\PluginLogics.csproj">
       <Project>{670d8252-9598-4cca-822e-70afc24281da}</Project>
@@ -144,7 +148,7 @@
             copy /Y "$(ProjectDir)/PackageContents.xml" "$(AppData)/Autodesk/ApplicationPlugins/$(ProjectName).bundle"
             copy /Y "$(ProjectDir)*.addin" "$(AppData)/Autodesk/ApplicationPlugins/$(ProjectName).bundle/Contents"
 
-            xcopy /Y /E /R "$(ProjectDir)bin/x64/$(Configuration)" "$(AppData)/Autodesk/ApplicationPlugins/$(ProjectName).bundle/Contents/$(ProjectName)"
+            xcopy /Y /E /R "$(ProjectDir)bin/$(Configuration)" "$(AppData)/Autodesk/ApplicationPlugins/$(ProjectName).bundle/Contents/$(ProjectName)"
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

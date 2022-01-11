@@ -1,7 +1,7 @@
 ﻿using System;
 using Autodesk.Revit.Attributes;
 using ArCm;
-using BergmannStudy;
+using StudyTask;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
 using System.IO;
@@ -16,12 +16,12 @@ namespace UIBuilder
 	{
 		public static void CreateUserInterface(UIControlledApplication application, bool isRelease)
 		{
-            string folderPath = @"C:\Users\79518\source\repos\RevitPlugin\RevitPlugin\bin\x64\Debug";
+            string folderPath = @"C:\Users\Aleksey Minchev\source\repos\RevitPlugin\RevitPlugin\bin\Debug";
             if (isRelease == true)
             {
-                folderPath = @"C:\Users\79518\source\repos\RevitPlugin\RevitPlugin\bin\x64\Release";
+                folderPath = @"C:\Users\Aleksey Minchev\source\repos\RevitPlugin\RevitPlugin\bin\Release";
             }
-            string folderImage = @"C:\Users\79518\source\repos\RevitPlugin\RevitPlugin\Images";
+            string folderImage = @"C:\Users\Aleksey Minchev\source\repos\RevitPlugin\RevitPlugin\Images";
 
             string dllArCm = Path.Combine(folderPath, "ArCm.dll");
             string tabArCm = "АР";

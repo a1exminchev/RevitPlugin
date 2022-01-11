@@ -34,3 +34,9 @@ C:\Users\79518\Source\Repos\RevitPlugin\Functions\obj\Debug\Functions.csproj.Cor
 C:\Users\79518\Source\Repos\RevitPlugin\Functions\obj\Debug\Functions.csproj.CopyComplete
 C:\Users\79518\Source\Repos\RevitPlugin\Functions\obj\Debug\Functions.dll
 C:\Users\79518\Source\Repos\RevitPlugin\Functions\obj\Debug\Functions.pdb
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\Functions\obj\Debug\Functions.dll
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\Functions\obj\Debug\Functions.pdb
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\Functions\bin\Debug\Functions.dll
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\Functions\bin\Debug\Functions.pdb
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\Functions\obj\Debug\Functions.csproj.CoreCompileInputs.cache
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\Functions\obj\Debug\Functions.csprojAssemblyReference.cache

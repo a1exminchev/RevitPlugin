@@ -1,11 +1,12 @@
 ﻿using System;
+using Logics.RevitDocument;
 using Autodesk.Revit.Attributes;
 using System.Collections.Generic;
 using System.Linq;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
 
-namespace ArCm
+namespace StudyTask
 {
     [TransactionAttribute(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
@@ -19,14 +20,14 @@ namespace ArCm
             var uidoc = uiApp.ActiveUIDocument;
             var doc = uidoc.Document;
 
-            Functions.FamilyOperations.CreateNewFamily(app, uiApp, "MyCube", @"C:\Users\79518\Desktop\Families\Generic Model.rft");
+            FamilyOperations.CreateNewFamily(app, uiApp, "MyCube", @"C:\Users\Aleksey Minchev\Desktop\Families\Generic Model.rft");
             uidoc = uiApp.ActiveUIDocument;
             doc = uidoc.Document;
             Transaction t = new Transaction(doc, "extrusion");
             using (t)
             {
                 t.Start();
-                BergmannStudy.Ribbon.MyCube.MyCubeExecute(doc);
+                Ribbon.MyCube.MyCubeExecute(doc);
                 t.Commit();
             }
             return Result.Succeeded;

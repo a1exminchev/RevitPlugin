@@ -8,3 +8,8 @@ C:\Users\79518\Source\Repos\RevitPlugin\PluginUtils\bin\Debug\PluginUtil.pdb
 C:\Users\79518\Source\Repos\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.csproj.CoreCompileInputs.cache
 C:\Users\79518\Source\Repos\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.dll
 C:\Users\79518\Source\Repos\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.pdb
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.dll
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.pdb
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.csproj.CoreCompileInputs.cache
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginUtils\bin\Debug\PluginUtil.dll
+C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginUtils\bin\Debug\PluginUtil.pdb

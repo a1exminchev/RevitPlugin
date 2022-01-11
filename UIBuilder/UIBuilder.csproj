@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,18 +50,21 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdWindows, Version=3.1.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Revit_All_Main_Versions_API_x64.2022.1.0\lib\net48\AdWindows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="RevitAPI">
-      <HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPI.dll</HintPath>
+    <Reference Include="RevitAPI, Version=22.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\Revit_All_Main_Versions_API_x64.2022.1.0\lib\net48\RevitAPI.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="RevitAPISteel">
-      <HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPISteel.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="RevitAPIUI">
-      <HintPath>C:\Program Files\Autodesk\Revit 2019\RevitAPIUI.dll</HintPath>
+    <Reference Include="RevitAPIUI, Version=22.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\Revit_All_Main_Versions_API_x64.2022.1.0\lib\net48\RevitAPIUI.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -79,8 +83,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="UIFramework">
-      <HintPath>C:\Program Files\Autodesk\Revit 2019\UIFramework.dll</HintPath>
+    <Reference Include="UIFramework, Version=22.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\Revit_All_Main_Versions_API_x64.2022.1.0\lib\net48\UIFramework.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -93,13 +99,13 @@
       <Project>{0f07a0b3-b1d1-4f55-b318-ee923a94fd1c}</Project>
       <Name>ArCm</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BergmannStudy\BergmannStudy.csproj">
+    <ProjectReference Include="..\BergmannStudy\StudyTask.csproj">
       <Project>{acc16126-c329-46da-bc32-d3f02b4bd9ba}</Project>
-      <Name>BergmannStudy</Name>
+      <Name>StudyTask</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Functions\Functions.csproj">
+    <ProjectReference Include="..\Functions\Logics.csproj">
       <Project>{af5a7a5c-087f-4c13-92b3-10ffb4c8533f}</Project>
-      <Name>Functions</Name>
+      <Name>Logics</Name>
     </ProjectReference>
     <ProjectReference Include="..\PluginLogic\PluginLogics.csproj">
       <Project>{670d8252-9598-4cca-822e-70afc24281da}</Project>
@@ -109,13 +115,14 @@
       <Project>{9ffbe8dd-85ee-4a09-a6c8-b34d5bdad4dd}</Project>
       <Name>PluginUtil</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Study\Study.csproj">
+    <ProjectReference Include="..\Study\StudyHome.csproj">
       <Project>{a969dd13-9768-4806-acb4-b02691d62e56}</Project>
-      <Name>Study</Name>
+      <Name>StudyHome</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

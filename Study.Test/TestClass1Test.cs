@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Study;
+using StudyHome;
 using NUnit.Framework;
 
-namespace Study.Test
+namespace StudyHome.Test
 {
     [TestFixture]
     public class TestClass1Test

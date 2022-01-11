@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginLogics", "PluginLogic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginUtil", "PluginUtils\PluginUtil.csproj", "{9FFBE8DD-85EE-4A09-A6C8-B34D5BDAD4DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Functions", "Functions\Functions.csproj", "{AF5A7A5C-087F-4C13-92B3-10FFB4C8533F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logics", "Functions\Logics.csproj", "{AF5A7A5C-087F-4C13-92B3-10FFB4C8533F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discipline", "Discipline", "{6EA15F09-B87F-4B85-BC5A-DBBC20E1CF2A}"
 EndProject
@@ -27,13 +27,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Study.Test", "Study.Test\Study.Test.csproj", "{43C89A6E-627E-4518-8EA0-63FB90C11147}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Study", "Study\Study.csproj", "{A969DD13-9768-4806-ACB4-B02691D62E56}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyHome", "Study\StudyHome.csproj", "{A969DD13-9768-4806-ACB4-B02691D62E56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleStudy", "ConsoleStudy\ConsoleStudy.csproj", "{0DCAD297-625D-4A58-9A39-835D5E258F0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleStudy", "ConsoleStudy\ConsoleStudy.csproj", "{0DCAD297-625D-4A58-9A39-835D5E258F0D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWPF", "MyWPF\MyWPF.csproj", "{955EB420-016B-4DA2-8DCC-EFF2F968FA64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BergmannStudy", "BergmannStudy\BergmannStudy.csproj", "{ACC16126-C329-46DA-BC32-D3F02B4BD9BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyTask", "BergmannStudy\StudyTask.csproj", "{ACC16126-C329-46DA-BC32-D3F02B4BD9BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -8,7 +8,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.ApplicationServices;
 
-namespace Functions
+namespace Logics
 {
     public class MyExtrusions
     {
