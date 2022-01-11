@@ -14,6 +14,9 @@ namespace ConsoleStudy
     {
         static void Main(string[] args)
         {
+            string a = null;
+            string b = "dd";
+            Console.WriteLine(a?.Length);
             Console.ReadKey();
         }
         

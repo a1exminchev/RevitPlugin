@@ -193,7 +193,7 @@ namespace ArCm
 						tag.GetParameters("Type")[0].Set(tagType.Id);
 					}
 					tag.TagHeadPosition = pickPoint1;
-					tag.LeaderEnd = new XYZ(point.X, point.Y, pickPoint1.Z);
+					tag.SetLeaderEnd(rf, new XYZ(point.X, point.Y, pickPoint1.Z));
 					doc.Delete(sp.Id);
 				}
 				else if (selType == "Roof")
@@ -287,13 +287,13 @@ namespace ArCm
 					tag.TagHeadPosition = pickPoint1;
 					if (pickPoint1.Z > Zmiddle)
 					{
-						tag.LeaderEnd = new XYZ(pickPoint1.X, point.Y, box.Max.Z);
+						tag.SetLeaderEnd(rf, new XYZ(pickPoint1.X, point.Y, box.Max.Z));
 					}
 					else
 					{
-						tag.LeaderEnd = new XYZ(pickPoint1.X, point.Y, box.Min.Z);
+						tag.SetLeaderEnd(rf, new XYZ(pickPoint1.X, point.Y, box.Min.Z));
 					}
-					tag.LeaderElbow = pickPoint1;
+					tag.SetLeaderElbow(rf, pickPoint1);
 					doc.Delete(sp.Id);
 				}
 				else if (selType == "Floor")
@@ -387,13 +387,13 @@ namespace ArCm
 					tag.TagHeadPosition = pickPoint1;
 					if (pickPoint1.Z > Zmiddle)
 					{
-						tag.LeaderEnd = new XYZ(pickPoint1.X, point.Y, box.Max.Z);
+						tag.SetLeaderEnd(rf, new XYZ(pickPoint1.X, point.Y, box.Max.Z));
 					}
 					else
 					{
-						tag.LeaderEnd = new XYZ(pickPoint1.X, point.Y, box.Min.Z);
+						tag.SetLeaderEnd(rf, new XYZ(pickPoint1.X, point.Y, box.Min.Z));
 					}
-					tag.LeaderElbow = pickPoint1;
+					tag.SetLeaderElbow(rf, pickPoint1);
 					doc.Delete(sp.Id);
 				}
 				IList<Element> tagTypesR = new FilteredElementCollector(doc).OfClass(typeof(FamilySymbol)).Where(x => x.Name.Contains("Right (")).ToList();

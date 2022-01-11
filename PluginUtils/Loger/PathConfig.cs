@@ -22,8 +22,8 @@
 
         #region fields
 
-        private string? _modelFolderName;
-        private string? _path;
+        private string _modelFolderName;
+        private string _path;
 
         #endregion
     }

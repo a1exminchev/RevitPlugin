@@ -42,4 +42,3 @@ C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\bin\Debug\Microsof
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\bin\Debug\Microsoft.WindowsAPICodePack.xml
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.csproj.CoreCompileInputs.cache
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.csproj.CopyComplete
-C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.csprojAssemblyReference.cache
