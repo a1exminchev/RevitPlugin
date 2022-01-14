@@ -91,9 +91,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Geometry\GeometryOperations.cs" />
+    <Compile Include="Geometry\Implementation\RevolveCreator.cs" />
+    <Compile Include="Geometry\Implementation\SweptBlendCreator.cs" />
+    <Compile Include="Geometry\Implementation\SweepCreator.cs" />
+    <Compile Include="Geometry\Implementation\BlendCreator.cs" />
+    <Compile Include="Geometry\Implementation\CubeExtrusionCreator.cs" />
     <Compile Include="Geometry\Implementation\ExtrusionCreator.cs" />
-    <Compile Include="Geometry\Interface\AbstractGeometryElementCreator.cs" />
-    <Compile Include="Geometry\Interface\IGeometryElementCreator.cs" />
+    <Compile Include="Geometry\Interface\AbstractFormArrayCreator.cs" />
+    <Compile Include="Geometry\Interface\AbstractGenericFormCreator.cs" />
+    <Compile Include="Geometry\Interface\IFormArrayCreator.cs" />
+    <Compile Include="Geometry\Interface\IGenericFormCreator.cs" />
     <Compile Include="MyExtrusions.cs" />
     <Compile Include="RevitDocument\FamilyOperations.cs" />
     <Compile Include="Parameters\ParameterOperations.cs" />

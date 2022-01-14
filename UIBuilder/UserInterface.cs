@@ -16,10 +16,10 @@ namespace UIBuilder
 	{
 		public static void CreateUserInterface(UIControlledApplication application, bool isRelease)
 		{
-            string folderPath = @"C:\Users\Aleksey Minchev\source\repos\RevitPlugin\RevitPlugin\bin\Debug";
+            string folderPath = @"C:\Users\Aleksey Minchev\source\repos\RevitPlugin\RevitPlugin\bin\x64\Debug";
             if (isRelease == true)
             {
-                folderPath = @"C:\Users\Aleksey Minchev\source\repos\RevitPlugin\RevitPlugin\bin\Release";
+                folderPath = @"C:\Users\Aleksey Minchev\source\repos\RevitPlugin\RevitPlugin\bin\x64\Release";
             }
             string folderImage = @"C:\Users\Aleksey Minchev\source\repos\RevitPlugin\RevitPlugin\Images";
 
@@ -54,6 +54,26 @@ namespace UIBuilder
             btnCubeFamily.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
             btnCubeFamily.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
             btnCubeFamily.ToolTip = "";
+
+            PushButton btnBlendFamily = (PushButton)panelBerg.AddItem(new PushButtonData("BlendFamily", "BlendFamily", dllBerg, typeof(BlendFamilyCommand).FullName));
+            btnBlendFamily.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
+            btnBlendFamily.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
+            btnBlendFamily.ToolTip = "";
+
+            PushButton btnSweepFamily = (PushButton)panelBerg.AddItem(new PushButtonData("SweepFamily", "SweepFamily", dllBerg, typeof(SweepFamilyCommand).FullName));
+            btnSweepFamily.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
+            btnSweepFamily.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
+            btnSweepFamily.ToolTip = "";
+
+            PushButton btnSweptBlendFamily = (PushButton)panelBerg.AddItem(new PushButtonData("SweptBlendFamily", "SweptBlendFamily", dllBerg, typeof(SweptBlendFamilyCommand).FullName));
+            btnSweptBlendFamily.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
+            btnSweptBlendFamily.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
+            btnSweptBlendFamily.ToolTip = "";
+
+            PushButton btnRevolveFamily = (PushButton)panelBerg.AddItem(new PushButtonData("RevolveFamily", "RevolveFamily", dllBerg, typeof(RevolveFamilyCommand).FullName));
+            btnRevolveFamily.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
+            btnRevolveFamily.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
+            btnRevolveFamily.ToolTip = "";
         }
 	}
 }

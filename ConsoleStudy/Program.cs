@@ -14,11 +14,11 @@ namespace ConsoleStudy
     {
         static void Main(string[] args)
         {
-            string a = null;
-            string b = "dd";
-            Console.WriteLine(a?.Length);
+            string sentence = "";
+            string res = "";
+            
+            Console.WriteLine(res.Length);
             Console.ReadKey();
         }
-        
     }
 }

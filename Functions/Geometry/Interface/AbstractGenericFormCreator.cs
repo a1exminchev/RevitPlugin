@@ -2,10 +2,10 @@
 
 namespace Logics.Geometry.Interface
 {
-    public abstract class AbstractGeometryElementCreator<T> : IGeometryElementCreator<T>
+    public abstract class AbstractGenericFormCreator<T> : IGenericFormCreator<T>
     {
         protected readonly Document _Doc;
-        protected AbstractGeometryElementCreator(Document doc, T Properties)
+        protected AbstractGenericFormCreator(Document doc, T Properties)
         {
             doc = _Doc;
             Properties = Props;

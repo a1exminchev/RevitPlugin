@@ -4,7 +4,6 @@ using System.Linq;
 using Logics.Geometry;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
-using Autodesk.Revit.ApplicationServices;
 using Logics.Geometry.Implementation;
 using Logics.Geometry.Interface;
 
@@ -15,29 +14,32 @@ namespace StudyTask.Ribbon
         public static void MyCubeExecute(Document doc)
         {
             SketchPlane sketchPlane = SketchPlane.Create(doc, Plane.CreateByNormalAndOrigin(XYZ.BasisZ, XYZ.Zero));
-            ExtrusionParameters rectParameters = new ExtrusionParameters();
-            rectParameters.Height = 500 / 304.8;
-            rectParameters.Width = 500 / 304.8;
-            rectParameters.CenterPoint = new XYZ(0, 0, 0);
-            rectParameters.SketchPlane = sketchPlane;
-            IGeometryElementCreator<ExtrusionParameters> geometryElementCreator = new ExtrusionCreator(doc, rectParameters);
-            Extrusion rectExtrusion = geometryElementCreator.Create() as Extrusion;
+            CubeExtrusionParameters cubeParameters = new CubeExtrusionParameters();
+            cubeParameters.Height = 500 / 304.8;
+            cubeParameters.Width = 500 / 304.8;
+            cubeParameters.CenterPoint = new XYZ(0, 0, 0);
+            cubeParameters.SketchPlane = sketchPlane;
+            cubeParameters.isSolid = true;
+            IGenericFormCreator<CubeExtrusionParameters> geometryElementCreator = new CubeExtrusionCreator(doc, cubeParameters);
+            Extrusion cubeExtrusion = geometryElementCreator.Create() as Extrusion;
 
-            ExtrusionParameters rectParameters2 = new ExtrusionParameters();
-            rectParameters2.Height = 750 / 304.8;
-            rectParameters2.Width = 750 / 304.8;
-            rectParameters2.CenterPoint = new XYZ(800 / 304.8, 800 / 304.8, 0);
-            rectParameters2.SketchPlane = sketchPlane;
-            IGeometryElementCreator<ExtrusionParameters> geometryElementCreator2 = new ExtrusionCreator(doc, rectParameters2);
-            Extrusion rectExtrusion2 = geometryElementCreator2.Create() as Extrusion;
+            CubeExtrusionParameters cubeParameters2 = new CubeExtrusionParameters();
+            cubeParameters2.Height = 750 / 304.8;
+            cubeParameters2.Width = 750 / 304.8;
+            cubeParameters2.CenterPoint = new XYZ(800 / 304.8, 800 / 304.8, 0);
+            cubeParameters2.SketchPlane = sketchPlane;
+            cubeParameters2.isSolid = true;
+            IGenericFormCreator<CubeExtrusionParameters> geometryElementCreator2 = new CubeExtrusionCreator(doc, cubeParameters2);
+            Extrusion cubeExtrusion2 = geometryElementCreator2.Create() as Extrusion;
 
-            ExtrusionParameters rectParameters3 = new ExtrusionParameters();
-            rectParameters3.Height = 250 / 304.8;
-            rectParameters3.Width = 250 / 304.8;
-            rectParameters3.CenterPoint = new XYZ(-700 / 304.8, -200 / 304.8, 0);
-            rectParameters3.SketchPlane = sketchPlane;
-            IGeometryElementCreator<ExtrusionParameters> geometryElementCreator3 = new ExtrusionCreator(doc, rectParameters3);
-            Extrusion rectExtrusion3 = geometryElementCreator3.Create() as Extrusion;
+            CubeExtrusionParameters cubeParameters3 = new CubeExtrusionParameters();
+            cubeParameters3.Height = 250 / 304.8;
+            cubeParameters3.Width = 250 / 304.8;
+            cubeParameters3.CenterPoint = new XYZ(-700 / 304.8, -200 / 304.8, 0);
+            cubeParameters3.SketchPlane = sketchPlane;
+            cubeParameters3.isSolid = true;
+            IGenericFormCreator<CubeExtrusionParameters> geometryElementCreator3 = new CubeExtrusionCreator(doc, cubeParameters3);
+            Extrusion cubeExtrusion3 = geometryElementCreator3.Create() as Extrusion;
 
             var filterExtrus = new FilteredElementCollector(doc).OfClass(typeof(GenericForm)).Cast<GenericForm>();
             foreach (Extrusion ex in filterExtrus)

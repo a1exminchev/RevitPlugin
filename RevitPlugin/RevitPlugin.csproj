@@ -140,7 +140,7 @@
             copy /Y "$(ProjectDir)/PackageContents.xml" "$(AppData)/Autodesk/ApplicationPlugins/$(ProjectName).bundle"
             copy /Y "$(ProjectDir)*.addin" "$(AppData)/Autodesk/ApplicationPlugins/$(ProjectName).bundle/Contents"
 
-            xcopy /Y /E /R "$(ProjectDir)bin/$(Configuration)" "$(AppData)/Autodesk/ApplicationPlugins/$(ProjectName).bundle/Contents/$(ProjectName)"
+            xcopy /Y /E /R "$(ProjectDir)bin/x64/$(Configuration)" "$(AppData)/Autodesk/ApplicationPlugins/$(ProjectName).bundle/Contents/$(ProjectName)"
 </PostBuildEvent>
   </PropertyGroup>
 </Project>
