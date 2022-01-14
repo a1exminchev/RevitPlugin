@@ -13,3 +13,9 @@ C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginUtils\obj\Debug\PluginUt
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.csproj.CoreCompileInputs.cache
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginUtils\bin\Debug\PluginUtil.dll
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginUtils\bin\Debug\PluginUtil.pdb
+F:\REPOS\RevitPlugin\PluginUtils\bin\Debug\PluginUtil.dll
+F:\REPOS\RevitPlugin\PluginUtils\bin\Debug\PluginUtil.pdb
+F:\REPOS\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.csproj.AssemblyReference.cache
+F:\REPOS\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.csproj.CoreCompileInputs.cache
+F:\REPOS\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.dll
+F:\REPOS\RevitPlugin\PluginUtils\obj\Debug\PluginUtil.pdb

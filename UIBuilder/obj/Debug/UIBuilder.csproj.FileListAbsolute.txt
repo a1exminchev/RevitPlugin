@@ -54,3 +54,27 @@ C:\Users\Aleksey Minchev\source\repos\RevitPlugin\UIBuilder\bin\Debug\Study.pdb
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\UIBuilder\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\UIBuilder\bin\Debug\RestSharp.xml
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\UIBuilder\obj\Debug\UIBuilder.csproj.CopyComplete
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\UIBuilder.dll.config
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\UIBuilder.dll
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\UIBuilder.pdb
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\ArCm.dll
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\BergmannStudy.dll
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\Functions.dll
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\PluginLogics.dll
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\PluginUtil.dll
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\Study.dll
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\Newtonsoft.Json.dll
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\RestSharp.dll
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\ArCm.pdb
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\BergmannStudy.pdb
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\Functions.pdb
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\PluginLogics.pdb
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\PluginUtil.pdb
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\Study.pdb
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\Newtonsoft.Json.xml
+F:\REPOS\RevitPlugin\UIBuilder\bin\Debug\RestSharp.xml
+F:\REPOS\RevitPlugin\UIBuilder\obj\Debug\UIBuilder.csproj.AssemblyReference.cache
+F:\REPOS\RevitPlugin\UIBuilder\obj\Debug\UIBuilder.csproj.CoreCompileInputs.cache
+F:\REPOS\RevitPlugin\UIBuilder\obj\Debug\UIBuilder.csproj.CopyComplete
+F:\REPOS\RevitPlugin\UIBuilder\obj\Debug\UIBuilder.dll
+F:\REPOS\RevitPlugin\UIBuilder\obj\Debug\UIBuilder.pdb

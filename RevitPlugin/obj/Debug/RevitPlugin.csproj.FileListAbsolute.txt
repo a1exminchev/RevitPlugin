@@ -70,3 +70,24 @@ C:\Users\Aleksey Minchev\source\repos\RevitPlugin\RevitPlugin\obj\Debug\RevitPlu
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\RevitPlugin\bin\Debug\BergmannStudy.dll
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\RevitPlugin\bin\Debug\UIBuilder.dll.config
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\RevitPlugin\bin\Debug\BergmannStudy.pdb
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\RevitPlugin.dll.config
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\RevitPlugin.dll
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\RevitPlugin.pdb
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\ArCm.dll
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\Functions.dll
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\PluginLogics.dll
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\PluginUtil.dll
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\UIBuilder.dll
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\BergmannStudy.dll
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\ArCm.pdb
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\Functions.pdb
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\PluginLogics.pdb
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\PluginUtil.pdb
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\UIBuilder.pdb
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\UIBuilder.dll.config
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\BergmannStudy.pdb
+F:\REPOS\RevitPlugin\RevitPlugin\obj\Debug\RevitPlugin.csproj.AssemblyReference.cache
+F:\REPOS\RevitPlugin\RevitPlugin\obj\Debug\RevitPlugin.csproj.CoreCompileInputs.cache
+F:\REPOS\RevitPlugin\RevitPlugin\obj\Debug\RevitPlugin.csproj.CopyComplete
+F:\REPOS\RevitPlugin\RevitPlugin\obj\Debug\RevitPlugin.dll
+F:\REPOS\RevitPlugin\RevitPlugin\obj\Debug\RevitPlugin.pdb

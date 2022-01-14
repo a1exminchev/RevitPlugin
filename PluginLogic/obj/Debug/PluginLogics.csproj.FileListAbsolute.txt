@@ -42,3 +42,12 @@ C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\bin\Debug\Microsof
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\bin\Debug\Microsoft.WindowsAPICodePack.xml
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.csproj.CoreCompileInputs.cache
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.csproj.CopyComplete
+F:\REPOS\RevitPlugin\PluginLogic\bin\Debug\PluginLogics.dll
+F:\REPOS\RevitPlugin\PluginLogic\bin\Debug\PluginLogics.pdb
+F:\REPOS\RevitPlugin\PluginLogic\bin\Debug\Microsoft.WindowsAPICodePack.dll
+F:\REPOS\RevitPlugin\PluginLogic\bin\Debug\Microsoft.WindowsAPICodePack.xml
+F:\REPOS\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.csproj.AssemblyReference.cache
+F:\REPOS\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.csproj.CoreCompileInputs.cache
+F:\REPOS\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.csproj.CopyComplete
+F:\REPOS\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.dll
+F:\REPOS\RevitPlugin\PluginLogic\obj\Debug\PluginLogics.pdb

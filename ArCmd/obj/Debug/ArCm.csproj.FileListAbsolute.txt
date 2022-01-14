@@ -160,3 +160,16 @@ C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\bin\Debug\PluginUtil.pdb
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\obj\Debug\ArCm.csprojAssemblyReference.cache
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\obj\Debug\ArCm.csproj.CoreCompileInputs.cache
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\obj\Debug\ArCm.csproj.CopyComplete
+F:\REPOS\RevitPlugin\ArCmd\bin\Debug\ArCm.dll
+F:\REPOS\RevitPlugin\ArCmd\bin\Debug\ArCm.pdb
+F:\REPOS\RevitPlugin\ArCmd\bin\Debug\Functions.dll
+F:\REPOS\RevitPlugin\ArCmd\bin\Debug\PluginLogics.dll
+F:\REPOS\RevitPlugin\ArCmd\bin\Debug\PluginUtil.dll
+F:\REPOS\RevitPlugin\ArCmd\bin\Debug\Functions.pdb
+F:\REPOS\RevitPlugin\ArCmd\bin\Debug\PluginLogics.pdb
+F:\REPOS\RevitPlugin\ArCmd\bin\Debug\PluginUtil.pdb
+F:\REPOS\RevitPlugin\ArCmd\obj\Debug\ArCm.csproj.AssemblyReference.cache
+F:\REPOS\RevitPlugin\ArCmd\obj\Debug\ArCm.csproj.CoreCompileInputs.cache
+F:\REPOS\RevitPlugin\ArCmd\obj\Debug\ArCm.csproj.CopyComplete
+F:\REPOS\RevitPlugin\ArCmd\obj\Debug\ArCm.dll
+F:\REPOS\RevitPlugin\ArCmd\obj\Debug\ArCm.pdb
