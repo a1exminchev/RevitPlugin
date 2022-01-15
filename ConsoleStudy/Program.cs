@@ -14,10 +14,12 @@ namespace ConsoleStudy
     {
         static void Main(string[] args)
         {
-            string sentence = "";
-            string res = "";
-            
-            Console.WriteLine(res.Length);
+            int[] scores = { 20, 5, 10, 40, 15, 25 };
+            int[] weights = { 1, 2, 3, 8, 7, 4 };
+            int capacity = 10;
+            int max = 0;
+            Dictionary<int, int> things = new Dictionary<int, int>();
+            Console.WriteLine();
             Console.ReadKey();
         }
     }
