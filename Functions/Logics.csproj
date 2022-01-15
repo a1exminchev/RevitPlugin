@@ -7,8 +7,8 @@
     <ProjectGuid>{AF5A7A5C-087F-4C13-92B3-10FFB4C8533F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Functions</RootNamespace>
-    <AssemblyName>Functions</AssemblyName>
+    <RootNamespace>Logics</RootNamespace>
+    <AssemblyName>Logics</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -91,18 +93,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Geometry\GeometryOperations.cs" />
-    <Compile Include="Geometry\Implementation\RevolveCreator.cs" />
+    <Compile Include="Geometry\Implementation\RevolutionCreator.cs" />
     <Compile Include="Geometry\Implementation\SweptBlendCreator.cs" />
     <Compile Include="Geometry\Implementation\SweepCreator.cs" />
     <Compile Include="Geometry\Implementation\BlendCreator.cs" />
     <Compile Include="Geometry\Implementation\CubeExtrusionCreator.cs" />
     <Compile Include="Geometry\Implementation\ExtrusionCreator.cs" />
-    <Compile Include="Geometry\Interface\AbstractFormArrayCreator.cs" />
     <Compile Include="Geometry\Interface\AbstractGenericFormCreator.cs" />
-    <Compile Include="Geometry\Interface\IFormArrayCreator.cs" />
     <Compile Include="Geometry\Interface\IGenericFormCreator.cs" />
-    <Compile Include="MyExtrusions.cs" />
-    <Compile Include="RevitDocument\FamilyOperations.cs" />
+    <Compile Include="RevitDocument\FamilyCopier.cs" />
+    <Compile Include="RevitDocument\FamilyCreator.cs" />
     <Compile Include="Parameters\ParameterOperations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

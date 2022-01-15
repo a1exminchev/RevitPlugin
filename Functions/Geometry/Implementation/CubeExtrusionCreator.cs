@@ -39,7 +39,10 @@ namespace Logics.Geometry.Implementation
                 curveArrArray.Append(curveArray1);
 
                 cubeExtrusion = FamDoc.FamilyCreate.NewExtrusion(_props.isSolid, curveArrArray, _props.SketchPlane, _props.Height);
-                cubeExtrusion.Location.Move(_props.CenterPoint);
+                if (_props.CenterPoint != null)
+                {
+                    cubeExtrusion.Location.Move(_props.CenterPoint);
+                }
                 XYZ transPoint1 = new XYZ(-_props.Width/2, -_props.Width / 2, 0);
                 ElementTransformUtils.MoveElement(FamDoc, cubeExtrusion.Id, transPoint1);
             }

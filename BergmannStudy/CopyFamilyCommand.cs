@@ -10,23 +10,20 @@ namespace StudyTask
 {
     [TransactionAttribute(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
-    public class RevolveFamilyCommand : IExternalCommand
+    public class CopyFamilyCommand : IExternalCommand
     {
-        static AddInId addId = new AddInId(new Guid("DB73B495-E5B8-4157-B993-F51213954DB0"));
+        static AddInId addId = new AddInId(new Guid("DB63B215-E5B8-4157-B943-F52213728DB0"));
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var uiApp = commandData.Application;
             var app = commandData.Application.Application;
             var uidoc = uiApp.ActiveUIDocument;
-
-            FamilyCreator familyCreator = new FamilyCreator(app);
-            Document newDoc = familyCreator.CreateNewFamily(uiApp, "Revolve", @"C:\Users\Aleksey Minchev\Desktop\Families\Generic Model.rft");
-            Transaction t = new Transaction(newDoc, "Revolve");
+            var doc = uidoc.Document;
+            Transaction t = new Transaction(doc, "Copy this Family");
             using (t)
             {
-                t.Start();
-                Ribbon.MyRevolution.MyRevolutionExecute(newDoc);
-                t.Commit();
+                FamilyCopier familyCopier = new FamilyCopier(app, uiApp);
+                Document newDoc = familyCopier.CopyFamilyDoc(doc);
             }
             return Result.Succeeded;
         }

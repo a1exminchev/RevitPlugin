@@ -70,10 +70,15 @@ namespace UIBuilder
             btnSweptBlendFamily.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
             btnSweptBlendFamily.ToolTip = "";
 
-            PushButton btnRevolveFamily = (PushButton)panelBerg.AddItem(new PushButtonData("RevolveFamily", "RevolveFamily", dllBerg, typeof(RevolveFamilyCommand).FullName));
-            btnRevolveFamily.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
-            btnRevolveFamily.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
-            btnRevolveFamily.ToolTip = "";
+            PushButton btnRevolutionFamily = (PushButton)panelBerg.AddItem(new PushButtonData("RevolutionFamily", "RevolutionFamily", dllBerg, typeof(RevolveFamilyCommand).FullName));
+            btnRevolutionFamily.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
+            btnRevolutionFamily.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
+            btnRevolutionFamily.ToolTip = "";
+
+            PushButton btnCopyFamily = (PushButton)panelBerg.AddItem(new PushButtonData("CopyFamily", "CopyFamily", dllBerg, typeof(CopyFamilyCommand).FullName));
+            btnCopyFamily.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
+            btnCopyFamily.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
+            btnCopyFamily.ToolTip = "";
         }
 	}
 }

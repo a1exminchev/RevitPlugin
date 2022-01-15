@@ -18,16 +18,14 @@ namespace StudyTask
             var uiApp = commandData.Application;
             var app = commandData.Application.Application;
             var uidoc = uiApp.ActiveUIDocument;
-            var doc = uidoc.Document;
 
-            FamilyOperations.CreateNewFamily(app, uiApp, "MySweptBlend", @"C:\Users\Aleksey Minchev\Desktop\Families\Generic Model.rft");
-            uidoc = uiApp.ActiveUIDocument;
-            doc = uidoc.Document;
-            Transaction t = new Transaction(doc, "SweptBlend");
+            FamilyCreator familyCreator = new FamilyCreator(app);
+            Document newDoc = familyCreator.CreateNewFamily(uiApp, "SweptBlend", @"C:\Users\Aleksey Minchev\Desktop\Families\Generic Model.rft");
+            Transaction t = new Transaction(newDoc, "SweptBlend");
             using (t)
             {
                 t.Start();
-                Ribbon.MySweptBlend.MySweptBlendExecute(doc);
+                Ribbon.MySweptBlend.MySweptBlendExecute(newDoc);
                 t.Commit();
             }
             return Result.Succeeded;

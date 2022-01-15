@@ -6,6 +6,7 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
 using Logics.Geometry.Implementation;
 using Logics.Geometry.Interface;
+using Autodesk.Revit.DB.Structure;
 
 namespace StudyTask.Ribbon
 {
@@ -17,7 +18,7 @@ namespace StudyTask.Ribbon
 
             XYZ p1 = new XYZ(0, 0, 0);
             XYZ p2 = new XYZ(0, 500 / 304.8, 0);
-            Line path = Line.CreateBound(p1, p2);
+            Curve path = Line.CreateBound(p1, p2);
             Line line1 = Line.CreateBound(new XYZ(1, 0, 0), new XYZ(1, 1, 0));
             Line line2 = Line.CreateBound(new XYZ(1, 1, 0), new XYZ(-2, -1, 0));
             Line line3 = Line.CreateBound(new XYZ(-2, -1, 0), new XYZ(1, 0, 0));
@@ -37,7 +38,7 @@ namespace StudyTask.Ribbon
             SweptBlendParameters sweptParameters = new SweptBlendParameters();
             sweptParameters.CenterPoint = new XYZ(250 / 304.8, 1000 / 304.8, 0);
             sweptParameters.isSolid = true;
-            sweptParameters.Path = path;
+            sweptParameters.PathCurve = path;
             sweptParameters.PathSketchPlane = pathSketchPlane;
             sweptParameters.Profile1CurveArray = profile1CurveArray;
             sweptParameters.Profile2CurveArray = profile2CurveArray;
@@ -50,7 +51,8 @@ namespace StudyTask.Ribbon
 
             XYZ p1 = new XYZ(0, 0, 0);
             XYZ p2 = new XYZ(0, 0, 1000 / 304.8);
-            Line path = Line.CreateBound(p1, p2);
+            Curve path = Line.CreateBound(p1, p2);
+
             Line line1 = Line.CreateBound(new XYZ(1, 0, 0), new XYZ(1, 1, 0));
             Line line2 = Line.CreateBound(new XYZ(1, 1, 0), new XYZ(-2, -1, 0));
             Line line3 = Line.CreateBound(new XYZ(-2, -1, 0), new XYZ(1, 0, 0));
@@ -70,7 +72,7 @@ namespace StudyTask.Ribbon
             SweptBlendParameters sweptParameters = new SweptBlendParameters();
             sweptParameters.CenterPoint = new XYZ(250 / 304.8, 1000 / 304.8, 0);
             sweptParameters.isSolid = true;
-            sweptParameters.Path = path;
+            sweptParameters.PathCurve = path;
             sweptParameters.PathSketchPlane = pathSketchPlane;
             sweptParameters.Profile1CurveArray = profile1CurveArray;
             sweptParameters.Profile2CurveArray = profile2CurveArray;

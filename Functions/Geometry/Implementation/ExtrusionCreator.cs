@@ -18,7 +18,7 @@ namespace Logics.Geometry.Implementation{
 			Extrusion extrusion = null;
 			if (FamDoc != null) {
 				extrusion = FamDoc.FamilyCreate.NewExtrusion(_props.isSolid
-				                                             , _props.curveArray
+				                                             , _props.curveArrArray
 				                                             , _props.SketchPlane
 				                                             , _props.Height);
 				if (_props.CenterPoint != null) {
@@ -33,7 +33,7 @@ namespace Logics.Geometry.Implementation{
 	public class ExtrusionParameters{
 		public XYZ           CenterPoint { get; set; }
 		public bool          isSolid     { get; set; }
-		public CurveArrArray curveArray  { get; set; }
+		public CurveArrArray curveArrArray  { get; set; }
 		public double        Height      { get; set; }
 		public SketchPlane   SketchPlane { get; set; }
 	}

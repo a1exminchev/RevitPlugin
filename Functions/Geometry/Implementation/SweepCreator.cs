@@ -22,11 +22,12 @@ namespace Logics.Geometry.Implementation
             Sweep sweep = null;
             if (FamDoc != null)
             {
-                CurveArrArray curveArrArray = new CurveArrArray();
-                curveArrArray.Append(_props.ProfileCurveArray);
-                SweepProfile profile = FamDoc.Application.Create.NewCurveLoopsProfile(curveArrArray) as SweepProfile;
+                SweepProfile profile = FamDoc.Application.Create.NewCurveLoopsProfile(_props.ProfileCurveArrArray) as SweepProfile;
                 sweep = FamDoc.FamilyCreate.NewSweep(_props.isSolid, _props.PathCurveArray, _props.PathSketchPlane, profile, _props.WhichPathLineIsForProfile, ProfilePlaneLocation.Start);
-                sweep.Location.Move(_props.CenterPoint);
+                if (_props.CenterPoint != null)
+                {
+                    sweep.Location.Move(_props.CenterPoint);
+                }
             }
             return sweep;
         }
@@ -36,7 +37,7 @@ namespace Logics.Geometry.Implementation
         public XYZ CenterPoint { get; set; }
         public bool isSolid { get; set; }
         public CurveArray PathCurveArray { get; set; }
-        public CurveArray ProfileCurveArray { get; set; }
+        public CurveArrArray ProfileCurveArrArray { get; set; }
         public int WhichPathLineIsForProfile { get; set; }
         public SketchPlane PathSketchPlane { get; set; }
     }

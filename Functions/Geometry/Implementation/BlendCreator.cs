@@ -23,7 +23,10 @@ namespace Logics.Geometry.Implementation
             if (FamDoc != null)
             {
                 blend = FamDoc.FamilyCreate.NewBlend(_props.isSolid, _props.BaseCurveArray, _props.TopCurveArray, _props.BaseSketchPlane);
-                blend.Location.Move(_props.CenterPoint);
+                if (_props.CenterPoint != null)
+                {
+                    blend.Location.Move(_props.CenterPoint);
+                }
             }
             return blend;
         }

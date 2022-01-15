@@ -5,6 +5,7 @@
     <TargetFramework>net48</TargetFramework>
     <StartupObject>ConsoleStudy.Program</StartupObject>
     <Platforms>AnyCPU;x64</Platforms>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
