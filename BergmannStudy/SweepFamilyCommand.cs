@@ -20,7 +20,7 @@ namespace StudyTask
             var uidoc = uiApp.ActiveUIDocument;
 
             FamilyCreator familyCreator = new FamilyCreator(app);
-            Document newDoc = familyCreator.CreateNewFamily(uiApp, "Sweep", @"C:\Users\Aleksey Minchev\Desktop\Families\Generic Model.rft");
+            Document newDoc = familyCreator.CreateNewFamily(uiApp, "Sweep", "Generic Model");
             Transaction t = new Transaction(newDoc, "Sweep");
             using (t)
             {

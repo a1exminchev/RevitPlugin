@@ -16,10 +16,10 @@ namespace Logics.RevitDocument
         {
             _app = app;
         }
-        public Document CreateNewFamily(UIApplication uiApp, string name, string templateFullName)
+        public Document CreateNewFamily(UIApplication uiApp, string name, string templateName)
         {
-            string famTemplatePath = _app.FamilyTemplatePath;
-            Document newFamDoc = _app.NewFamilyDocument(templateFullName);
+            string famTemplatePath = _app.FamilyTemplatePath + "/English-Imperial/";
+            Document newFamDoc = _app.NewFamilyDocument(famTemplatePath + templateName + ".rft");
             string fullName = Path.Combine(famTemplatePath, name + ".rfa");
             if (File.Exists(fullName))
             {

@@ -19,12 +19,10 @@ namespace StudyTask
             var app = commandData.Application.Application;
             var uidoc = uiApp.ActiveUIDocument;
             var doc = uidoc.Document;
-            Transaction t = new Transaction(doc, "Copy this Family");
-            using (t)
-            {
-                FamilyCopier familyCopier = new FamilyCopier(app, uiApp);
-                Document newDoc = familyCopier.CopyFamilyDoc(doc);
-            }
+
+            FamilyCopier familyCopier = new FamilyCopier(app, uiApp);
+            familyCopier.CopyFamilyDoc(doc);
+
             return Result.Succeeded;
         }
     }

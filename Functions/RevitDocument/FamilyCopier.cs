@@ -31,12 +31,11 @@ namespace Logics.RevitDocument
             {
                 return _newDoc;
             }
-
             var genericForms = new FilteredElementCollector(doc)
-                                .OfClass(typeof(GenericForm))
-                                .Cast<GenericForm>()
-                                .ToList();
-            Transaction t = new Transaction(_newDoc, "Copy Family");
+                                    .OfClass(typeof(GenericForm))
+                                    .Cast<GenericForm>()
+                                    .ToList();
+            Transaction t = new Transaction(_newDoc, "New Doc");
             using (t)
             {
                 t.Start();
@@ -50,7 +49,20 @@ namespace Logics.RevitDocument
             return _newDoc;
         }
 
-        private GenericForm CopyGenericFormToNewDoc(GenericForm genericForm)
+        public void CopyAllInsideToNewDoc(Document doc, Document NewDoc)
+        {
+            _newDoc = NewDoc;
+            var genericForms = new FilteredElementCollector(doc)
+                                .OfClass(typeof(GenericForm))
+                                .Cast<GenericForm>()
+                                .ToList();
+            foreach (var genericForm in genericForms)
+            {
+                CopyGenericFormToNewDoc(genericForm);
+            }
+        }
+
+        private GenericForm CopyGenericFormToNewDoc2(GenericForm genericForm)
         {
             GenericForm createdForm;
             switch (genericForm.GetType().ToString())
@@ -71,6 +83,19 @@ namespace Logics.RevitDocument
                     createdForm = CreateRevolutionInNewDoc(genericForm as Revolution);
                     return createdForm;
             }
+            return null;
+        }
+
+        private GenericForm CopyGenericFormToNewDoc(GenericForm genericForm)
+        {
+            var createdForm = genericForm switch {
+                Extrusion ex => CreateExtrusionInNewDoc(ex),
+                Blend bl => CreateBlendInNewDoc(bl),
+                Sweep sw => CreateSweepInNewDoc(sw),
+                SweptBlend swB => CreateSweptBlendInNewDoc(swB),
+                Revolution rev => CreateRevolutionInNewDoc(rev),
+                _ => null
+            };
             return null;
         }
 
@@ -144,9 +169,7 @@ namespace Logics.RevitDocument
         private Document CreateNewDoc(Document doc)
         {
             FamilyCreator familyCreator = new FamilyCreator(_app);
-            string templatePath = Path.Combine(_app.FamilyTemplatePath, "Generic Model.rft");
-            TaskDialog.Show("F", templatePath);
-            _newDoc = familyCreator.CreateNewFamily(_uiApp, "New Family Document", templatePath);
+            _newDoc = familyCreator.CreateNewFamily(_uiApp, "New Family Document", "Generic Model");
             return _newDoc;
         }
     }
