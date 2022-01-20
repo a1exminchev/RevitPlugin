@@ -1,5 +1,6 @@
 ﻿using Autodesk.Revit.DB;
 using Logics.Geometry.Interface;
+using System.Linq;
 
 namespace Logics.Geometry.Implementation
 {
@@ -22,7 +23,9 @@ namespace Logics.Geometry.Implementation
             Blend blend = null;
             if (FamDoc != null)
             {
-                blend = FamDoc.FamilyCreate.NewBlend(_props.isSolid, _props.BaseCurveArray, _props.TopCurveArray, _props.BaseSketchPlane);
+                blend = FamDoc.FamilyCreate.NewBlend(_props.isSolid, _props.TopCurveArray, _props.BaseCurveArray, _props.BaseSketchPlane);
+                blend.get_Parameter(BuiltInParameter.BLEND_END_PARAM).Set(_props.TopOffset);
+                blend.get_Parameter(BuiltInParameter.BLEND_START_PARAM).Set(_props.BottomOffset);
                 if (_props.CenterPoint != null)
                 {
                     blend.Location.Move(_props.CenterPoint);
@@ -38,5 +41,7 @@ namespace Logics.Geometry.Implementation
         public CurveArray BaseCurveArray { get; set; }
         public CurveArray TopCurveArray { get; set; }
         public SketchPlane BaseSketchPlane { get; set; }
+        public double TopOffset { get; set; }
+        public double BottomOffset { get; set; }
     }
 }

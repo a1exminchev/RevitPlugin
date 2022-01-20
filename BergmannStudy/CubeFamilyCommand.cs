@@ -20,7 +20,7 @@ namespace StudyTask
             var uidoc = uiApp.ActiveUIDocument;
 
             FamilyCreator familyCreator = new FamilyCreator(app);
-            Document newDoc = familyCreator.CreateNewFamily(uiApp, "MyCubes", "Generic Model");
+            Document newDoc = familyCreator.CreateNewFamily(uiApp, "MyCubes", "Metric Generic Model");
             Transaction t = new Transaction(newDoc, "extrusion");
             using (t)
             {

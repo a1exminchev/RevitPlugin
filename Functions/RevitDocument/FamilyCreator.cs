@@ -18,7 +18,7 @@ namespace Logics.RevitDocument
         }
         public Document CreateNewFamily(UIApplication uiApp, string name, string templateName)
         {
-            string famTemplatePath = _app.FamilyTemplatePath + "/English-Imperial/";
+            string famTemplatePath = _app.FamilyTemplatePath + "/English/";
             Document newFamDoc = _app.NewFamilyDocument(famTemplatePath + templateName + ".rft");
             string fullName = Path.Combine(famTemplatePath, name + ".rfa");
             if (File.Exists(fullName))

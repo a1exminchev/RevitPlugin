@@ -1,5 +1,6 @@
 ﻿using Autodesk.Revit.DB;
 using Logics.Geometry.Interface;
+using System;
 
 namespace Logics.Geometry.Implementation
 {
@@ -22,11 +23,21 @@ namespace Logics.Geometry.Implementation
             Sweep sweep = null;
             if (FamDoc != null)
             {
-                SweepProfile profile = FamDoc.Application.Create.NewCurveLoopsProfile(_props.ProfileCurveArrArray) as SweepProfile;
-                sweep = FamDoc.FamilyCreate.NewSweep(_props.isSolid, _props.PathCurveArray, _props.PathSketchPlane, profile, _props.WhichPathLineIsForProfile, ProfilePlaneLocation.Start);
-                if (_props.CenterPoint != null)
+                SweepProfile profile = FamDoc.Application.Create.NewCurveLoopsProfile(_props.ProfileCurveArrArray);
+                try
                 {
-                    sweep.Location.Move(_props.CenterPoint);
+                    sweep = FamDoc.FamilyCreate.NewSweep(_props.isSolid, _props.PathCurveArray, _props.PathSketchPlane, profile, _props.WhichPathLineIsForProfile, ProfilePlaneLocation.Start);
+                }
+                catch{ }
+                Line axisX = Line.CreateBound(XYZ.Zero, XYZ.BasisX);
+                Line axisY = Line.CreateBound(XYZ.Zero, XYZ.BasisY);
+                if (_props.AngleFromXZtoY != 0)
+                {
+                    ElementTransformUtils.RotateElement(FamDoc, sweep.PathSketch.SketchPlane.Id, axisX, _props.AngleFromXZtoY);
+                }
+                if (_props.AngleFromYZtoX != 0)
+                {
+                    ElementTransformUtils.RotateElement(FamDoc, sweep.PathSketch.SketchPlane.Id, axisY, _props.AngleFromYZtoX);
                 }
             }
             return sweep;
@@ -34,11 +45,12 @@ namespace Logics.Geometry.Implementation
     }
     public class SweepParameters
     {
-        public XYZ CenterPoint { get; set; }
         public bool isSolid { get; set; }
         public CurveArray PathCurveArray { get; set; }
         public CurveArrArray ProfileCurveArrArray { get; set; }
         public int WhichPathLineIsForProfile { get; set; }
         public SketchPlane PathSketchPlane { get; set; }
+        public double AngleFromXZtoY { get; set; }
+        public double AngleFromYZtoX { get; set; }
     }
 }

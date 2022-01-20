@@ -20,7 +20,7 @@ namespace StudyTask
             var uidoc = uiApp.ActiveUIDocument;
 
             FamilyCreator familyCreator = new FamilyCreator(app);
-            Document newDoc = familyCreator.CreateNewFamily(uiApp, "Blend", "Generic Model");
+            Document newDoc = familyCreator.CreateNewFamily(uiApp, "Blend", "Metric Generic Model");
             Transaction t = new Transaction(newDoc, "Blend");
             using (t)
             {

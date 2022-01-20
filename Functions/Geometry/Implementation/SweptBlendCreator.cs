@@ -28,11 +28,11 @@ namespace Logics.Geometry.Implementation
                 curveArrArray2.Append(_props.Profile2CurveArray);
                 SweepProfile profile1 = FamDoc.Application.Create.NewCurveLoopsProfile(curveArrArray1) as SweepProfile;
                 SweepProfile profile2 = FamDoc.Application.Create.NewCurveLoopsProfile(curveArrArray2) as SweepProfile;
-                swept = FamDoc.FamilyCreate.NewSweptBlend(_props.isSolid, _props.PathCurve, _props.PathSketchPlane, profile1, profile2);
-                if (_props.CenterPoint == null)
+                try
                 {
-                    swept.Location.Move(_props.CenterPoint);
+                    swept = FamDoc.FamilyCreate.NewSweptBlend(_props.isSolid, _props.PathCurve, _props.PathSketchPlane, profile1, profile2);
                 }
+                catch { }
             }
             return swept;
         }
@@ -44,6 +44,5 @@ namespace Logics.Geometry.Implementation
         public bool isSolid { get; set; }
         public CurveArray Profile1CurveArray { get; set; }
         public CurveArray Profile2CurveArray { get; set; }
-        public XYZ CenterPoint { get; set; }
     }
 }

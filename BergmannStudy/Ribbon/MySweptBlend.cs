@@ -36,7 +36,6 @@ namespace StudyTask.Ribbon
             profile2CurveArray.Append(line3);
 
             SweptBlendParameters sweptParameters = new SweptBlendParameters();
-            sweptParameters.CenterPoint = new XYZ(250 / 304.8, 1000 / 304.8, 0);
             sweptParameters.isSolid = true;
             sweptParameters.PathCurve = path;
             sweptParameters.PathSketchPlane = pathSketchPlane;
@@ -70,7 +69,6 @@ namespace StudyTask.Ribbon
             profile2CurveArray.Append(line3);
 
             SweptBlendParameters sweptParameters = new SweptBlendParameters();
-            sweptParameters.CenterPoint = new XYZ(250 / 304.8, 1000 / 304.8, 0);
             sweptParameters.isSolid = true;
             sweptParameters.PathCurve = path;
             sweptParameters.PathSketchPlane = pathSketchPlane;
@@ -78,8 +76,8 @@ namespace StudyTask.Ribbon
             sweptParameters.Profile2CurveArray = profile2CurveArray;
             IGenericFormCreator<SweptBlendParameters> geometryElementCreator = new SweptBlendCreator(doc, sweptParameters);
             SweptBlend swept = geometryElementCreator.Create() as SweptBlend;
-            Line axis = Line.CreateBound(XYZ.Zero, XYZ.BasisX);
-            ElementTransformUtils.RotateElement(doc, swept.Id, axis, -Math.PI / 3); //Rotate around X axis 60 degree counterclockwise
+            //Line axis = Line.CreateBound(XYZ.Zero, XYZ.BasisX);
+            //ElementTransformUtils.RotateElement(doc, swept.Id, axis, -Math.PI / 3); //Rotate around X axis 60 degree counterclockwise
         }
         //https://spiderinnet.typepad.com/blog/2014/03/revisit-sweep-creation-using-revit-family-net-api.html
     }
