@@ -127,7 +127,7 @@ namespace PluginUtil.Loger{
 
 		#region public
 
-		public static Exception _GetException(this Exception exception
+		public static Exception GetException(this Exception exception
 		                                      , string       s) {
 			return new Exception($"({s}\n\t\t\t{exception})");
 		}
