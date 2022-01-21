@@ -11,7 +11,7 @@
     <AssemblyName>PluginUtil</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <Deterministic>false</Deterministic>
     <LangVersion>preview</LangVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -53,11 +53,22 @@
     <LangVersion>preview</LangVersion>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DEV|x64' ">
+    <OutputPath>bin\x64\DEV\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <DefineConstants>DEV</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AdWindows, Version=3.1.7.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Revit_All_Main_Versions_API_x64.2022.1.0\lib\net48\AdWindows.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="CSharpFunctionalExtensions, Version=2.27.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\CSharpFunctionalExtensions.2.27.1\lib\net472\CSharpFunctionalExtensions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -70,6 +81,13 @@
       <HintPath>..\packages\Revit_All_Main_Versions_API_x64.2022.1.0\lib\net48\RevitAPIUI.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="ScopeUtils, Version=2021.1.8055.19069, Culture=neutral, PublicKeyToken=null">
+      <HintPath>C:\Users\User\AppData\Roaming\Autodesk\ApplicationPlugins\ScopeRevitAddin.bundle\Contents\ScopeRevitAddin\ScopeUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10">
+      <HintPath>..\packages\Serilog.2.10.0\lib\net46\Serilog.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -95,6 +113,8 @@
     <Compile Include="Loger\PathConfig.cs" />
     <Compile Include="ReferenceResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReflectionUtils.cs" />
+    <Compile Include="ResultExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

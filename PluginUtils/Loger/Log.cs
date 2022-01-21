@@ -4,73 +4,72 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace PluginUtil.Loger
-{
-	public static class Log
-	{
+namespace PluginUtil.Loger{
+	public static class Log{
 		#region class props
 
 		public static int ErrorLevel { get; set; } = 2;
 
-		public static string LogFolder
-		{
-			get
-			{
-				if (!Directory.Exists(PathConfig.LogPath)) Directory.CreateDirectory(PathConfig.LogPath);
+		public static string LogFolder {
+			get {
+				if (!Directory.Exists(PathConfig.LogPath)) {
+					Directory.CreateDirectory(PathConfig.LogPath);
+				}
 
 				return PathConfig.LogPath;
 			}
 		}
 
-		public static string ModelFolder
-		{
-			get
-			{
+		public static string ModelFolder {
+			get {
 				var mfold = Path.Combine(LogFolder, PathConfig.ModelFolderName);
-				if (!Directory.Exists(mfold)) Directory.CreateDirectory(mfold);
+				if (!Directory.Exists(mfold)) {
+					Directory.CreateDirectory(mfold);
+				}
 
 				return mfold;
 			}
 		}
 
-		private static IIiPathConfig PathConfig
-		{
-			get
-			{
-				if (_pathConfig == null) _pathConfig = new PathConfig();
+		private static IIiPathConfig PathConfig {
+			get {
+				if (_pathConfig == null) {
+					_pathConfig = new PathConfig();
+				}
 
 				return _pathConfig;
 			}
 		}
 
 
-		public static string BaseLogPath
-		{
-			get
-			{
+		public static string BaseLogPath {
+			get {
 #if !DEV
-				//   if (string.IsNullOrEmpty(_debugPath)){
-				var appFolderPath = LogFolder;
-				if (!Directory.Exists(appFolderPath))
-				{
-					Directory.CreateDirectory(appFolderPath);
-				}
+                //   if (string.IsNullOrEmpty(_debugPath)){
+                var appFolderPath = LogFolder;
+                if (!Directory.Exists(appFolderPath)){
+                    Directory.CreateDirectory(appFolderPath);
+                }
 
-				return appFolderPath;
-				// _debugPath = appFolderPath; //Path.Combine(, "Debug.log");
+                return appFolderPath;
+                // _debugPath = appFolderPath; //Path.Combine(, "Debug.log");
 
 
-				// if (!File.Exists(_debugPath)){
-				//     File.Create(_debugPath);
-				// }
+                // if (!File.Exists(_debugPath)){
+                //     File.Create(_debugPath);
+                // }
 
 
 #else
-				var logPath                                  = @"C:\Debug";
-				if (!string.IsNullOrEmpty(_docName)) logPath = Path.Combine(logPath, _docName);
+				var logPath = @"C:\Debug";
+				if (!string.IsNullOrEmpty(_docName)) {
+					logPath = Path.Combine(logPath, _docName);
+				}
 
 
-				if (!Directory.Exists(logPath)) Directory.CreateDirectory(logPath);
+				if (!Directory.Exists(logPath)) {
+					Directory.CreateDirectory(logPath);
+				}
 
 				return logPath;
 
@@ -90,7 +89,7 @@ namespace PluginUtil.Loger
 		public static string ErrorPath => CheckAndCreatePath("Error.log");
 
 		public static string DebugPath => CheckAndCreatePath("Debug.log");
-		public static string LogPath => CheckAndCreatePath("Log.log");
+		public static string LogPath   => CheckAndCreatePath("Log.log");
 
 		public static string WarningPath => CheckAndCreatePath("Warning.log");
 
@@ -102,16 +101,16 @@ namespace PluginUtil.Loger
 
 		public static Func<object, string> ElementToStringConvector { get; set; } = x => x?.ToString() ?? "NULL";
 
-		public static string LogDirectory
-		{
-			get
-			{
+		public static string LogDirectory {
+			get {
 				if (string.IsNullOrEmpty(_logDirectory))
 #if DEV
+				{
 					_logDirectory = @"C:\Debug";
+				}
 #else
 					_logDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-												 "Bilfinger");
+					                             "ArchIntellegence");
 #endif
 
 
@@ -119,22 +118,21 @@ namespace PluginUtil.Loger
 			}
 		}
 
-		public static Exception GetException(this Exception ex, string comment)
-		{
-			return new Exception($"({comment}:\n\t\t\t{ex})");
+		public static string SaveImagesPath { get; set; }=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+		                                                               "ArchIntellegence");
+
+		#endregion
+
+		#region Methods
+
+		#region public
+
+		public static Exception _GetException(this Exception exception
+		                                      , string       s) {
+			return new Exception($"({s}\n\t\t\t{exception})");
 		}
 
-        #endregion
-
-        #region Methods
-
-        #region public
-
-        //public static Exception _GetException(this Exception exception
-                                              //, string s) => new($"({s}\n\t\t\t{exception})");
-
-        public static void ConfigLogPath(IIiPathConfig newConfig)
-		{
+		public static void ConfigLogPath(IIiPathConfig newConfig) {
 			_pathConfig = newConfig;
 		}
 
@@ -143,8 +141,7 @@ namespace PluginUtil.Loger
 		/// </summary>
 		/// <param name="data"></param>
 		public static void LogError(this Exception e
-									, string message = "")
-		{
+		                            , string       message = "") {
 			var resultStr = $"{DateTime.Now.Date} [Error] {message} \n{e}\n";
 			resultStr.WriteTo(ErrorPath);
 		}
@@ -155,8 +152,7 @@ namespace PluginUtil.Loger
 		/// <param name="exception"></param>
 		/// <param name="path"></param>
 		public static void LogWarning(this Exception exception
-									  , string information = "")
-		{
+		                              , string       information = "") {
 			$"{exception.Message}:{information}".WriteTo(WarningPath);
 		}
 
@@ -164,9 +160,8 @@ namespace PluginUtil.Loger
 		///     Write exception information
 		/// </summary>
 		/// <param name="data"></param>
-		public static void LogError(string exeption
-									, string message = "")
-		{
+		public static void LogError(string   exeption
+		                            , string message = "") {
 			//  PathConfig.Logger?.Error(exeption, message);
 			exeption.WriteTo(ErrorPath);
 		}
@@ -177,8 +172,7 @@ namespace PluginUtil.Loger
 		/// <param name="data"></param>
 		/// <param name="path"></param>
 		public static void LogWarning(this string data
-									  , string information = "")
-		{
+		                              , string    information = "") {
 			data.WriteTo(WarningPath);
 		}
 
@@ -187,26 +181,22 @@ namespace PluginUtil.Loger
 		/// </summary>
 		/// <param name="data"></param>
 		public static void ThrowError(this Exception e
-									  , string message = "")
-		{
+		                              , string       message = "") {
 			throw new Exception($"({message}\n\t\t{e})");
 		}
 
 
 		public static void WriteTo(this object o
-								   , string path = ""
-								   , bool append = true)
-		{
-			if (string.IsNullOrEmpty(path)) path = DebugPath;
+		                           , string    path   = ""
+		                           , bool      append = true) {
+			if (string.IsNullOrEmpty(path)) {
+				path = DebugPath;
+			}
 
-			using (var strWr = new StreamWriter(path, true))
-			{
-				if (o is string str)
-				{
+			using (var strWr = new StreamWriter(path, true)) {
+				if (o is string str) {
 					strWr.Write(str);
-				}
-				else
-				{
+				} else {
 					strWr.Write(o.ToString());
 				}
 			}
@@ -219,8 +209,7 @@ namespace PluginUtil.Loger
 		/// <param name="data"></param>
 		/// <param name="path"></param>
 		public static void Debug(this object data
-								 , string path = "")
-		{
+		                         , string    path = "") {
 			data.WriteLog(DebugPath, "[Debug]");
 		}
 
@@ -231,130 +220,111 @@ namespace PluginUtil.Loger
 		/// <param name="data"></param>
 		/// <param name="path"></param>
 		public static void WriteLog(this object data
-									, string path = ""
-									, string type = "[Information]")
-		{
-			if (!PathConfig.EnableLogging) return;
+		                            , string    path = ""
+		                            , string    type = "[Information]") {
+			if (!PathConfig.EnableLogging) {
+				return;
+			}
 
-			try
-			{
-				if (string.IsNullOrEmpty(path)) path = LogPath;
+			try {
+				if (string.IsNullOrEmpty(path)) {
+					path = LogPath;
+				}
 
-				if (!File.Exists(path))
-				{
+				if (!File.Exists(path)) {
 					var directory = Path.GetDirectoryName(path);
-					if (!Directory.Exists(directory)) Directory.CreateDirectory(directory);
+					if (!Directory.Exists(directory)) {
+						Directory.CreateDirectory(directory);
+					}
 				}
 
 
-				try
-				{
-					if (data is string str)
-					{
+				try {
+					if (data is string str) {
 						var res = $"{DateTime.Now} {type} {str}";
 						WriteLogStr(res, path);
-					}
-					else if (data is IEnumerable strEn)
-					{
-                        using var fstream = new StreamWriter(path, true);
+					} else if (data is IEnumerable strEn) {
+						using var fstream = new StreamWriter(path, true);
 						// convert string to bite
-						var res = "/====================================================/" + "\n";
+						var res   = "/====================================================/" + "\n";
 						var count = 1;
-						foreach (var pp in strEn)
-						{
+						foreach (var pp in strEn) {
 							res += count + ". = " + ElementToStringConvector.Invoke(pp) + "\n";
 							count++;
 						}
 
 						res = $"{DateTime.Now} {type} {res}";
-
-
 						fstream.Write(res);
-					}
-					else
-					{
-						if (data == null)
-						{
+					} else {
+						if (data == null) {
 							WriteLogStr("NULL", path);
-						}
-						else
-						{
-							var res = $"{DateTime.Now} {type} {data.ToString()}";
+						} else {
+							var res = $"{DateTime.Now} {type} {data}";
 							WriteLogStr(res, path);
 						}
 					}
-				}
-				catch
-				{
+				} catch {
 					//ignore
 				}
-			}
-			catch (Exception e)
-			{
+			} catch (Exception e) {
 			}
 		}
 
 
-		public static void ClearLog()
-		{
-			try
-			{
+		public static void ClearLog() {
+			try {
 				ClearLog(DebugPath);
 				ClearLog(InformationPath);
 				ClearLog(WarningPath);
 				ClearLog(LogPath);
-			}
-			catch (Exception ex)
-			{
+			} catch (Exception ex) {
 			}
 		}
 
-		public static void LoggingOn(bool b)
-		{
+		public static void LoggingOn(bool b) {
 			PathConfig.EnableLogging = b;
 		}
 
-		public static void AddDirectory(string docName)
-		{
-			if (!string.IsNullOrEmpty(docName))
+		public static void AddDirectory(string docName) {
+			if (!string.IsNullOrEmpty(docName)) {
 				_docName = docName;
-			else
+			} else {
 				_docName = "";
+			}
 		}
 
 		#endregion
 
 		#region private
 
-		private static string CheckAndCreatePath(string fileName)
-		{
+		private static string CheckAndCreatePath(string fileName) {
 			var path = Path.Combine(BaseLogPath, fileName);
-			if (!File.Exists(path)) File.Create(path);
+			if (!File.Exists(path)) {
+				var str = File.Create(path);
+				str.Dispose();
+			}
 
 			return path;
 		}
 
 
-		private static void ClearLog(string logPath)
-		{
-			if (!File.Exists(logPath)) return;
+		private static void ClearLog(string logPath) {
+			if (!File.Exists(logPath)) {
+				return;
+			}
 
-			using (var str = new FileStream(logPath, FileMode.Create))
-			{
+			using (var str = new FileStream(logPath, FileMode.Create)) {
 				str.Write(new byte[] { }, 0, 0);
 			}
 		}
 
-		private static void WriteLogEnu(IEnumerable<string> dataList)
-		{
-			try
-			{
+		private static void WriteLogEnu(IEnumerable<string> dataList) {
+			try {
 				using var fileStream = new FileStream(DebugPath, FileMode.Append);
 				// convert string to bite
-				var res = "/====================================================/" + "\n";
+				var res   = "/====================================================/" + "\n";
 				var count = 1;
-				foreach (var pp in dataList)
-				{
+				foreach (var pp in dataList) {
 					res += count + ". = " + ElementToStringConvector.Invoke(pp) + "\n";
 					count++;
 				}
@@ -363,18 +333,14 @@ namespace PluginUtil.Loger
 				// write array of bite to file
 
 				fileStream.Write(array, 0, array.Length);
-			}
-			catch
-			{
+			} catch {
 				//ignore
 			}
 		}
 
-		private static void WriteLogStr(string data
-										, string path)
-		{
-			try
-			{
+		private static void WriteLogStr(string   data
+		                                , string path) {
+			try {
 				using var fileStream = new StreamWriter(path, true);
 				// convert string to bite
 				var res = "";
@@ -383,9 +349,7 @@ namespace PluginUtil.Loger
 				res += data + "\n";
 
 				fileStream.Write(res);
-			}
-			catch (Exception e)
-			{
+			} catch (Exception e) {
 				e.LogError();
 			}
 		}
@@ -399,8 +363,8 @@ namespace PluginUtil.Loger
 		//  private static string _debugPath{ get;  }
 
 		private static IIiPathConfig _pathConfig;
-		private static string _logDirectory;
-		private static string _docName;
+		private static string        _logDirectory;
+		private static string        _docName;
 
 		#endregion
 	}

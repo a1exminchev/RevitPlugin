@@ -1,14 +1,12 @@
-﻿namespace PluginUtil.Loger
-{
-    public interface IIiPathConfig
-    {
-        #region class props
+﻿namespace PluginUtil.Loger{
+	public interface IIiPathConfig{
+		#region class props
 
-        string LogPath { get; set; }
-        string ModelFolderName { get; }
+		string LogPath         { get; set; }
+		string ModelFolderName { get; }
 
-        bool EnableLogging { get; set; }
+		bool EnableLogging { get; set; }
 
-        #endregion
-    }
+		#endregion
+	}
 }

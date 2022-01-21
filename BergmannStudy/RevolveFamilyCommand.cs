@@ -12,7 +12,6 @@ namespace StudyTask
     [Regeneration(RegenerationOption.Manual)]
     public class RevolveFamilyCommand : IExternalCommand
     {
-        static AddInId addId = new AddInId(new Guid("DB73B495-E5B8-4157-B993-F51213954DB0"));
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var uiApp = commandData.Application;

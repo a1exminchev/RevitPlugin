@@ -162,10 +162,8 @@ C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\obj\Debug\ArCm.csproj.Co
 C:\Users\Aleksey Minchev\source\repos\RevitPlugin\ArCmd\obj\Debug\ArCm.csproj.CopyComplete
 F:\REPOS\RevitPlugin\ArCmd\bin\Debug\ArCm.dll
 F:\REPOS\RevitPlugin\ArCmd\bin\Debug\ArCm.pdb
-F:\REPOS\RevitPlugin\ArCmd\bin\Debug\Functions.dll
 F:\REPOS\RevitPlugin\ArCmd\bin\Debug\PluginLogics.dll
 F:\REPOS\RevitPlugin\ArCmd\bin\Debug\PluginUtil.dll
-F:\REPOS\RevitPlugin\ArCmd\bin\Debug\Functions.pdb
 F:\REPOS\RevitPlugin\ArCmd\bin\Debug\PluginLogics.pdb
 F:\REPOS\RevitPlugin\ArCmd\bin\Debug\PluginUtil.pdb
 F:\REPOS\RevitPlugin\ArCmd\obj\Debug\ArCm.csproj.AssemblyReference.cache
@@ -173,3 +171,8 @@ F:\REPOS\RevitPlugin\ArCmd\obj\Debug\ArCm.csproj.CoreCompileInputs.cache
 F:\REPOS\RevitPlugin\ArCmd\obj\Debug\ArCm.csproj.CopyComplete
 F:\REPOS\RevitPlugin\ArCmd\obj\Debug\ArCm.dll
 F:\REPOS\RevitPlugin\ArCmd\obj\Debug\ArCm.pdb
+F:\REPOS\RevitPlugin\ArCmd\bin\Debug\Logics.dll
+F:\REPOS\RevitPlugin\ArCmd\bin\Debug\CSharpFunctionalExtensions.dll
+F:\REPOS\RevitPlugin\ArCmd\bin\Debug\Logics.pdb
+F:\REPOS\RevitPlugin\ArCmd\bin\Debug\CSharpFunctionalExtensions.pdb
+F:\REPOS\RevitPlugin\ArCmd\bin\Debug\CSharpFunctionalExtensions.xml

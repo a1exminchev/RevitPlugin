@@ -74,13 +74,11 @@ F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\RevitPlugin.dll.config
 F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\RevitPlugin.dll
 F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\RevitPlugin.pdb
 F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\ArCm.dll
-F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\Functions.dll
 F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\PluginLogics.dll
 F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\PluginUtil.dll
 F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\UIBuilder.dll
 F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\BergmannStudy.dll
 F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\ArCm.pdb
-F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\Functions.pdb
 F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\PluginLogics.pdb
 F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\PluginUtil.pdb
 F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\UIBuilder.pdb
@@ -91,3 +89,8 @@ F:\REPOS\RevitPlugin\RevitPlugin\obj\Debug\RevitPlugin.csproj.CoreCompileInputs.
 F:\REPOS\RevitPlugin\RevitPlugin\obj\Debug\RevitPlugin.csproj.CopyComplete
 F:\REPOS\RevitPlugin\RevitPlugin\obj\Debug\RevitPlugin.dll
 F:\REPOS\RevitPlugin\RevitPlugin\obj\Debug\RevitPlugin.pdb
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\Logics.dll
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\CSharpFunctionalExtensions.dll
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\Logics.pdb
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\CSharpFunctionalExtensions.pdb
+F:\REPOS\RevitPlugin\RevitPlugin\bin\Debug\CSharpFunctionalExtensions.xml

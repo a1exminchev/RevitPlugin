@@ -6,6 +6,7 @@
     <StartupObject>ConsoleStudy.Program</StartupObject>
     <Platforms>AnyCPU;x64</Platforms>
     <LangVersion>preview</LangVersion>
+    <Configurations>Debug;Release;DEV</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -23,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Functions\Logics.csproj" />
     <ProjectReference Include="..\Study\StudyHome.csproj" />
   </ItemGroup>
 
