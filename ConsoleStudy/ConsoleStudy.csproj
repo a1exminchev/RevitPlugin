@@ -24,8 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Functions\Logics.csproj" />
-    <ProjectReference Include="..\Study\StudyHome.csproj" />
+    <ProjectReference Include="..\Logics\Logics.csproj" />
+    <ProjectReference Include="..\StudyHome\StudyHome.csproj" />
   </ItemGroup>
 
   <ItemGroup>

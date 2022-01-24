@@ -103,13 +103,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ArCmd\ArCm.csproj">
+    <ProjectReference Include="..\ArCm\ArCm.csproj">
       <Project>{0f07a0b3-b1d1-4f55-b318-ee923a94fd1c}</Project>
       <Name>ArCm</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BergmannStudy\StudyTask.csproj">
-      <Project>{acc16126-c329-46da-bc32-d3f02b4bd9ba}</Project>
-      <Name>StudyTask</Name>
     </ProjectReference>
     <ProjectReference Include="..\Functions\Logics.csproj">
       <Project>{af5a7a5c-087f-4c13-92b3-10ffb4c8533f}</Project>
@@ -123,9 +119,13 @@
       <Project>{9ffbe8dd-85ee-4a09-a6c8-b34d5bdad4dd}</Project>
       <Name>PluginUtil</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Study\StudyHome.csproj">
+    <ProjectReference Include="..\StudyHome\StudyHome.csproj">
       <Project>{a969dd13-9768-4806-acb4-b02691d62e56}</Project>
       <Name>StudyHome</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudyTask\StudyTask.csproj">
+      <Project>{acc16126-c329-46da-bc32-d3f02b4bd9ba}</Project>
+      <Name>StudyTask</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

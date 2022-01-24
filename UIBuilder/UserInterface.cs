@@ -45,7 +45,7 @@ namespace UIBuilder
             btnLayerTagRefresh.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
             btnLayerTagRefresh.ToolTip = "Update all layers tags";
 
-            string dllBerg = Path.Combine(folderPath, "BergmannStudy.dll");
+            string dllBerg = Path.Combine(folderPath, "StudyTask.dll");
             string tabBerg = "BIT";
             application.CreateRibbonTab(tabBerg);
             RibbonPanel panelBerg = application.CreateRibbonPanel(tabBerg, "BIT");
@@ -79,6 +79,11 @@ namespace UIBuilder
             btnCopyFamily.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
             btnCopyFamily.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
             btnCopyFamily.ToolTip = "";
+
+            PushButton btnFamilyExport = (PushButton)panelBerg.AddItem(new PushButtonData("FamilyExport", "FamilyExport", dllBerg, typeof(DocExport).FullName));
+            btnFamilyExport.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
+            btnFamilyExport.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
+            btnFamilyExport.ToolTip = "";
         }
 	}
 }
