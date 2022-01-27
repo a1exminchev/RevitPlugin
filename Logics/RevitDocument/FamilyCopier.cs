@@ -61,15 +61,15 @@ namespace Logics.RevitDocument{
 		}
 
 		private GenericForm CreateExtrusionInNewDoc(Extrusion extrusion) {
-			Extrusion           newEx;
+			Extrusion newEx;
 			ExtrusionParameters extrusionParameters = new ExtrusionParameters();
-			extrusionParameters.isSolid       = extrusion.IsSolid;
+			extrusionParameters.isSolid = extrusion.IsSolid;
 			extrusionParameters.curveArrArray = extrusion.Sketch.Profile;
 			SketchPlane newSketchPlane = SketchPlane.Create(_newDoc, extrusion.Sketch.SketchPlane.GetPlane());
 			extrusionParameters.SketchPlane = newSketchPlane;
-			extrusionParameters.Height      = extrusion.EndOffset;
+			extrusionParameters.Height = extrusion.EndOffset;
 			var geometryElementCreator = new ExtrusionCreator(_newDoc, extrusionParameters);
-			newEx             = geometryElementCreator.Create() as Extrusion;
+			newEx = geometryElementCreator.Create() as Extrusion;
 			newEx.StartOffset = extrusion.StartOffset;
 			return newEx;
 		}

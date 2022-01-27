@@ -6,7 +6,6 @@ using CSharpFunctionalExtensions;
 
 namespace Logics.FamilyExport.ModelExport.Extractors.Implementations
 {
-
 	public class ExtrusionExtracter : AbstractExtractor<ExtrusionWrap>
 	{
 		public ExtrusionExtracter(Document document) : base(document)

@@ -10,5 +10,8 @@ namespace StudyHome
     {
         public string Name { get; set; }
         public int Age { get; set; }
+        public double StartOffset { get; set; }
+        public Dictionary<string, List<double>> SketchPlane { get; set; }
+        public Dictionary<string, List<double>> CurveArrArray { get; set; }
     }
 }

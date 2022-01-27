@@ -2,7 +2,8 @@
 using Logics.Geometry.Interface;
 
 namespace Logics.Geometry.Implementation{
-	public class ExtrusionCreator : AbstractGenericFormCreator<ExtrusionParameters>{
+	public class ExtrusionCreator : AbstractGenericFormCreator<ExtrusionParameters>
+	{
 		protected readonly Document            FamDoc;
 		private readonly   ExtrusionParameters _props;
 

@@ -84,6 +84,11 @@ namespace UIBuilder
             btnFamilyExport.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
             btnFamilyExport.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
             btnFamilyExport.ToolTip = "";
+
+            PushButton btnFamilyImport = (PushButton)panelBerg.AddItem(new PushButtonData("FamilyImport", "FamilyImport", dllBerg, typeof(DocImport).FullName));
+            btnFamilyImport.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
+            btnFamilyImport.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
+            btnFamilyImport.ToolTip = "";
         }
 	}
 }

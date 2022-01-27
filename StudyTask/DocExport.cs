@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Logics.RevitDocument;
 using Autodesk.Revit.Attributes;
 using System.Collections.Generic;
@@ -6,8 +7,10 @@ using System.Linq;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
 using Logics.FamilyExport.ModelExport;
+using Logics.FamilyExport;
 using PluginUtil.Loger;
 using SCOPE_RevitPluginLogic.Utils;
+using PluginLogics;
 
 namespace StudyTask{
 	[TransactionAttribute(TransactionMode.Manual)]
@@ -20,13 +23,25 @@ namespace StudyTask{
 			var app   = commandData.Application.Application;
 			var uidoc = uiApp.ActiveUIDocument;
 			Configure.ConfigureLogger( );
+
 			var familyExporter = new FamilyExporter(uidoc.Document);
-			try {
+			try
+			{
 				var FamilyWrap = familyExporter.Export();
-				string data = (FamilyWrap.Extrusions.First().Value.LengthOfExtrusion * 304,8) + " / " +
-							  FamilyWrap.Extrusions.First().Value.AmountOfSketchLines.ToString() + " lines";
-				Log.WriteLog(data, Log.LogPath);
-			} catch (Exception e) {
+				string dataJson = "{\n";
+				foreach (var pair in FamilyWrap.Extrusions)
+				{
+					dataJson += pair.Value.ExtrusionWrapProperties.ToJsonString();
+				}
+				dataJson = dataJson.Remove(dataJson.Length - 2, 1) + "}";
+				TextWriter tw = new StreamWriter(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json");
+				using (tw)
+                {
+					tw.Write(dataJson);
+				}
+			}
+			catch (Exception e)
+			{
 				e.LogError();
 			}
 

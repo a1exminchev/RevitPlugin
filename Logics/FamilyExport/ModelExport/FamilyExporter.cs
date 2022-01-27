@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using Logics.FamilyExport.Wraps.Implementations;
 using Logics.FamilyExport.Wraps.Interfaces;
 using PluginUtil;
 using PluginUtil.Loger;
-using r = Autodesk.Revit.UI;
+using Newtonsoft.Json;
 
 namespace Logics.FamilyExport.ModelExport
 {
@@ -75,7 +76,6 @@ namespace Logics.FamilyExport.ModelExport
 
 		private IExtractor CreateInstance(Type type)
 		{
-
 			type.GetConstructors().Select(x => x.GetParameters().Length).Debug();
 			var constr = type.GetConstructors()
 							 .Where(x => x.GetParameters().Length == 1)
@@ -92,6 +92,59 @@ namespace Logics.FamilyExport.ModelExport
 			}
 
 			return Result.Failure<IDictionary>($"Extractor for type {last.Name} not founded ");
+		}
+	}
+	public static class ExportMethods
+    {
+		public static double[] ToJsonDoubles(this XYZ xyz)
+		{
+			double[] a = { xyz.X, xyz.Y, xyz.Z };
+			return a;
+		}
+
+		public static string ToJsonString(this ExtrusionWrapParameters ExtrusionWrapProperties)
+		{
+			string dataJson = "";
+			dataJson += JsonConvert.SerializeObject("Extrusion" + ExtrusionWrapProperties.Id.ToString()) + ":\n{\n";
+
+			dataJson += JsonConvert.SerializeObject(ExtrusionWrapProperties.StartOffset.First().Key) + ":";
+			dataJson += JsonConvert.SerializeObject(ExtrusionWrapProperties.StartOffset.First().Value) + ",\n";
+
+			dataJson += JsonConvert.SerializeObject(ExtrusionWrapProperties.EndOffset.First().Key) + ":";
+			dataJson += JsonConvert.SerializeObject(ExtrusionWrapProperties.EndOffset.First().Value) + ",\n";
+
+			foreach (var Dicts in ExtrusionWrapProperties.SketchPlane)
+			{
+				dataJson += JsonConvert.SerializeObject(Dicts.Key) + ":\n{\n";
+				foreach (var dict in Dicts.Value)
+                {
+					foreach (var pair in dict)
+                    {
+						dataJson += JsonConvert.SerializeObject(pair.Key) + ":";
+						dataJson += JsonConvert.SerializeObject(pair.Value) + ",\n";
+					}
+				}
+				dataJson = dataJson.Remove(dataJson.Length - 2, 1);
+				dataJson += "},";
+			}
+			foreach (var Dicts in ExtrusionWrapProperties.CurveArrArray)
+			{
+				dataJson += "\n" + JsonConvert.SerializeObject(Dicts.Key) + ":\n{";
+				foreach (var dict in Dicts.Value)
+                {
+					foreach (var pair in dict)
+                    {
+						dataJson += JsonConvert.SerializeObject(pair.Key) + ":";
+						dataJson += JsonConvert.SerializeObject(pair.Value) + ",\n";
+					}
+				}
+				dataJson = dataJson.Remove(dataJson.Length - 2, 1);
+				dataJson += "\n}";
+			}
+
+			dataJson = dataJson.Remove(dataJson.Length - 2, 1);
+			dataJson += "\n},\n";
+			return dataJson;
 		}
 	}
 }

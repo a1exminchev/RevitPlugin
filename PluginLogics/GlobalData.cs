@@ -1,6 +1,7 @@
 ﻿using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using System.IO;
 
 namespace PluginLogics
 {
@@ -95,6 +96,7 @@ namespace PluginLogics
             doc = uiDoc?.Document;
         }
 
+        public static string PluginDir = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
         #endregion
     }
 }

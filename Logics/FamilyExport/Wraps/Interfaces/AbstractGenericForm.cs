@@ -3,7 +3,8 @@ using Logics.FamilyExport.Wraps.Implementations;
 
 namespace Logics.FamilyExport.Wraps.Interfaces{
 
-	public abstract class AbstractGenericForm : AbstractElementData{
+	public abstract class AbstractGenericForm : AbstractElementData
+	{
 		public bool Visible { get; set; }
 		public bool	IsSolid { get; set; }
 		public string Subcategory { get; set; }

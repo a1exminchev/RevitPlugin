@@ -69,6 +69,9 @@
       <HintPath>..\packages\CSharpFunctionalExtensions.2.27.1\lib\net472\CSharpFunctionalExtensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="RevitAPI, Version=22.0.0.0, Culture=neutral, processorArchitecture=AMD64">
@@ -119,6 +122,12 @@
     <Compile Include="FamilyExport\Wraps\Interfaces\AbstractElementData.cs" />
     <Compile Include="FamilyExport\Wraps\Interfaces\AbstractGenericForm.cs" />
     <Compile Include="FamilyExport\Wraps\Interfaces\IElement.cs" />
+    <Compile Include="FamilyImport\FamilyDocumentData.cs" />
+    <Compile Include="FamilyImport\ModelImport\FamilyImporter.cs" />
+    <Compile Include="FamilyImport\ModelImport\Importers\IImporter.cs" />
+    <Compile Include="FamilyImport\ModelImport\Importers\Implementations\ExtrusionImporter.cs" />
+    <Compile Include="FamilyImport\Transforms\ExtrusionTransform.cs" />
+    <Compile Include="FamilyImport\Transforms\AbstractTransform.cs" />
     <Compile Include="Geometry\GeometryOperations.cs" />
     <Compile Include="Geometry\Implementation\RevolutionCreator.cs" />
     <Compile Include="Geometry\Implementation\SweptBlendCreator.cs" />
@@ -151,5 +160,6 @@
       <Name>PluginUtil</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

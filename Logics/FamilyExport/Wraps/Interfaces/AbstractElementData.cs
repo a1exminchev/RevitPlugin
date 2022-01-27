@@ -2,7 +2,8 @@
 using Logics.FamilyExport.Wraps.Interfaces;
 
 namespace Logics.FamilyExport.Wraps.Implementations{
-	public abstract class AbstractElementData : IElement{
+	public abstract class AbstractElementData : IElement
+	{
 		public int             Id       { get; set; }
 		public string          Name     { get; set; }
 		public string          Type     { get; set; }
@@ -22,7 +23,6 @@ namespace Logics.FamilyExport.Wraps.Implementations{
 			if (el.GetMaterialIds(false).GetEnumerator().Current != null)
             {
 				Volume = el.GetMaterialVolume(el.GetMaterialIds(false).GetEnumerator()?.Current);
-
 			}
 		}
 	}
