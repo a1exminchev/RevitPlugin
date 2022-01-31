@@ -67,10 +67,10 @@ namespace Logics.RevitDocument{
 			extrusionParameters.curveArrArray = extrusion.Sketch.Profile;
 			SketchPlane newSketchPlane = SketchPlane.Create(_newDoc, extrusion.Sketch.SketchPlane.GetPlane());
 			extrusionParameters.SketchPlane = newSketchPlane;
-			extrusionParameters.Height = extrusion.EndOffset;
+			extrusionParameters.EndOffset = extrusion.EndOffset;
+			extrusionParameters.StartOffset = extrusion.StartOffset;
 			var geometryElementCreator = new ExtrusionCreator(_newDoc, extrusionParameters);
 			newEx = geometryElementCreator.Create() as Extrusion;
-			newEx.StartOffset = extrusion.StartOffset;
 			return newEx;
 		}
 

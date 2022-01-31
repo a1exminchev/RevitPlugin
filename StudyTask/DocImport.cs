@@ -35,10 +35,9 @@ namespace StudyTask{
 			using (t)
 			{
 				t.Start();
-				//var file = File.ReadAllText(@"C:\Users\Aleksey Minchev\source\repos\RevitPlugin\StudyTask\Files\FamilyData.json");
 
-				//var dict = JsonConvert.DeserializeObject<Dictionary<string, ExtrusionTransform>>(file);
-				familyImporter.Import(@"C:\Users\Aleksey Minchev\source\repos\RevitPlugin\StudyTask\Files\FamilyData.json");
+				//familyImporter.Import(@"C:\Users\Aleksey Minchev\source\repos\RevitPlugin\StudyTask\Files\FamilyData.json");
+				familyImporter.Import(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json");
 
 				t.Commit();
 			}

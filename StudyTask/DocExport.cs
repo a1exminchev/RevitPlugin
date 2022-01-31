@@ -11,6 +11,7 @@ using Logics.FamilyExport;
 using PluginUtil.Loger;
 using SCOPE_RevitPluginLogic.Utils;
 using PluginLogics;
+using Newtonsoft.Json;
 
 namespace StudyTask{
 	[TransactionAttribute(TransactionMode.Manual)]
@@ -28,12 +29,33 @@ namespace StudyTask{
 			try
 			{
 				var FamilyWrap = familyExporter.Export();
-				string dataJson = "{\n";
+				string dataJson = "{\n" + JsonConvert.SerializeObject("Extrusions") + ":\n{\n";
 				foreach (var pair in FamilyWrap.Extrusions)
 				{
 					dataJson += pair.Value.ExtrusionWrapProperties.ToJsonString();
 				}
-				dataJson = dataJson.Remove(dataJson.Length - 2, 1) + "}";
+				if (FamilyWrap.Extrusions.Count != 0)
+                {
+					dataJson = dataJson.Remove(dataJson.Length - 2, 1) + "},\n";
+				}
+				else
+                {
+					dataJson += "\n},\n";
+				}
+				dataJson += JsonConvert.SerializeObject("Revolutions") + ":\n{\n";
+				foreach (var pair in FamilyWrap.Revolutions)
+				{
+					dataJson += pair.Value.RevolutionWrapProperties.ToJsonString();
+				}
+				if (FamilyWrap.Revolutions.Count != 0)
+                {
+					dataJson = dataJson.Remove(dataJson.Length - 2, 1) + "}";
+				}
+				else
+                {
+					dataJson += "\n}";
+				}
+				dataJson += "\n}";
 				TextWriter tw = new StreamWriter(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json");
 				using (tw)
                 {

@@ -14,6 +14,11 @@ namespace Logics.FamilyExport{
 		public ExtrusionWrap(Extrusion ex) : base(ex)
 		{
 			ExtrusionWrapParameters _props = new ExtrusionWrapParameters();
+
+			_props.isSolid = new Dictionary<string, bool>() {
+				{ "IsSolid", ex.IsSolid }
+			};
+
 			_props.StartOffset = new Dictionary<string, double>() {
 				{ "StartOffset", ex.StartOffset }
 			};
@@ -36,19 +41,19 @@ namespace Logics.FamilyExport{
 				foreach (Curve cur in curveArray)
                 {
 					Dictionary<string, double[]> curDic = new Dictionary<string, double[]>()
-														{ {"Array" + curveArrayNames + "PointOfLine" + lineNames,
+														{ {"Array" + curveArrayNames + "Line" + lineNames,
 														   cur.GetEndPoint(0).ToJsonDoubles().Concat(cur.GetEndPoint(1).ToJsonDoubles()).ToArray() } };
 					curDicList.Add(curDic);
 					lineNames += 1;
                 }
 				curveArrayNames += 1;
+				lineNames = 1;
             }
 			
 			_props.CurveArrArray = new Dictionary<string, List<Dictionary<string, double[]>>>() { { "CurveArrArray", curDicList } };
 
 			_props.Id = ex.Id.IntegerValue;
 			ExtrusionWrapProperties = _props;
-			
 		}
 
 		public ExtrusionWrap() {
@@ -57,6 +62,7 @@ namespace Logics.FamilyExport{
 	}
 	public class ExtrusionWrapParameters : AbstractGenericForm
 	{
+		public Dictionary<string, bool> isSolid { get; set; }
 		public Dictionary<string, double> StartOffset { get; set; }
 		public Dictionary<string, double> EndOffset { get; set; }
 		public Dictionary<string, Dictionary<string, double[]>[]> SketchPlane { get; set; }

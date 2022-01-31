@@ -23,7 +23,8 @@ namespace Logics.Geometry.Implementation{
 				extrusion = FamDoc.FamilyCreate.NewExtrusion(_props.isSolid
 				                                             , _props.curveArrArray
 				                                             , _props.SketchPlane
-				                                             , _props.Height);
+				                                             , _props.EndOffset);
+				extrusion.StartOffset = _props.StartOffset;
 				if (_props.CenterPoint != null) {
 					extrusion.Location.Move(_props.CenterPoint);
 				}
@@ -36,7 +37,8 @@ namespace Logics.Geometry.Implementation{
 		public XYZ           CenterPoint { get; set; }
 		public bool          isSolid     { get; set; }
 		public CurveArrArray curveArrArray  { get; set; }
-		public double        Height      { get; set; }
+		public double        EndOffset      { get; set; }
+		public double		 StartOffset { get; set; }
 		public SketchPlane   SketchPlane { get; set; }
 	}
 }

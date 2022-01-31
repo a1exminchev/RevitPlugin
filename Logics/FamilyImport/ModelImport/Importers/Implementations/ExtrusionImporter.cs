@@ -17,8 +17,8 @@ namespace Logics.FamilyImport.ModelImport.Importers.Implementations
 
 		public override Dictionary<string, ExtrusionTransform> ImportWork()
 		{
-			var dict = new Dictionary<string, ExtrusionTransform>();
-			dict = JsonConvert.DeserializeObject<Dictionary<string, ExtrusionTransform>>(_json);
+			var famDict = JsonConvert.DeserializeObject<FamilyDocumentData>(_json);
+			var dict = famDict.Extrusions;
 			return dict;
 		}
 	}

@@ -107,6 +107,9 @@ namespace Logics.FamilyExport.ModelExport
 			string dataJson = "";
 			dataJson += JsonConvert.SerializeObject("Extrusion" + ExtrusionWrapProperties.Id.ToString()) + ":\n{\n";
 
+			dataJson += JsonConvert.SerializeObject(ExtrusionWrapProperties.isSolid.First().Key) + ":";
+			dataJson += JsonConvert.SerializeObject(ExtrusionWrapProperties.isSolid.First().Value) + ",\n";
+
 			dataJson += JsonConvert.SerializeObject(ExtrusionWrapProperties.StartOffset.First().Key) + ":";
 			dataJson += JsonConvert.SerializeObject(ExtrusionWrapProperties.StartOffset.First().Value) + ",\n";
 
@@ -129,7 +132,7 @@ namespace Logics.FamilyExport.ModelExport
 			}
 			foreach (var Dicts in ExtrusionWrapProperties.CurveArrArray)
 			{
-				dataJson += "\n" + JsonConvert.SerializeObject(Dicts.Key) + ":\n{";
+				dataJson += "\n" + JsonConvert.SerializeObject(Dicts.Key) + ":\n{\n";
 				foreach (var dict in Dicts.Value)
                 {
 					foreach (var pair in dict)
@@ -142,7 +145,70 @@ namespace Logics.FamilyExport.ModelExport
 				dataJson += "\n}";
 			}
 
-			dataJson = dataJson.Remove(dataJson.Length - 2, 1);
+			dataJson = dataJson.Remove(dataJson.Length - 3, 1);
+			dataJson += "\n},\n";
+			return dataJson;
+		}
+
+		public static string ToJsonString(this RevolutionWrapParameters RevolutionWrapProperties)
+		{
+			string dataJson = "";
+			dataJson += JsonConvert.SerializeObject("Revolution" + RevolutionWrapProperties.Id.ToString()) + ":\n{\n";
+
+			dataJson += JsonConvert.SerializeObject(RevolutionWrapProperties.isSolid.First().Key) + ":";
+			dataJson += JsonConvert.SerializeObject(RevolutionWrapProperties.isSolid.First().Value) + ",\n";
+
+			dataJson += JsonConvert.SerializeObject(RevolutionWrapProperties.StartingAngle.First().Key) + ":";
+			dataJson += JsonConvert.SerializeObject(RevolutionWrapProperties.StartingAngle.First().Value) + ",\n";
+
+			dataJson += JsonConvert.SerializeObject(RevolutionWrapProperties.EndingAngle.First().Key) + ":";
+			dataJson += JsonConvert.SerializeObject(RevolutionWrapProperties.EndingAngle.First().Value) + ",\n";
+
+			foreach (var Dicts in RevolutionWrapProperties.PathLineDict)
+			{
+				dataJson += JsonConvert.SerializeObject(Dicts.Key) + ":\n{\n";
+				foreach (var dict in Dicts.Value)
+				{
+					foreach (var pair in dict)
+					{
+						dataJson += JsonConvert.SerializeObject(pair.Key) + ":";
+						dataJson += JsonConvert.SerializeObject(pair.Value) + ",\n";
+					}
+				}
+				dataJson = dataJson.Remove(dataJson.Length - 2, 1);
+				dataJson += "},";
+			}
+
+			foreach (var Dicts in RevolutionWrapProperties.SketchPlane)
+			{
+				dataJson += "\n" + JsonConvert.SerializeObject(Dicts.Key) + ":\n{\n";
+				foreach (var dict in Dicts.Value)
+				{
+					foreach (var pair in dict)
+					{
+						dataJson += JsonConvert.SerializeObject(pair.Key) + ":";
+						dataJson += JsonConvert.SerializeObject(pair.Value) + ",\n";
+					}
+				}
+				dataJson = dataJson.Remove(dataJson.Length - 2, 1);
+				dataJson += "},";
+			}
+			foreach (var Dicts in RevolutionWrapProperties.CurveArrArray)
+			{
+				dataJson += "\n" + JsonConvert.SerializeObject(Dicts.Key) + ":\n{\n";
+				foreach (var dict in Dicts.Value)
+				{
+					foreach (var pair in dict)
+					{
+						dataJson += JsonConvert.SerializeObject(pair.Key) + ":";
+						dataJson += JsonConvert.SerializeObject(pair.Value) + ",\n";
+					}
+				}
+				dataJson = dataJson.Remove(dataJson.Length - 2, 1);
+				dataJson += "\n}";
+			}
+
+			dataJson = dataJson.Remove(dataJson.Length - 3, 1);
 			dataJson += "\n},\n";
 			return dataJson;
 		}

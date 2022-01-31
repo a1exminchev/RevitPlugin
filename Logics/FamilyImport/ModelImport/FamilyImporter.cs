@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Autodesk.Revit.DB;
+using ui = Autodesk.Revit.UI;
 using CSharpFunctionalExtensions;
 using Logics.FamilyExport.ModelExport.Extractors;
 using Logics.FamilyExport.ModelExport.Extractors.Implementations;
@@ -38,9 +39,9 @@ namespace Logics.FamilyImport.ModelImport
 		public void Import(string JsonPath)
 		{
 			_json = File.ReadAllText(JsonPath);
-			var docData = new FamilyDocumentData();
-			Type tF = typeof(FamilyDocumentData);
-			PropertyInfo[] props = tF.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+			//Type tF = typeof(FamilyDocumentData);
+			//PropertyInfo[] props = tF.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 			
 			_importers = CollectImporters();
 
@@ -52,13 +53,6 @@ namespace Logics.FamilyImport.ModelImport
 					i.Create(_doc);
                 }
             }
-
-			//foreach (var prop in props)
-			//{
-				//ImportToFamily(prop.PropertyType.GetGenericArguments().Last())
-					//.OnSuccessTry(x => prop.SetValue(docData, x))
-					//.OnFailure(x => new Exception(x).LogError());
-			//}
 		}
 
 		private Dictionary<Type, IImporter> CollectImporters()
@@ -76,7 +70,7 @@ namespace Logics.FamilyImport.ModelImport
 				var imptr = CreateInstance(type);
 				imptrs[genType] = imptr;
 			}
-
+			
 			return imptrs;
 		}
 
