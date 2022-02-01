@@ -49,10 +49,23 @@ namespace StudyTask{
 				}
 				if (FamilyWrap.Revolutions.Count != 0)
                 {
-					dataJson = dataJson.Remove(dataJson.Length - 2, 1) + "}";
+					dataJson = dataJson.Remove(dataJson.Length - 2, 1) + "},\n";
 				}
 				else
                 {
+					dataJson += "\n},\n";
+				}
+				dataJson += JsonConvert.SerializeObject("Blends") + ":\n{\n";
+				foreach (var pair in FamilyWrap.Blends)
+				{
+					dataJson += pair.Value.BlendWrapProperties.ToJsonString();
+				}
+				if (FamilyWrap.Blends.Count != 0)
+				{
+					dataJson = dataJson.Remove(dataJson.Length - 2, 1) + "}";
+				}
+				else
+				{
 					dataJson += "\n}";
 				}
 				dataJson += "\n}";

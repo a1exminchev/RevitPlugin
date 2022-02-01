@@ -218,5 +218,69 @@ namespace Logics.FamilyExport.ModelExport
 			dataJson += "\n},\n";
 			return dataJson;
 		}
+
+		public static string ToJsonString(this BlendWrapParameters BlendWrapProperties)
+		{
+			string dataJson = "";
+			dataJson += JsonConvert.SerializeObject("Blend" + BlendWrapProperties.Id.ToString()) + ":\n{\n";
+
+			dataJson += JsonConvert.SerializeObject(BlendWrapProperties.isSolid.First().Key) + ":";
+			dataJson += JsonConvert.SerializeObject(BlendWrapProperties.isSolid.First().Value) + ",\n";
+
+			dataJson += JsonConvert.SerializeObject(BlendWrapProperties.TopOffset.First().Key) + ":";
+			dataJson += JsonConvert.SerializeObject(BlendWrapProperties.TopOffset.First().Value) + ",\n";
+
+			dataJson += JsonConvert.SerializeObject(BlendWrapProperties.BottomOffset.First().Key) + ":";
+			dataJson += JsonConvert.SerializeObject(BlendWrapProperties.BottomOffset.First().Value) + ",\n";
+
+			foreach (var Dicts in BlendWrapProperties.BaseSketchPlane)
+			{
+				dataJson += JsonConvert.SerializeObject(Dicts.Key) + ":\n{\n";
+				foreach (var dict in Dicts.Value)
+				{
+					foreach (var pair in dict)
+					{
+						dataJson += JsonConvert.SerializeObject(pair.Key) + ":";
+						dataJson += JsonConvert.SerializeObject(pair.Value) + ",\n";
+					}
+				}
+				dataJson = dataJson.Remove(dataJson.Length - 2, 1);
+				dataJson += "},";
+			}
+
+			foreach (var Dicts in BlendWrapProperties.TopCurveArrArray)
+			{
+				dataJson += "\n" + JsonConvert.SerializeObject(Dicts.Key) + ":\n{\n";
+				foreach (var dict in Dicts.Value)
+				{
+					foreach (var pair in dict)
+					{
+						dataJson += JsonConvert.SerializeObject(pair.Key) + ":";
+						dataJson += JsonConvert.SerializeObject(pair.Value) + ",\n";
+					}
+				}
+				dataJson = dataJson.Remove(dataJson.Length - 2, 1);
+				dataJson += "},";
+			}
+
+			foreach (var Dicts in BlendWrapProperties.BaseCurveArrArray)
+			{
+				dataJson += "\n" + JsonConvert.SerializeObject(Dicts.Key) + ":\n{\n";
+				foreach (var dict in Dicts.Value)
+				{
+					foreach (var pair in dict)
+					{
+						dataJson += JsonConvert.SerializeObject(pair.Key) + ":";
+						dataJson += JsonConvert.SerializeObject(pair.Value) + ",\n";
+					}
+				}
+				dataJson = dataJson.Remove(dataJson.Length - 2, 1);
+				dataJson += "\n}";
+			}
+
+			dataJson = dataJson.Remove(dataJson.Length - 3, 1);
+			dataJson += "\n},\n";
+			return dataJson;
+		}
 	}
 }
