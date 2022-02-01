@@ -36,7 +36,6 @@ namespace StudyTask{
 			{
 				t.Start();
 
-				//familyImporter.Import(@"C:\Users\Aleksey Minchev\source\repos\RevitPlugin\StudyTask\Files\FamilyData.json");
 				familyImporter.Import(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json");
 
 				t.Commit();

@@ -63,12 +63,8 @@ namespace Logics.FamilyImport.Transforms
 				{
 					numArr += 1;
 					numLine = 1;
-					foreach (revit.Line line in curveArray)
-					{
-						docToImport.FamilyCreate.NewModelCurve(line, revParams.SketchPlane);
-					}
 					curArrArr.Append(curveArray);
-					curveArray.Clear();
+					curveArray = new revit.CurveArray();
 					curveArray.Append(revit.Line.CreateBound(new revit.XYZ(CurveArrArray[$"Array{numArr}Line{numLine}"][0],
 																   CurveArrArray[$"Array{numArr}Line{numLine}"][1],
 																   CurveArrArray[$"Array{numArr}Line{numLine}"][2]),
@@ -77,10 +73,6 @@ namespace Logics.FamilyImport.Transforms
 																   CurveArrArray[$"Array{numArr}Line{numLine}"][5])));
 					numLine = 2;
 				}
-			}
-			foreach (revit.Line line in curveArray)
-            {
-				docToImport.FamilyCreate.NewModelCurve(line, revParams.SketchPlane);
 			}
 			curArrArr.Append(curveArray);
 			revParams.ProfileCurveArrArray = curArrArr;

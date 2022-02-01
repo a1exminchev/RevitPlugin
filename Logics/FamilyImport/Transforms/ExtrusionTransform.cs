@@ -55,12 +55,8 @@ namespace Logics.FamilyImport.Transforms
 				{
 					numArr += 1;
 					numLine = 1;
-					foreach (rev.Line line in curveArray)
-					{
-						//docToImport.FamilyCreate.NewModelCurve(line, exParams.SketchPlane);
-					}
 					curArrArr.Append(curveArray);
-					curveArray.Clear();
+					curveArray = new rev.CurveArray();
 					curveArray.Append(rev.Line.CreateBound(new rev.XYZ(CurveArrArray[$"Array{numArr}Line{numLine}"][0],
 																   CurveArrArray[$"Array{numArr}Line{numLine}"][1],
 																   CurveArrArray[$"Array{numArr}Line{numLine}"][2]),
@@ -69,10 +65,6 @@ namespace Logics.FamilyImport.Transforms
 																   CurveArrArray[$"Array{numArr}Line{numLine}"][5])));
 					numLine = 2;
 				}
-			}
-			foreach (rev.Line line in curveArray)
-            {
-				//docToImport.FamilyCreate.NewModelCurve(line, exParams.SketchPlane);
 			}
 			curArrArr.Append(curveArray);
 			exParams.curveArrArray = curArrArr;
