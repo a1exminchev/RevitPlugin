@@ -136,7 +136,10 @@ namespace Logics.RevitDocument{
 			//SketchPlane newSk = SketchPlane.Create(_newDoc, sweep.ProfileSketch.SketchPlane.GetPlane());
 			CurveArrArray curveArrArray = new CurveArrArray();
 			CurveArrArray oldCurArrArr  = sweep.ProfileSketch.Profile;
-			Transform     tProfile      = Transform.CreateTranslation(new XYZ(0 - swPathSketchPlane.GetPlane().Origin.X, 0 - swPathSketchPlane.GetPlane().Origin.Y, DeltaModul(sweep.ProfileSketch.SketchPlane.GetPlane().Origin.Z, sweep.ProfileSketch.SketchPlane.GetPlane().Origin.Z)));
+			Transform     tProfile      = Transform.CreateTranslation(new XYZ(0 - swPathSketchPlane.GetPlane().Origin.X, 
+																			  0 - swPathSketchPlane.GetPlane().Origin.Y, 
+																			  DeltaModul(sweep.ProfileSketch.SketchPlane.GetPlane().Origin.Z, 
+																			  sweep.ProfileSketch.SketchPlane.GetPlane().Origin.Z)));
 			foreach (CurveArray curArr in oldCurArrArr) {
 				CurveArray newCurveArray = new CurveArray();
 				foreach (Curve cur in curArr) {

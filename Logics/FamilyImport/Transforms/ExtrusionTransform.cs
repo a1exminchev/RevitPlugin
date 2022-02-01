@@ -51,18 +51,50 @@ namespace Logics.FamilyImport.Transforms
 						numLine += 1;
 					}
 				}
+				else if (pair.Key.Split('y')[1].Split('A')[0] == numArr.ToString())
+                {
+					if (pair.Key.Split('c')[1] == numLine.ToString())
+					{
+						curveArray.Append(rev.Arc.Create(new rev.XYZ(CurveArrArray[$"Array{numArr}Arc{numLine}"][0],
+																CurveArrArray[$"Array{numArr}Arc{numLine}"][1],
+																CurveArrArray[$"Array{numArr}Arc{numLine}"][2]),
+													new rev.XYZ(CurveArrArray[$"Array{numArr}Arc{numLine}"][3],
+																CurveArrArray[$"Array{numArr}Arc{numLine}"][4],
+																CurveArrArray[$"Array{numArr}Arc{numLine}"][5]),
+													new rev.XYZ(CurveArrArray[$"Array{numArr}Arc{numLine}"][6],
+																CurveArrArray[$"Array{numArr}Arc{numLine}"][7],
+																CurveArrArray[$"Array{numArr}Arc{numLine}"][8])));
+
+						numLine += 1;
+					}
+				}
                 else
 				{
 					numArr += 1;
 					numLine = 1;
 					curArrArr.Append(curveArray);
 					curveArray = new rev.CurveArray();
-					curveArray.Append(rev.Line.CreateBound(new rev.XYZ(CurveArrArray[$"Array{numArr}Line{numLine}"][0],
+					if (pair.Key.Contains("Line"))
+                    {
+						curveArray.Append(rev.Line.CreateBound(new rev.XYZ(CurveArrArray[$"Array{numArr}Line{numLine}"][0],
 																   CurveArrArray[$"Array{numArr}Line{numLine}"][1],
 																   CurveArrArray[$"Array{numArr}Line{numLine}"][2]),
 													   new rev.XYZ(CurveArrArray[$"Array{numArr}Line{numLine}"][3],
 																   CurveArrArray[$"Array{numArr}Line{numLine}"][4],
 																   CurveArrArray[$"Array{numArr}Line{numLine}"][5])));
+					}
+					else if (pair.Key.Contains("Arc"))
+                    {
+						curveArray.Append(rev.Arc.Create(new rev.XYZ(CurveArrArray[$"Array{numArr}Arc{numLine}"][0],
+																CurveArrArray[$"Array{numArr}Arc{numLine}"][1],
+																CurveArrArray[$"Array{numArr}Arc{numLine}"][2]),
+													new rev.XYZ(CurveArrArray[$"Array{numArr}Arc{numLine}"][3],
+																CurveArrArray[$"Array{numArr}Arc{numLine}"][4],
+																CurveArrArray[$"Array{numArr}Arc{numLine}"][5]),
+													new rev.XYZ(CurveArrArray[$"Array{numArr}Arc{numLine}"][6],
+																CurveArrArray[$"Array{numArr}Arc{numLine}"][7],
+																CurveArrArray[$"Array{numArr}Arc{numLine}"][8])));
+					}
 					numLine = 2;
 				}
 			}

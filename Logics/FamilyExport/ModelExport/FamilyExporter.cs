@@ -102,6 +102,12 @@ namespace Logics.FamilyExport.ModelExport
 			return a;
 		}
 
+		public static double[] ToJsonDoubles(this double X)
+		{
+			double[] a = { X };
+			return a;
+		}
+
 		public static string ToJsonString(this ExtrusionWrapParameters ExtrusionWrapProperties)
 		{
 			string dataJson = "";
