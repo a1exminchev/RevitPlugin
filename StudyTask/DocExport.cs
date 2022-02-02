@@ -23,57 +23,14 @@ namespace StudyTask{
 			var uiApp = commandData.Application;
 			var app   = commandData.Application.Application;
 			var uidoc = uiApp.ActiveUIDocument;
+			var doc = uidoc.Document;
 			Configure.ConfigureLogger( );
 
-			var familyExporter = new FamilyExporter(uidoc.Document);
+			var familyExporter = new FamilyExporter(doc);
+			var FamilyWrap = familyExporter.GetFamDocWrap();
 			try
 			{
-				var FamilyWrap = familyExporter.Export();
-				string dataJson = "{\n" + JsonConvert.SerializeObject("Extrusions") + ":\n{\n";
-				foreach (var pair in FamilyWrap.Extrusions)
-				{
-					dataJson += pair.Value.ExtrusionWrapProperties.ToJsonString();
-				}
-				if (FamilyWrap.Extrusions.Count != 0)
-                {
-					dataJson = dataJson.Remove(dataJson.Length - 2, 1) + "},\n";
-				}
-				else
-                {
-					dataJson += "\n},\n";
-				}
-				dataJson += JsonConvert.SerializeObject("Revolutions") + ":\n{\n";
-				foreach (var pair in FamilyWrap.Revolutions)
-				{
-					dataJson += pair.Value.RevolutionWrapProperties.ToJsonString();
-				}
-				if (FamilyWrap.Revolutions.Count != 0)
-                {
-					dataJson = dataJson.Remove(dataJson.Length - 2, 1) + "},\n";
-				}
-				else
-                {
-					dataJson += "\n},\n";
-				}
-				dataJson += JsonConvert.SerializeObject("Blends") + ":\n{\n";
-				foreach (var pair in FamilyWrap.Blends)
-				{
-					dataJson += pair.Value.BlendWrapProperties.ToJsonString();
-				}
-				if (FamilyWrap.Blends.Count != 0)
-				{
-					dataJson = dataJson.Remove(dataJson.Length - 2, 1) + "}";
-				}
-				else
-				{
-					dataJson += "\n}";
-				}
-				dataJson += "\n}";
-				TextWriter tw = new StreamWriter(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json");
-				using (tw)
-                {
-					tw.Write(dataJson);
-				}
+				familyExporter.ExportToJson(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json", FamilyWrap);
 			}
 			catch (Exception e)
 			{

@@ -30,8 +30,56 @@ namespace Logics.FamilyExport.ModelExport
 			_doc = doc;
 		}
 
+		public void ExportToJson(string json, FamilyDocumentWrap famDocWrap)
+        {
+			string dataJson = "{\n" + JsonConvert.SerializeObject("Extrusions") + ":\n{\n";
+			foreach (var pair in famDocWrap.Extrusions)
+			{
+				dataJson += pair.Value.ExtrusionWrapProperties.ToJsonString();
+			}
+			if (famDocWrap.Extrusions.Count != 0)
+			{
+				dataJson = dataJson.Remove(dataJson.Length - 2, 1) + "},\n";
+			}
+			else
+			{
+				dataJson += "\n},\n";
+			}
+			dataJson += JsonConvert.SerializeObject("Revolutions") + ":\n{\n";
+			foreach (var pair in famDocWrap.Revolutions)
+			{
+				dataJson += pair.Value.RevolutionWrapProperties.ToJsonString();
+			}
+			if (famDocWrap.Revolutions.Count != 0)
+			{
+				dataJson = dataJson.Remove(dataJson.Length - 2, 1) + "},\n";
+			}
+			else
+			{
+				dataJson += "\n},\n";
+			}
+			dataJson += JsonConvert.SerializeObject("Blends") + ":\n{\n";
+			foreach (var pair in famDocWrap.Blends)
+			{
+				dataJson += pair.Value.BlendWrapProperties.ToJsonString();
+			}
+			if (famDocWrap.Blends.Count != 0)
+			{
+				dataJson = dataJson.Remove(dataJson.Length - 2, 1) + "}";
+			}
+			else
+			{
+				dataJson += "\n}";
+			}
+			dataJson += "\n}";
+			TextWriter tw = new StreamWriter(json);
+			using (tw)
+			{
+				tw.Write(dataJson);
+			}
+		}
 
-		public FamilyDocumentWrap Export()
+		public FamilyDocumentWrap GetFamDocWrap()
 		{
 			var docWrap = new FamilyDocumentWrap();
 
