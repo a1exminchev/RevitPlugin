@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalData.cs" />
     <Compile Include="Loger\IPathConfig.cs" />
     <Compile Include="Loger\Log.cs" />
     <Compile Include="Loger\PathConfig.cs" />

@@ -10,12 +10,12 @@ using Logics.FamilyImport.Transforms;
 
 namespace Logics.FamilyImport.ModelImport.Importers.Implementations
 {
-	public class ExtrusionImporter : AbstractImporter<ExtrusionTransform>
+	public class ExtrusionImporter : AbstractImporter<ExtrusionTransfer>
 	{
 		public ExtrusionImporter(string jsonFilePath) : base(jsonFilePath) {
-		}   //taking for constructor json from base for doing ImportWork() where it converts text to dictionary of Name+Id string and <ExtrusionTransform>s that has Method of creation
+		}   //taking for constructor json from base for doing ImportWork() where it converts text to dictionary of Id string and <ExtrusionTransfer>s that has Method of creation
 
-		public override Dictionary<string, ExtrusionTransform> ImportWork()
+		public override Dictionary<string, ExtrusionTransfer> ImportWork()
 		{
 			var famDict = JsonConvert.DeserializeObject<FamilyDocumentData>(_json);
 			var dict = famDict.Extrusions;

@@ -9,6 +9,5 @@ namespace Logics.FamilyExport.Wraps.Interfaces{
 		string      Type		{ get; set; }
 		bool		isPinned	{ get; set; }
 		string		Category	{ get; set; }
-		double		Volume		{ get; set; }
 	}
 }

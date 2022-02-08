@@ -9,7 +9,6 @@ namespace Logics.FamilyExport.Wraps.Implementations{
 		public string          Type     { get; set; }
 		public bool			   isPinned { get; set; }
 		public string		   Category { get; set; }
-		public double		   Volume   { get; set; }
 		public AbstractElementData() {
 		}
 
@@ -20,10 +19,6 @@ namespace Logics.FamilyExport.Wraps.Implementations{
 			isPinned = el.Pinned;
 			Category = el.Category?.ToString();
 			
-			if (el.GetMaterialIds(false).GetEnumerator().Current != null)
-            {
-				Volume = el.GetMaterialVolume(el.GetMaterialIds(false).GetEnumerator()?.Current);
-			}
 		}
 	}
 }

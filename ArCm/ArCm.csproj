@@ -107,10 +107,6 @@
       <Project>{af5a7a5c-087f-4c13-92b3-10ffb4c8533f}</Project>
       <Name>Logics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PluginLogics\PluginLogics.csproj">
-      <Project>{670d8252-9598-4cca-822e-70afc24281da}</Project>
-      <Name>PluginLogics</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PluginUtils\PluginUtil.csproj">
       <Project>{9ffbe8dd-85ee-4a09-a6c8-b34d5bdad4dd}</Project>
       <Name>PluginUtil</Name>

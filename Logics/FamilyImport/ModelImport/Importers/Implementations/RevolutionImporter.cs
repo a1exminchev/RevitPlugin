@@ -10,12 +10,12 @@ using Logics.FamilyImport.Transforms;
 
 namespace Logics.FamilyImport.ModelImport.Importers.Implementations
 {
-	public class RevolutionImporter : AbstractImporter<RevolutionTransform>
+	public class RevolutionImporter : AbstractImporter<RevolutionTransfer>
 	{
 		public RevolutionImporter(string jsonFilePath) : base(jsonFilePath) {
-		}   //taking for constructor json from base for doing ImportWork() where it converts text to dictionary of Name+Id string and <RevolutionTransform>s that has Method of creation
+		}   //taking for constructor json from base for doing ImportWork() where it converts text to dictionary of Id string and <RevolutionTransfer>s that has Method of creation
 
-		public override Dictionary<string, RevolutionTransform> ImportWork()
+		public override Dictionary<string, RevolutionTransfer> ImportWork()
 		{
 			var famDict = JsonConvert.DeserializeObject<FamilyDocumentData>(_json);
 			var dict = famDict.Revolutions;

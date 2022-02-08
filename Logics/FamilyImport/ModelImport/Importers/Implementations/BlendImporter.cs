@@ -10,12 +10,12 @@ using Logics.FamilyImport.Transforms;
 
 namespace Logics.FamilyImport.ModelImport.Importers.Implementations
 {
-	public class BlendImporter : AbstractImporter<BlendTransform>
+	public class BlendImporter : AbstractImporter<BlendTransfer>
 	{
 		public BlendImporter(string jsonFilePath) : base(jsonFilePath) {
-		}   //taking for constructor json from base for doing ImportWork() where it converts text to dictionary of Name+Id string and <BlendTransform>s that has Method of creation
+		}   //taking for constructor json from base for doing ImportWork() where it converts text to dictionary of Id string and <BlendTransfer>s that has Method of creation
 
-		public override Dictionary<string, BlendTransform> ImportWork()
+		public override Dictionary<string, BlendTransfer> ImportWork()
 		{
 			var famDict = JsonConvert.DeserializeObject<FamilyDocumentData>(_json);
 			var dict = famDict.Blends;

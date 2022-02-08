@@ -111,10 +111,6 @@
       <Project>{9ffbe8dd-85ee-4a09-a6c8-b34d5bdad4dd}</Project>
       <Name>PluginUtil</Name>
     </ProjectReference>
-    <ProjectReference Include="..\StudyHome\StudyHome.csproj">
-      <Project>{a969dd13-9768-4806-acb4-b02691d62e56}</Project>
-      <Name>StudyHome</Name>
-    </ProjectReference>
     <ProjectReference Include="..\StudyTask\StudyTask.csproj">
       <Project>{acc16126-c329-46da-bc32-d3f02b4bd9ba}</Project>
       <Name>StudyTask</Name>

@@ -128,10 +128,10 @@
     <Compile Include="FamilyImport\ModelImport\Importers\Implementations\BlendImporter.cs" />
     <Compile Include="FamilyImport\ModelImport\Importers\Implementations\RevolutionImporter.cs" />
     <Compile Include="FamilyImport\ModelImport\Importers\Implementations\ExtrusionImporter.cs" />
-    <Compile Include="FamilyImport\Transforms\BlendTransform.cs" />
-    <Compile Include="FamilyImport\Transforms\RevolutionTransform.cs" />
-    <Compile Include="FamilyImport\Transforms\ExtrusionTransform.cs" />
-    <Compile Include="FamilyImport\Transforms\AbstractTransform.cs" />
+    <Compile Include="FamilyImport\Transforms\BlendTransfer.cs" />
+    <Compile Include="FamilyImport\Transforms\RevolutionTransfer.cs" />
+    <Compile Include="FamilyImport\Transforms\ExtrusionTransfer.cs" />
+    <Compile Include="FamilyImport\Transforms\AbstractTransfer.cs" />
     <Compile Include="Geometry\GeometryOperations.cs" />
     <Compile Include="Geometry\Implementation\RevolutionCreator.cs" />
     <Compile Include="Geometry\Implementation\SweptBlendCreator.cs" />

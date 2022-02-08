@@ -31,7 +31,7 @@ namespace Logics.FamilyImport.ModelImport
 			{
 				throw new Exception($"Document {doc.Title} is not family document");
 			}
-			//Create constructor with new doc init
+			//Creates constructor with new doc init
 			_doc = doc;
 		}
 
@@ -39,16 +39,13 @@ namespace Logics.FamilyImport.ModelImport
 		public void Import(string JsonPath)
 		{
 			_json = File.ReadAllText(JsonPath);
-
-			//Type tF = typeof(FamilyDocumentData);
-			//PropertyInfo[] props = tF.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 			
 			_importers = CollectImporters();
 
 			foreach (var imp in _importers.Values)
             {
 				var dict = imp.Import();
-				foreach (AbstractTransform i in dict.Values)
+				foreach (AbstractTransfer i in dict.Values)
                 {
 					i.Create(_doc);
                 }
@@ -82,16 +79,6 @@ namespace Logics.FamilyImport.ModelImport
 							 .FirstOrDefault(x => x.GetParameters().FirstOrDefault().ParameterType == typeof(string));
 
 			return (IImporter)constr.Invoke(new object[] { _json });
-		}
-
-		private Result<IDictionary> ImportToFamily(Type last)
-		{
-			if (_importers.ContainsKey(last))
-			{
-				return _importers[last].Import().ToResult();
-			}
-			
-			return Result.Failure<IDictionary>($"Importer for type {last.Name} not founded ");
 		}
 	}
 }

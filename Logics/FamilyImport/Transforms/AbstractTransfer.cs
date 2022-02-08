@@ -5,9 +5,9 @@ using Autodesk.Revit.DB;
 
 namespace Logics.FamilyImport.Transforms
 {
-    public abstract class AbstractTransform
+    public abstract class AbstractTransfer
     {
-        public AbstractTransform(){
+        public AbstractTransfer(){
 
         }
 

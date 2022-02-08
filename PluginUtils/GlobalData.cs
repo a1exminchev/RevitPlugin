@@ -3,7 +3,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System.IO;
 
-namespace PluginLogics
+namespace PluginUtils
 {
     public static class GlobalData
     {
