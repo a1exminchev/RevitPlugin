@@ -52,5 +52,6 @@ namespace Logics.Geometry.Implementation
         public SketchPlane PathSketchPlane { get; set; }
         public double AngleFromXZtoY { get; set; }
         public double AngleFromYZtoX { get; set; }
+        public SketchPlane ProfileSketchPlane { get; set; }
     }
 }

@@ -126,9 +126,11 @@
     <Compile Include="FamilyImport\ModelImport\FamilyImporter.cs" />
     <Compile Include="FamilyImport\ModelImport\Importers\IImporter.cs" />
     <Compile Include="FamilyImport\ModelImport\Importers\Implementations\BlendImporter.cs" />
+    <Compile Include="FamilyImport\ModelImport\Importers\Implementations\SweepImporter.cs" />
     <Compile Include="FamilyImport\ModelImport\Importers\Implementations\RevolutionImporter.cs" />
     <Compile Include="FamilyImport\ModelImport\Importers\Implementations\ExtrusionImporter.cs" />
     <Compile Include="FamilyImport\Transforms\BlendTransfer.cs" />
+    <Compile Include="FamilyImport\Transforms\SweepTransfer.cs" />
     <Compile Include="FamilyImport\Transforms\RevolutionTransfer.cs" />
     <Compile Include="FamilyImport\Transforms\ExtrusionTransfer.cs" />
     <Compile Include="FamilyImport\Transforms\AbstractTransfer.cs" />
