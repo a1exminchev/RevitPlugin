@@ -4,7 +4,6 @@ using System.Linq;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using imp = Logics.Geometry.Implementation;
-using Autodesk.Revit.DB;
 using Logics.FamilyExport;
 
 namespace Logics.FamilyImport.Transforms

@@ -44,5 +44,7 @@ namespace Logics.Geometry.Implementation
         public bool isSolid { get; set; }
         public CurveArray Profile1CurveArray { get; set; }
         public CurveArray Profile2CurveArray { get; set; }
+        public SketchPlane Profile1SketchPlane { get; set; }
+        public SketchPlane Profile2SketchPlane { get; set; }
     }
 }

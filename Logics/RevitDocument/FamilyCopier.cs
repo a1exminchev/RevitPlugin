@@ -175,10 +175,14 @@ namespace Logics.RevitDocument{
 
 			CurveArray botCurveList = TakeSingleCurveArray(sweptblend.BottomSketch.Profile);
 			CurveArray topCurveList = TakeSingleCurveArray(sweptblend.TopSketch.Profile);
-			CurveArray botCurArr    = new CurveArray();
-			CurveArray topCurArr    = new CurveArray();
-			Transform  tTop         = Transform.CreateTranslation(new XYZ(0 - newPathSketchPlane.GetPlane().Origin.X, 0 - newPathSketchPlane.GetPlane().Origin.Y, DeltaModul(sweptblend.TopSketch.SketchPlane.GetPlane().Origin.Z, newTopSkPl.GetPlane().Origin.Z)));
-			Transform  tBot         = Transform.CreateTranslation(new XYZ(0 - newPathSketchPlane.GetPlane().Origin.X, 0 - newPathSketchPlane.GetPlane().Origin.Y, DeltaModul(sweptblend.BottomSketch.SketchPlane.GetPlane().Origin.Z, newBotSkPl.GetPlane().Origin.Z)));
+			CurveArray botCurArr = new CurveArray();
+			CurveArray topCurArr = new CurveArray();
+			Transform  tTop = Transform.CreateTranslation(new XYZ(0 - newPathSketchPlane.GetPlane().Origin.X,
+				0 - newPathSketchPlane.GetPlane().Origin.Y,
+				DeltaModul(sweptblend.TopSketch.SketchPlane.GetPlane().Origin.Z, newTopSkPl.GetPlane().Origin.Z)));
+			Transform  tBot = Transform.CreateTranslation(new XYZ(0 - newPathSketchPlane.GetPlane().Origin.X,
+				0 - newPathSketchPlane.GetPlane().Origin.Y,
+				DeltaModul(sweptblend.BottomSketch.SketchPlane.GetPlane().Origin.Z, newBotSkPl.GetPlane().Origin.Z)));
 			foreach (Curve cur in botCurveList) {
 				Curve curT = cur.CreateTransformed(tBot);
 				botCurArr.Append(curT);
