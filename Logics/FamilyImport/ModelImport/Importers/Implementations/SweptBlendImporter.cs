@@ -15,10 +15,9 @@ namespace Logics.FamilyImport.ModelImport.Importers.Implementations
 		public SweptBlendImporter(string jsonFilePath) : base(jsonFilePath) {
 		}   //taking for constructor json from base for doing ImportWork() where it converts text to dictionary of Id string and <SweptBlendTransfer>s that has Method of creation
 
-		public override Dictionary<string, SweptBlendTransfer> ImportWork()
+		public override Dictionary<string, SweptBlendTransfer> ImportWork(FamilyDocumentData famDoc)
 		{
-			var famDict = JsonConvert.DeserializeObject<FamilyDocumentData>(_json);
-			var dict = famDict;
+			var dict = famDoc;
 			return dict.SweptBlends;
 		}
 	}

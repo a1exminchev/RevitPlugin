@@ -15,10 +15,9 @@ namespace Logics.FamilyImport.ModelImport.Importers.Implementations
 		public BlendImporter(string jsonFilePath) : base(jsonFilePath) {
 		}   //taking for constructor json from base for doing ImportWork() where it converts text to dictionary of Id string and <BlendTransfer>s that has Method of creation
 
-		public override Dictionary<string, BlendTransfer> ImportWork()
+		public override Dictionary<string, BlendTransfer> ImportWork(FamilyDocumentData famDoc)
 		{
-			var famDict = JsonConvert.DeserializeObject<FamilyDocumentData>(_json);
-			var dict = famDict.Blends;
+			var dict = famDoc.Blends;
 			return dict;
 		}
 	}

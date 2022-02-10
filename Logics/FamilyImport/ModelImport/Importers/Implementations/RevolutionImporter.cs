@@ -15,10 +15,9 @@ namespace Logics.FamilyImport.ModelImport.Importers.Implementations
 		public RevolutionImporter(string jsonFilePath) : base(jsonFilePath) {
 		}   //taking for constructor json from base for doing ImportWork() where it converts text to dictionary of Id string and <RevolutionTransfer>s that has Method of creation
 
-		public override Dictionary<string, RevolutionTransfer> ImportWork()
+		public override Dictionary<string, RevolutionTransfer> ImportWork(FamilyDocumentData famDoc)
 		{
-			var famDict = JsonConvert.DeserializeObject<FamilyDocumentData>(_json);
-			var dict = famDict.Revolutions;
+			var dict = famDoc.Revolutions;
 			return dict;
 		}
 	}

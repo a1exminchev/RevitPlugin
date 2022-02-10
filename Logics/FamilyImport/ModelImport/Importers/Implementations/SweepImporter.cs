@@ -15,10 +15,9 @@ namespace Logics.FamilyImport.ModelImport.Importers.Implementations
 		public SweepImporter(string jsonFilePath) : base(jsonFilePath) {
 		}   //taking for constructor json from base for doing ImportWork() where it converts text to dictionary of Id string and <SweepTransfer>s that has Method of creation
 
-		public override Dictionary<string, SweepTransfer> ImportWork()
+		public override Dictionary<string, SweepTransfer> ImportWork(FamilyDocumentData famDoc)
 		{
-			var famDict = JsonConvert.DeserializeObject<FamilyDocumentData>(_json);
-			var dict = famDict.Sweeps;
+			var dict = famDoc.Sweeps;
 			return dict;
 		}
 	}

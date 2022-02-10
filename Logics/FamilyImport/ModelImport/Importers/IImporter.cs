@@ -7,7 +7,7 @@ namespace Logics.FamilyImport.ModelImport.Importers
 {
     public interface IImporter
     {
-		IDictionary Import();
+		IDictionary Import(FamilyDocumentData famDoc);
     }
 	public abstract class AbstractImporter<T> : IImporter
 	{
@@ -20,10 +20,10 @@ namespace Logics.FamilyImport.ModelImport.Importers
 
 		}
 
-		public abstract Dictionary<string, T> ImportWork();
-		public IDictionary Import()
+		public abstract Dictionary<string, T> ImportWork(FamilyDocumentData famDoc);
+		public IDictionary Import(FamilyDocumentData famDoc)
 		{
-			return ImportWork();
+			return ImportWork(famDoc);
 		}
 
 	}

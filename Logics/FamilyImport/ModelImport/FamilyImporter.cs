@@ -39,12 +39,12 @@ namespace Logics.FamilyImport.ModelImport
 		public void Import(string JsonPath)
 		{
 			_json = File.ReadAllText(JsonPath);
-			
+			var famDoc = JsonConvert.DeserializeObject<FamilyDocumentData>(_json);
 			_importers = CollectImporters();
 
 			foreach (var imp in _importers.Values)
             {
-				var dict = imp.Import();
+				var dict = imp.Import(famDoc);
 				foreach (AbstractTransfer i in dict.Values)
                 {
 					i.Create(_doc);

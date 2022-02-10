@@ -15,10 +15,9 @@ namespace Logics.FamilyImport.ModelImport.Importers.Implementations
 		public ExtrusionImporter(string jsonFilePath) : base(jsonFilePath) {
 		}   //taking for constructor json from base for doing ImportWork() where it converts text to dictionary of Id string and <ExtrusionTransfer>s that has Method of creation
 
-		public override Dictionary<string, ExtrusionTransfer> ImportWork()
+		public override Dictionary<string, ExtrusionTransfer> ImportWork(FamilyDocumentData famDoc)
 		{
-			var famDict = JsonConvert.DeserializeObject<FamilyDocumentData>(_json);
-			var dict = famDict.Extrusions;
+			var dict = famDoc.Extrusions;
 			return dict;
 		}
 	}
