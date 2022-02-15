@@ -6,12 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
-using Logics.FamilyImport;
-using Logics.FamilyImport.ModelImport;
+using Logics.Import;
+using Logics.Import.ModelImport;
 using PluginUtil.Loger;
 using SCOPE_RevitPluginLogic.Utils;
 using Newtonsoft.Json;
-using Logics.FamilyImport.Transforms;
+using Logics.Import.Transforms;
 using PluginUtils;
 
 namespace StudyTask{

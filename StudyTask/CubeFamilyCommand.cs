@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
+using SCOPE_RevitPluginLogic.Utils;
 
 namespace StudyTask
 {
@@ -17,6 +18,7 @@ namespace StudyTask
             var uiApp = commandData.Application;
             var app = commandData.Application.Application;
             var uidoc = uiApp.ActiveUIDocument;
+            Configure.ConfigureLogger();
 
             FamilyCreator familyCreator = new FamilyCreator(app);
             Document newDoc = familyCreator.CreateNewFamily(uiApp, "MyCubes", "Metric Generic Model");

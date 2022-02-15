@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
-using Logics.FamilyExport.ModelExport;
-using Logics.FamilyExport;
+using Logics.Export.ModelExport;
+using Logics.Export;
 using PluginUtil.Loger;
 using SCOPE_RevitPluginLogic.Utils;
 using Newtonsoft.Json;
@@ -25,18 +25,18 @@ namespace StudyTask{
 			var uidoc = uiApp.ActiveUIDocument;
 			var doc = uidoc.Document;
 			Configure.ConfigureLogger( );
-
-			var familyExporter = new FamilyExporter(doc);
-			var FamilyWrap = familyExporter.GetFamDocWrap();
-			try
+			if (doc.IsFamilyDocument == true)
 			{
-				familyExporter.ExportToJson(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json", FamilyWrap);
+				var familyExporter = new FamilyExporter(doc);
+				var familyWrap = familyExporter.GetFamDocWrap();
+				familyExporter.ExportToJson(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json", familyWrap);
 			}
-			catch (Exception e)
-			{
-				e.LogError();
+			else
+            {
+				var projExporter = new ProjectExporter(doc);
+				var projWrap = projExporter.GetProjDocWrap();
+				projExporter.ExportToJson(GlobalData.PluginDir + @"\StudyTask\Files\ProjectData.json", projWrap);
 			}
-
 
 			return Result.Succeeded;
 		}
