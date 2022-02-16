@@ -80,12 +80,12 @@ namespace UIBuilder
             btnCopyFamily.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
             btnCopyFamily.ToolTip = "";
 
-            PushButton btnFamilyExport = (PushButton)panelBerg.AddItem(new PushButtonData("FamilyExport", "FamilyExport", dllBerg, typeof(DocExport).FullName));
+            PushButton btnFamilyExport = (PushButton)panelBerg.AddItem(new PushButtonData("Export", "Export", dllBerg, typeof(DocExport).FullName));
             btnFamilyExport.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
             btnFamilyExport.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
             btnFamilyExport.ToolTip = "";
 
-            PushButton btnFamilyImport = (PushButton)panelBerg.AddItem(new PushButtonData("FamilyImport", "FamilyImport", dllBerg, typeof(DocImport).FullName));
+            PushButton btnFamilyImport = (PushButton)panelBerg.AddItem(new PushButtonData("Import", "Import", dllBerg, typeof(DocImport).FullName));
             btnFamilyImport.LargeImage = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh32.png"), UriKind.Absolute));
             btnFamilyImport.Image = new BitmapImage(new Uri(Path.Combine(folderImage, "LayerTagRefresh16.png"), UriKind.Absolute));
             btnFamilyImport.ToolTip = "";
