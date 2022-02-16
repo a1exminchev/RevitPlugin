@@ -106,6 +106,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Export\ModelExport\Extractors\Implementations\BeamExtracter.cs" />
     <Compile Include="Export\ModelExport\Extractors\Implementations\ColumnExtracter.cs" />
     <Compile Include="Export\ModelExport\ProjectExporter.cs" />
     <Compile Include="Export\ProjectDocumentWrap.cs" />
