@@ -19,7 +19,6 @@ namespace Logics.Export.Wraps.Implementations{
 			Type = el.GetType().ToString();
 			isPinned = el.Pinned;
 			Category = el.Category?.ToString();
-			doc = el.Document;
 		}
 	}
 }

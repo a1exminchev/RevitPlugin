@@ -16,21 +16,21 @@ namespace Logics.Export{
 		public StructuralColumnWrapParameters StructuralColumnWrapProperties;
 		public StructuralColumnWrap(Element el) : base(el)
 		{
-			StructuralColumnWrapParameters _props = new StructuralColumnWrapParameters();
-			FamilyInstance fam = el as FamilyInstance;
-			//Document _doc = el.Document;
+            StructuralColumnWrapParameters _props = new StructuralColumnWrapParameters();
+            FamilyInstance fam = el as FamilyInstance;
+            Document _doc = el.Document;
 
-			_props.FamilySymbolName = fam.Symbol.Name;
+            _props.FamilySymbolName = fam.Symbol.Name;
 
-			Level level = doc.GetElement(fam.LevelId) as Level;
-			_props.LevelName = level.Name;
+            Level level = _doc.GetElement(fam.LevelId) as Level;
+            _props.LevelName = level.Name;
 
-			var locP = fam.Location as LocationPoint;
-			_props.CenterPoint = locP.Point.ToJsonDoubles();
+            var locP = fam.Location as LocationPoint;
+            _props.CenterPoint = locP.Point.ToJsonDoubles();
 
-			_props.Id = el.Id.IntegerValue;
-			StructuralColumnWrapProperties = _props;
-		}
+            _props.Id = el.Id.IntegerValue;
+            StructuralColumnWrapProperties = _props;
+        }
 
 		public StructuralColumnWrap() {
 

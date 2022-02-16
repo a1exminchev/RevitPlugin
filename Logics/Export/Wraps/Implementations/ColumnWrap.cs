@@ -16,21 +16,21 @@ namespace Logics.Export{
 		public ColumnWrapParameters ColumnWrapProperties;
 		public ColumnWrap(Element el) : base(el)
 		{
-			ColumnWrapParameters _props = new ColumnWrapParameters();
-			FamilyInstance fam = el as FamilyInstance;
-			//Document _doc = el.Document;
+            ColumnWrapParameters _props = new ColumnWrapParameters();
+            FamilyInstance fam = el as FamilyInstance;
+            Document _doc = el.Document;
 
-			_props.FamilySymbolName = fam.Symbol.Name;
+            _props.FamilySymbolName = fam.Symbol.Name;
 
-			Level level = doc.GetElement(fam.LevelId) as Level;
-			_props.LevelName = level.Name;
+            Level level = _doc.GetElement(fam.LevelId) as Level;
+            _props.LevelName = level.Name;
 
-			var locP = fam.Location as LocationPoint;
-			_props.CenterPoint = locP.Point.ToJsonDoubles();
+            var locP = fam.Location as LocationPoint;
+            _props.CenterPoint = locP.Point.ToJsonDoubles();
 
-			_props.Id = el.Id.IntegerValue;
-			ColumnWrapProperties = _props;
-		}
+            _props.Id = el.Id.IntegerValue;
+            ColumnWrapProperties = _props;
+        }
 
 		public ColumnWrap() {
 

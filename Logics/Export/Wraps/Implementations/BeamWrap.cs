@@ -16,23 +16,23 @@ namespace Logics.Export{
 		public BeamWrapParameters BeamWrapProperties;
 		public BeamWrap(Element el) : base(el)
 		{
-			BeamWrapParameters _props = new BeamWrapParameters();
-			FamilyInstance fam = el as FamilyInstance;
-			//Document _doc = el.Document;
+            BeamWrapParameters _props = new BeamWrapParameters();
+            FamilyInstance fam = el as FamilyInstance;
+            Document _doc = el.Document;
 
-			_props.FamilySymbolName = fam.Symbol.Name;
+            _props.FamilySymbolName = fam.Symbol.Name;
 
-			Level level = doc.GetElement(fam.LevelId) as Level;
-			_props.LevelName = level?.Name;
+            Level level = _doc.GetElement(fam.LevelId) as Level;
+            _props.LevelName = level?.Name;
 
-			Options opt = new Options();
-			var curve = fam.get_Geometry(opt).Where(x => x as Curve != null)?.FirstOrDefault() as Curve;
-			_props.AxisCurve = curve?.GetEndPoint(0).ToJsonDoubles().ToArray().Concat
-							  (curve?.GetEndPoint(1).ToJsonDoubles()).ToArray();
+            Options opt = new Options();
+            var curve = fam.get_Geometry(opt).Where(x => x as Curve != null)?.FirstOrDefault() as Curve;
+            _props.AxisCurve = curve?.GetEndPoint(0).ToJsonDoubles().ToArray().Concat
+                              (curve?.GetEndPoint(1).ToJsonDoubles()).ToArray();
 
-			_props.Id = el.Id.IntegerValue;
-			BeamWrapProperties = _props;
-		}
+            _props.Id = el.Id.IntegerValue;
+            BeamWrapProperties = _props;
+        }
 
 		public BeamWrap() {
 
