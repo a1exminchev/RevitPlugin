@@ -22,13 +22,18 @@ namespace Logics.Export{
 
             _props.FamilySymbolName = fam.Symbol.Name;
 
-            Level level = _doc.GetElement(fam.LevelId) as Level;
-            _props.LevelName = level.Name;
+			var baseLvlId = fam.get_Parameter(BuiltInParameter.FAMILY_BASE_LEVEL_PARAM).AsElementId();
+			var topLvlId = fam.get_Parameter(BuiltInParameter.FAMILY_TOP_LEVEL_PARAM).AsElementId();
+			_props.BottomLevelName = _doc.GetElement(baseLvlId).Name;
+			_props.TopLevelName = _doc.GetElement(topLvlId).Name;
 
-            var locP = fam.Location as LocationPoint;
+			var locP = fam.Location as LocationPoint;
             _props.CenterPoint = locP.Point.ToJsonDoubles();
 
-            _props.Id = el.Id.IntegerValue;
+			_props.BottomOffset = fam.get_Parameter(BuiltInParameter.FAMILY_TOP_LEVEL_OFFSET_PARAM).AsDouble();
+			_props.TopOffset = fam.get_Parameter(BuiltInParameter.FAMILY_BASE_LEVEL_OFFSET_PARAM).AsDouble();
+
+			_props.Id = el.Id.IntegerValue;
             ColumnWrapProperties = _props;
         }
 
@@ -41,7 +46,10 @@ namespace Logics.Export{
 	{
 		public double[] CenterPoint { get; set; }
 		public string FamilySymbolName { get; set; }
-		public string LevelName { get; set; }
+		public string TopLevelName { get; set; }
+		public string BottomLevelName { get; set; }
+		public double BottomOffset { get; set; }
+		public double TopOffset { get; set; }
 		private new int Id { get; set; }
 
 	}

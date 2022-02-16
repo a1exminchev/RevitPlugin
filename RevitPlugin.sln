@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitPlugin", "RevitPlugin\RevitPlugin.csproj", "{03715D01-6212-4292-8B78-FBBA3962DDEA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ACC16126-C329-46DA-BC32-D3F02B4BD9BA} = {ACC16126-C329-46DA-BC32-D3F02B4BD9BA}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{77291FBC-E54F-4660-9DF4-B4B797E050D3}"
 EndProject

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Logics.Export.Wraps.Interfaces;
 using Logics.Geometry.Implementation;
 using Logics.Export.ModelExport;
+using Logics.Geometry;
 
 namespace Logics.Export{
 
@@ -21,16 +22,12 @@ namespace Logics.Export{
 			if (!curvePath.IsCyclic)
             {
 				pathCurveDic = new Dictionary<string, double[]>()
-								{ { "Line", curvePath.GetEndPoint(0).ToJsonDoubles().
-									 Concat(curvePath.GetEndPoint(1).ToJsonDoubles()).ToArray() } };
+								{ { "Line", curvePath.ToJsonDoubles() } };
 			}
 			else if (curvePath.IsCyclic)
             {
-				Arc arc = curvePath as Arc;
 				pathCurveDic = new Dictionary<string, double[]>()
-								{ { "Line", arc.GetEndPoint(0).ToJsonDoubles().
-									 Concat(arc.GetEndPoint(1).ToJsonDoubles()).ToArray().
-									 Concat(GetPointOnArc(arc).ToJsonDoubles()).ToArray() } };
+								{ { "Line", curvePath.ToJsonDoubles() } };
 			}
 			_props.PathCurve = pathCurveDic;
 
@@ -48,19 +45,14 @@ namespace Logics.Export{
 				if (!cur.IsCyclic)
 				{
 					curDic = new Dictionary<string, double[]>()
-													{ {"Line" + lineNames,
-														cur.GetEndPoint(0).ToJsonDoubles().Concat(cur.GetEndPoint(1).ToJsonDoubles()).ToArray() } };
+													{ {"Line" + lineNames, cur.ToJsonDoubles() } };
 					curDicList1.Add(curDic);
 					lineNames += 1;
 				}
 				else if (cur.IsCyclic)
 				{
-					Arc arc = cur as Arc;
 					curDic = new Dictionary<string, double[]>()
-													{ {"Arc" + lineNames,
-														arc.GetEndPoint(0).ToJsonDoubles().
-												Concat(arc.GetEndPoint(1).ToJsonDoubles()).ToArray().
-												Concat( GetPointOnArc(arc).ToJsonDoubles()).ToArray()} };
+													{ {"Arc" + lineNames, cur.ToJsonDoubles() } };
 					curDicList1.Add(curDic);
 					lineNames += 1;
 				}
@@ -77,19 +69,14 @@ namespace Logics.Export{
 				if (!cur.IsCyclic)
 				{
 					curDic = new Dictionary<string, double[]>()
-													{ {"Line" + lineNames,
-														cur.GetEndPoint(0).ToJsonDoubles().Concat(cur.GetEndPoint(1).ToJsonDoubles()).ToArray() } };
+													{ {"Line" + lineNames, cur.ToJsonDoubles() } };
 					curDicList2.Add(curDic);
 					lineNames += 1;
 				}
 				else if (cur.IsCyclic)
 				{
-					Arc arc = cur as Arc;
 					curDic = new Dictionary<string, double[]>()
-													{ {"Arc" + lineNames,
-														arc.GetEndPoint(0).ToJsonDoubles().
-												Concat(arc.GetEndPoint(1).ToJsonDoubles()).ToArray().
-												Concat( GetPointOnArc(arc).ToJsonDoubles()).ToArray()} };
+													{ {"Arc" + lineNames, cur.ToJsonDoubles() } };
 					curDicList2.Add(curDic);
 					lineNames += 1;
 				}
@@ -111,12 +98,6 @@ namespace Logics.Export{
 			_props.IsSolid = sw.IsSolid;
 			SweptBlendWrapProperties = _props;
 
-		}
-
-		private XYZ GetPointOnArc(Arc arc)
-		{
-			var pList = arc.Tessellate();
-			return pList[1];
 		}
 
 		public SweptBlendWrap()

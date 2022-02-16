@@ -14,6 +14,7 @@ using PluginUtil;
 using PluginUtil.Loger;
 using Newtonsoft.Json;
 using ui = Autodesk.Revit.UI;
+using Logics.Geometry;
 
 namespace Logics.Export.ModelExport
 {
@@ -120,6 +121,22 @@ namespace Logics.Export.ModelExport
 			return a;
 		}
 
-		
+		public static double[] ToJsonDoubles(this Curve curve)
+		{
+			if (!curve.IsCyclic)
+			{
+				double[] a = curve.GetEndPoint(0).ToJsonDoubles().
+					  Concat(curve.GetEndPoint(1).ToJsonDoubles()).ToArray();
+				return a;
+			}
+			else
+			{
+				Arc arc = curve as Arc;
+				double[] a = arc.GetEndPoint(0).ToJsonDoubles().
+					  Concat(arc.GetEndPoint(1).ToJsonDoubles()).ToArray().
+					  Concat(GeometryOperations.GetPointOnArc(arc).ToJsonDoubles()).ToArray();
+				return a;
+			}
+		}
 	}
 }

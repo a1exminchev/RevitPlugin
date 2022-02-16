@@ -15,5 +15,10 @@ namespace Logics.Geometry
 			double angle = a.AngleTo(b);
 			return (_eps > angle) || (Math.Abs(angle - Math.PI) < _eps);
 		}
+		static public XYZ GetPointOnArc(Arc arc)
+		{
+			var pList = arc.Tessellate();
+			return pList[1];
+		}
 	}
 }

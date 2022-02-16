@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Logics.Export.Wraps.Interfaces;
 using Logics.Geometry.Implementation;
 using Logics.Export.ModelExport;
+using Logics.Geometry;
 
 namespace Logics.Export{
 
@@ -24,19 +25,14 @@ namespace Logics.Export{
 				if (!cur.IsCyclic)
 				{
 					curDic = new Dictionary<string, double[]>()
-													{ {"Line" + lineNames,
-														cur.GetEndPoint(0).ToJsonDoubles().Concat(cur.GetEndPoint(1).ToJsonDoubles()).ToArray() } };
+													{ {"Line" + lineNames, cur.ToJsonDoubles() } };
 					pathCurDicList.Add(curDic);
 					lineNames += 1;
 				}
 				else if (cur.IsCyclic)
 				{
-					Arc arc = cur as Arc;
 					curDic = new Dictionary<string, double[]>()
-													{ {"Arc" + lineNames,
-														arc.GetEndPoint(0).ToJsonDoubles().
-												Concat(arc.GetEndPoint(1).ToJsonDoubles()).ToArray().
-												Concat( GetPointOnArc(arc).ToJsonDoubles()).ToArray()} };
+													{ {"Arc" + lineNames, cur.ToJsonDoubles() } };
 					pathCurDicList.Add(curDic);
 					lineNames += 1;
 				}
@@ -61,18 +57,15 @@ namespace Logics.Export{
 					{
 						curDic = new Dictionary<string, double[]>()
 														{ {"Array" + curveArrayNames + "Line" + lineNames,
-														   cur.GetEndPoint(0).ToJsonDoubles().Concat(cur.GetEndPoint(1).ToJsonDoubles()).ToArray() } };
+														   cur.ToJsonDoubles() } };
 						curDicList.Add(curDic);
 						lineNames += 1;
 					}
 					else if (cur.IsCyclic)
 					{
-						Arc arc = cur as Arc;
 						curDic = new Dictionary<string, double[]>()
 														{ {"Array" + curveArrayNames + "Arc" + lineNames,
-														   arc.GetEndPoint(0).ToJsonDoubles().
-													Concat(arc.GetEndPoint(1).ToJsonDoubles()).ToArray().
-													Concat( GetPointOnArc(arc).ToJsonDoubles()).ToArray()} };
+														   cur.ToJsonDoubles() } };
 						curDicList.Add(curDic);
 						lineNames += 1;
 					}
@@ -93,12 +86,6 @@ namespace Logics.Export{
 			_props.IsSolid = sw.IsSolid;
 			SweepWrapProperties = _props;
 
-		}
-
-		private XYZ GetPointOnArc(Arc arc)
-		{
-			var pList = arc.Tessellate();
-			return pList[1];
 		}
 
 		public SweepWrap()

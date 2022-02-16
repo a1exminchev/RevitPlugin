@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Logics.Export.Wraps.Interfaces;
 using Logics.Geometry.Implementation;
 using Logics.Export.ModelExport;
+using Logics.Geometry;
 
 namespace Logics.Export{
 
@@ -35,19 +36,14 @@ namespace Logics.Export{
 					if (!cur.IsCyclic)
 					{
 						curDic = new Dictionary<string, double[]>()
-														{ {"Line" + topLineNames,
-														   cur.GetEndPoint(0).ToJsonDoubles().Concat(cur.GetEndPoint(1).ToJsonDoubles()).ToArray() } };
+														{ { "Line" + topLineNames, cur.ToJsonDoubles() } };
 						topCurDicList.Add(curDic);
 						topLineNames += 1;
 					}
 					else if (cur.IsCyclic)
 					{
-						Arc arc = cur as Arc;
 						curDic = new Dictionary<string, double[]>()
-														{ {"Arc" + topLineNames,
-														   arc.GetEndPoint(0).ToJsonDoubles().
-													Concat(arc.GetEndPoint(1).ToJsonDoubles()).ToArray().
-													Concat( GetPointOnArc(arc).ToJsonDoubles()).ToArray()} };
+														{ { "Arc" + topLineNames, cur.ToJsonDoubles() } };
 						topCurDicList.Add(curDic);
 						topLineNames += 1;
 					}
@@ -66,19 +62,14 @@ namespace Logics.Export{
 					if (!cur.IsCyclic)
 					{
 						curDic = new Dictionary<string, double[]>()
-														{ {"Line" + botLineNames,
-														   cur.GetEndPoint(0).ToJsonDoubles().Concat(cur.GetEndPoint(1).ToJsonDoubles()).ToArray() } };
+														{ { "Line" + botLineNames, cur.ToJsonDoubles() } };
 						botCurDicList.Add(curDic);
 						botLineNames += 1;
 					}
 					else if (cur.IsCyclic)
 					{
-						Arc arc = cur as Arc;
 						curDic = new Dictionary<string, double[]>()
-														{ {"Arc" + botLineNames,
-														   arc.GetEndPoint(0).ToJsonDoubles().
-													Concat(arc.GetEndPoint(1).ToJsonDoubles()).ToArray().
-													Concat( GetPointOnArc(arc).ToJsonDoubles()).ToArray()} };
+														{ { "Arc" + botLineNames, cur.ToJsonDoubles() } };
 						botCurDicList.Add(curDic);
 						botLineNames += 1;
 					}
@@ -89,12 +80,6 @@ namespace Logics.Export{
 			_props.Id = bl.Id.IntegerValue;
 			_props.IsSolid = bl.IsSolid;
 			BlendWrapProperties = _props;
-		}
-
-		private XYZ GetPointOnArc(Arc arc)
-		{
-			var pList = arc.Tessellate();
-			return pList[1];
 		}
 
 		public BlendWrap() {

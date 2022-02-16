@@ -1,4 +1,5 @@
 using Autodesk.Revit.DB;
+using ui = Autodesk.Revit.UI;
 using Autodesk.Revit.DB.Structure;
 using cr = Autodesk.Revit.Creation;
 using System;
@@ -19,18 +20,21 @@ namespace Logics.Export{
             BeamWrapParameters _props = new BeamWrapParameters();
             FamilyInstance fam = el as FamilyInstance;
             Document _doc = el.Document;
-
+			
             _props.FamilySymbolName = fam.Symbol.Name;
 
-            Level level = _doc.GetElement(fam.LevelId) as Level;
-            _props.LevelName = level?.Name;
+			var LvlId = fam.get_Parameter(BuiltInParameter.INSTANCE_REFERENCE_LEVEL_PARAM).AsElementId();
+			_props.LevelName = _doc.GetElement(LvlId).Name;
 
             Options opt = new Options();
             var curve = fam.get_Geometry(opt).Where(x => x as Curve != null)?.FirstOrDefault() as Curve;
             _props.AxisCurve = curve?.GetEndPoint(0).ToJsonDoubles().ToArray().Concat
                               (curve?.GetEndPoint(1).ToJsonDoubles()).ToArray();
 
-            _props.Id = el.Id.IntegerValue;
+			_props.StartOffset = fam.get_Parameter(BuiltInParameter.STRUCTURAL_BEAM_END0_ELEVATION).AsDouble();
+			_props.EndOffset = fam.get_Parameter(BuiltInParameter.STRUCTURAL_BEAM_END1_ELEVATION).AsDouble();
+
+			_props.Id = el.Id.IntegerValue;
             BeamWrapProperties = _props;
         }
 
@@ -44,6 +48,8 @@ namespace Logics.Export{
 		public double[] AxisCurve { get; set; }
 		public string FamilySymbolName { get; set; }
 		public string LevelName { get; set; }
+		public double StartOffset { get; set; }
+		public double EndOffset { get; set; }
 		private new int Id { get; set; }
 
 	}
