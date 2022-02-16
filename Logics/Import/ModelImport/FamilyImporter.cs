@@ -42,14 +42,20 @@ namespace Logics.Import.ModelImport
 			var famDoc = JsonConvert.DeserializeObject<FamilyDocumentData>(_json);
 			_importers = CollectImporters();
 
-			foreach (var imp in _importers.Values)
+			Transaction t = new Transaction(_doc, "Import");
+			using (t)
             {
-				var dict = imp.Import(famDoc);
-				foreach (AbstractTransfer i in dict.Values)
-                {
-					i.Create(_doc);
-                }
-            }
+				t.Start();
+				foreach (var imp in _importers.Values)
+				{
+					var dict = imp.Import(famDoc);
+					foreach (AbstractTransfer i in dict.Values)
+					{
+						i.Create(_doc);
+					}
+				}
+				t.Commit();
+			}
 		}
 
 		private Dictionary<Type, IImporter> CollectImporters()

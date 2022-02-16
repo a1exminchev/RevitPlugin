@@ -25,17 +25,25 @@ namespace StudyTask{
 			var uidoc = uiApp.ActiveUIDocument;
 			var doc = uidoc.Document;
 			Configure.ConfigureLogger( );
-			if (doc.IsFamilyDocument == true)
+			try
 			{
-				var familyExporter = new FamilyExporter(doc);
-				var familyWrap = familyExporter.GetFamDocWrap();
-				familyExporter.ExportToJson(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json", familyWrap);
+				if (doc.IsFamilyDocument == true)
+				{
+					var familyExporter = new FamilyExporter(doc);
+					var familyWrap = familyExporter.GetFamDocWrap();
+					familyExporter.ExportToJson(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json", familyWrap);
+				}
+				else
+				{
+					var projExporter = new ProjectExporter(doc);
+					var projWrap = projExporter.GetProjDocWrap();
+					projExporter.ExportToJson(GlobalData.PluginDir + @"\StudyTask\Files\ProjectData.json", projWrap);
+				}
 			}
-			else
-            {
-				var projExporter = new ProjectExporter(doc);
-				var projWrap = projExporter.GetProjDocWrap();
-				projExporter.ExportToJson(GlobalData.PluginDir + @"\StudyTask\Files\ProjectData.json", projWrap);
+			catch (Exception e) 
+			{
+				e.LogError();
+				return Result.Failed;
 			}
 
 			return Result.Succeeded;

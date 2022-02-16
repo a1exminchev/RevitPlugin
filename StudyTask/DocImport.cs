@@ -31,16 +31,15 @@ namespace StudyTask{
 
 			FamilyImporter familyImporter = new FamilyImporter(newDoc);
 
-			Transaction t = new Transaction(newDoc, "import");
-			using (t)
-			{
-				t.Start();
-
+			try
+            {
 				familyImporter.Import(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json");
-
-				t.Commit();
 			}
-
+			catch(Exception e)
+            {
+				e.LogError();
+				return Result.Failed;
+            }
 
 			return Result.Succeeded;
 		}
