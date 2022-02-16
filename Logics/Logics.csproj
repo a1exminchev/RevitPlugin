@@ -106,6 +106,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Export\ModelExport\Extractors\Implementations\ColumnExtracter.cs" />
     <Compile Include="Export\ModelExport\ProjectExporter.cs" />
     <Compile Include="Export\ProjectDocumentWrap.cs" />
     <Compile Include="Export\FamilyDocumentWrap.cs" />
@@ -117,6 +118,8 @@
     <Compile Include="Export\ModelExport\FamilyExporter.cs" />
     <Compile Include="Export\ModelExport\Extractors\IExtractor.cs" />
     <Compile Include="Export\ModelExport\Extractors\Implementations\ExtrusionExtracter.cs" />
+    <Compile Include="Export\Wraps\Implementations\BeamWrap.cs" />
+    <Compile Include="Export\Wraps\Implementations\ColumnWrap.cs" />
     <Compile Include="Export\Wraps\Implementations\StructuralColumnWrap.cs" />
     <Compile Include="Export\Wraps\Implementations\SweptBlendWrap.cs" />
     <Compile Include="Export\Wraps\Implementations\SweepWrap.cs" />
