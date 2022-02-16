@@ -26,10 +26,17 @@ namespace Logics.Export{
 			var LvlId = fam.get_Parameter(BuiltInParameter.INSTANCE_REFERENCE_LEVEL_PARAM).AsElementId();
 			_props.LevelName = _doc.GetElement(LvlId).Name;
 
-            Options opt = new Options();
-            var curve = fam.get_Geometry(opt).Where(x => x as Curve != null)?.FirstOrDefault() as Curve;
-            _props.AxisCurve = curve?.GetEndPoint(0).ToJsonDoubles().ToArray().Concat
-                              (curve?.GetEndPoint(1).ToJsonDoubles()).ToArray();
+			var curLoc = fam.Location as LocationCurve;
+			Curve curve = curLoc.Curve;
+			if (!curve.IsCyclic)
+            {
+				_props.AxisCurve = new Dictionary<string, double[]>() { { "Line", curve.ToJsonDoubles() } };
+			}
+			else
+            {
+				_props.AxisCurve = new Dictionary<string, double[]>() { { "Arc", curve.ToJsonDoubles() } };
+			}
+			
 
 			_props.StartOffset = fam.get_Parameter(BuiltInParameter.STRUCTURAL_BEAM_END0_ELEVATION).AsDouble();
 			_props.EndOffset = fam.get_Parameter(BuiltInParameter.STRUCTURAL_BEAM_END1_ELEVATION).AsDouble();
@@ -45,7 +52,7 @@ namespace Logics.Export{
 	}
 	public class BeamWrapParameters : AbstractElementData
 	{
-		public double[] AxisCurve { get; set; }
+		public Dictionary<string, double[]> AxisCurve { get; set; }
 		public string FamilySymbolName { get; set; }
 		public string LevelName { get; set; }
 		public double StartOffset { get; set; }
