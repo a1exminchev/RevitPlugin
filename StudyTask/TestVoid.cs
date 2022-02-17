@@ -30,26 +30,30 @@ namespace StudyTask{
 			var doc = uidoc.Document;
 			crDocument crDoc = doc.Create;
 			Configure.ConfigureLogger();
-			//Transaction t = new Transaction(doc, "test");
-			//using (t)
-			//{
-			//	t.Start();
+            Transaction t = new Transaction(doc, "test");
+            using (t)
+            {
+                t.Start();
 
-			//	//var columns = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_StructuralColumns).WhereElementIsElementType().ToElements();
-			//	//var levels = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType().ToElements();
-			//	//Level lvl = levels.FirstOrDefault() as Level;
-			//	//var pick = uidoc.Selection.PickObject(ObjectType.Element);
-			//	//var famIns = doc.GetElement(pick) as FamilyInstance;
-			//	//var famSym = famIns.Symbol;
-			//	//var pt = uidoc.Selection.PickPoint();
-			//	//crDoc.NewFamilyInstance(pt, famSym, lvl, Autodesk.Revit.DB.Structure.StructuralType.Column);
-			//	//TaskDialog.Show("Type", lvl.Name);
+    //            var pick = uidoc.Selection.PickObject(ObjectType.Element);
+				//var el = doc.GetElement(pick) as FamilyInstance;
+				//string text = "";
+				//foreach (Parameter par in el.Parameters)
+    //            {
+				//	try
+    //                {
+				//		text += JsonConvert.SerializeObject(par);
+				//	}
+    //                catch { }
+    //            }
+				//TextWriter textWriter = File.CreateText(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json");
+				//textWriter.Write(text);
 
-			//	t.Commit();
-			//}
+				t.Commit();
+            }
 
 
-			return Result.Succeeded;
+            return Result.Succeeded;
 		}
 	}
 }

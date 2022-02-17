@@ -11,7 +11,6 @@ namespace Logics.RevitDocument
     public class FamilyCreator
     {
         private readonly Application _app;
-        private Document _newDoc;
         public FamilyCreator(Application app)
         {
             _app = app;

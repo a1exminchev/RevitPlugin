@@ -11,7 +11,6 @@ namespace Logics.RevitDocument
     public class DocCreator
     {
         private readonly Application _app;
-        private Document _newDoc;
         public DocCreator(Application app)
         {
             _app = app;
@@ -19,6 +18,22 @@ namespace Logics.RevitDocument
         public Document CreateNewDocument(UIApplication uiApp, string name)
         {
             Document newDoc = _app.NewProjectDocument(UnitSystem.Metric);
+            string fullName = $"C:/Users/{Environment.UserName}/Documents/{name}.rvt";
+            if (File.Exists(fullName))
+            {
+                try
+                {
+                    File.Delete(fullName);
+                    newDoc.SaveAs(fullName);
+                    uiApp.OpenAndActivateDocument(fullName);
+                }
+                catch (IOException) { }
+            }
+            else
+            {
+                newDoc.SaveAs(fullName);
+                uiApp.OpenAndActivateDocument(fullName);
+            }
             return newDoc;
         }
     }

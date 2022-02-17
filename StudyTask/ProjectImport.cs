@@ -17,29 +17,21 @@ using PluginUtils;
 namespace StudyTask{
 	[TransactionAttribute(TransactionMode.Manual)]
 	[Regeneration(RegenerationOption.Manual)]
-	public class DocImport : IExternalCommand{
+	public class ProjectImport : IExternalCommand{
 		public Result Execute(ExternalCommandData commandData
 		                      , ref string        message
 		                      , ElementSet        elements) {
 			var uiApp = commandData.Application;
 			var app   = commandData.Application.Application;
 			var uidoc = uiApp.ActiveUIDocument;
-			Configure.ConfigureLogger( );
+			Configure.ConfigureLogger();
 
-			FamilyCreator familyCreator = new FamilyCreator(app);
-			Document newDoc = familyCreator.CreateNewFamily(uiApp, "FamilyWithImport", "Metric Generic Model");
+			DocCreator projectCreator = new DocCreator(app);
+			Document newDoc = projectCreator.CreateNewDocument(uiApp, "ProjectImport");
 
-			FamilyImporter familyImporter = new FamilyImporter(newDoc);
+			ProjectImporter projectImporter = new ProjectImporter(newDoc);
 
-			try
-            {
-				familyImporter.Import(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json");
-			}
-			catch(Exception e)
-            {
-				e.LogError();
-				return Result.Failed;
-            }
+			projectImporter.Import(GlobalData.PluginDir + @"\StudyTask\Files\ProjectData.json");
 
 			return Result.Succeeded;
 		}

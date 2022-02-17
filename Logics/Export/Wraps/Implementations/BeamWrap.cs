@@ -40,6 +40,7 @@ namespace Logics.Export{
 
 			_props.StartOffset = fam.get_Parameter(BuiltInParameter.STRUCTURAL_BEAM_END0_ELEVATION).AsDouble();
 			_props.EndOffset = fam.get_Parameter(BuiltInParameter.STRUCTURAL_BEAM_END1_ELEVATION).AsDouble();
+			_props.AngleProfile = fam.get_Parameter(BuiltInParameter.STRUCTURAL_BEND_DIR_ANGLE).AsDouble();
 
 			_props.Id = el.Id.IntegerValue;
             BeamWrapProperties = _props;
@@ -57,6 +58,7 @@ namespace Logics.Export{
 		public string LevelName { get; set; }
 		public double StartOffset { get; set; }
 		public double EndOffset { get; set; }
+		public double AngleProfile { get; set; }
 		private new int Id { get; set; }
 
 	}

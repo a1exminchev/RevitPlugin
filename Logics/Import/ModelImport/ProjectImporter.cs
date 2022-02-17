@@ -20,16 +20,16 @@ using Logics.Import.Transforms;
 
 namespace Logics.Import.ModelImport
 {
-    public class FamilyImporter
+    public class ProjectImporter
     {
 		private readonly Document _doc;
 		private string _json;
 		private Dictionary<Type, IImporter> _importers;
-		public FamilyImporter(Document doc)
+		public ProjectImporter(Document doc)
 		{
-			if (!doc.IsFamilyDocument)
+			if (doc.IsFamilyDocument)
 			{
-				throw new Exception($"Document {doc.Title} is not family document");
+				throw new Exception($"Document {doc.Title} is family document");
 			}
 			//Creates constructor with new doc init
 			_doc = doc;
@@ -39,18 +39,18 @@ namespace Logics.Import.ModelImport
 		public void Import(string JsonPath)
 		{
 			_json = File.ReadAllText(JsonPath);
-			var famDoc = JsonConvert.DeserializeObject<FamilyDocumentData>(_json);
+			var prDoc = JsonConvert.DeserializeObject<ProjectDocumentData>(_json);
 			_importers = CollectImporters();
 
 			Transaction t = new Transaction(_doc, "Import");
 			using (t)
             {
 				t.Start();
-				foreach (var imp in _importers?.Values)
+				foreach (var imp in _importers.Values)
 				{
-					if (imp.Import(famDoc) != null)
+					if (imp.Import(prDoc) != null)
                     {
-						var dict = imp.Import(famDoc);
+						var dict = imp.Import(prDoc);
 						foreach (AbstractTransfer i in dict.Values)
 						{
 							i.Create(_doc);
@@ -76,6 +76,7 @@ namespace Logics.Import.ModelImport
 				var imptr = CreateInstance(type);
 				imptrs[genType] = imptr;
 			}
+
 			return imptrs;
 		}
 

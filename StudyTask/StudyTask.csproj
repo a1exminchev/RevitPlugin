@@ -118,8 +118,9 @@
   <ItemGroup>
     <Compile Include="Configure.cs" />
     <Compile Include="CopyFamilyCommand.cs" />
+    <Compile Include="ProjectImport.cs" />
     <Compile Include="TestVoid.cs" />
-    <Compile Include="DocImport.cs" />
+    <Compile Include="FamilyImport.cs" />
     <Compile Include="DocExport.cs" />
     <Compile Include="Ribbon\MyCubes.cs" />
     <Compile Include="Ribbon\MyRevolution.cs" />

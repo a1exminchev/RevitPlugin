@@ -106,19 +106,19 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Export\ModelExport\Extractors\Implementations\BeamExtracter.cs" />
-    <Compile Include="Export\ModelExport\Extractors\Implementations\ColumnExtracter.cs" />
-    <Compile Include="Export\ModelExport\ProjectExporter.cs" />
+    <Compile Include="Export\ProjectExport\Extractors\Implementations\BeamExtracter.cs" />
+    <Compile Include="Export\ProjectExport\Extractors\Implementations\ColumnExtracter.cs" />
+    <Compile Include="Export\ProjectExport\ProjectExporter.cs" />
     <Compile Include="Export\ProjectDocumentWrap.cs" />
     <Compile Include="Export\FamilyDocumentWrap.cs" />
-    <Compile Include="Export\ModelExport\Extractors\Implementations\StructuralColumnExtracter.cs" />
-    <Compile Include="Export\ModelExport\Extractors\Implementations\SweptBlendExtracter.cs" />
-    <Compile Include="Export\ModelExport\Extractors\Implementations\SweepExtracter.cs" />
-    <Compile Include="Export\ModelExport\Extractors\Implementations\BlendExtracter.cs" />
-    <Compile Include="Export\ModelExport\Extractors\Implementations\RevolutionExtracter.cs" />
-    <Compile Include="Export\ModelExport\FamilyExporter.cs" />
-    <Compile Include="Export\ModelExport\Extractors\IExtractor.cs" />
-    <Compile Include="Export\ModelExport\Extractors\Implementations\ExtrusionExtracter.cs" />
+    <Compile Include="Export\ProjectExport\Extractors\Implementations\StructuralColumnExtracter.cs" />
+    <Compile Include="Export\ProjectExport\Extractors\Implementations\SweptBlendExtracter.cs" />
+    <Compile Include="Export\ProjectExport\Extractors\Implementations\SweepExtracter.cs" />
+    <Compile Include="Export\ProjectExport\Extractors\Implementations\BlendExtracter.cs" />
+    <Compile Include="Export\ProjectExport\Extractors\Implementations\RevolutionExtracter.cs" />
+    <Compile Include="Export\ProjectExport\FamilyExporter.cs" />
+    <Compile Include="Export\ProjectExport\Extractors\IExtractor.cs" />
+    <Compile Include="Export\ProjectExport\Extractors\Implementations\ExtrusionExtracter.cs" />
     <Compile Include="Export\Wraps\Implementations\BeamWrap.cs" />
     <Compile Include="Export\Wraps\Implementations\ColumnWrap.cs" />
     <Compile Include="Export\Wraps\Implementations\StructuralColumnWrap.cs" />
@@ -130,6 +130,9 @@
     <Compile Include="Export\Wraps\Interfaces\AbstractElementData.cs" />
     <Compile Include="Export\Wraps\Interfaces\AbstractGenericForm.cs" />
     <Compile Include="Export\Wraps\Interfaces\IElement.cs" />
+    <Compile Include="Import\ModelImport\Importers\Implementations\ColumnImporter.cs" />
+    <Compile Include="Import\ModelImport\ProjectImporter.cs" />
+    <Compile Include="Import\ProjectDocumentData.cs" />
     <Compile Include="Import\FamilyDocumentData.cs" />
     <Compile Include="Import\ModelImport\FamilyImporter.cs" />
     <Compile Include="Import\ModelImport\Importers\IImporter.cs" />
@@ -138,6 +141,9 @@
     <Compile Include="Import\ModelImport\Importers\Implementations\SweepImporter.cs" />
     <Compile Include="Import\ModelImport\Importers\Implementations\RevolutionImporter.cs" />
     <Compile Include="Import\ModelImport\Importers\Implementations\ExtrusionImporter.cs" />
+    <Compile Include="Import\Transforms\BeamTransfer.cs" />
+    <Compile Include="Import\Transforms\StructuralColumnTransfer.cs" />
+    <Compile Include="Import\Transforms\ColumnTransfer.cs" />
     <Compile Include="Import\Transforms\SweptBlendTransfer.cs" />
     <Compile Include="Import\Transforms\BlendTransfer.cs" />
     <Compile Include="Import\Transforms\SweepTransfer.cs" />
