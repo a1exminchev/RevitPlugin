@@ -39,30 +39,78 @@ namespace Logics.Export{
             {
 				int idEl = rf.ElementId.IntegerValue;
 				int[] elIdArray = { idEl };
-
-				GenericForm el = dim.Document.GetElement(rf.ElementId) as GenericForm;
-				GeometryElement geoEl = el.get_Geometry(opt);
-				foreach (GeometryObject geoObj in geoEl)
-                {
-					Solid solid = geoObj as Solid;
-					if (solid != null && solid.Faces.Size > 0)
-                    {
-						foreach (Face face in solid.Faces)
-                        {
-							if (Equals(rf.ConvertToStableRepresentation(dim.Document), face.Reference.ConvertToStableRepresentation(dim.Document)))
+                #region GenericForm
+                GenericForm genForm = dim.Document.GetElement(rf.ElementId) as GenericForm;
+				GeometryElement geoEl = genForm?.get_Geometry(opt);
+				if (geoEl?.Count() != 0 && geoEl != null)
+				{
+					foreach (GeometryObject geoObj in geoEl)
+					{
+						Solid solid = geoObj as Solid;
+						if (solid != null && solid.Faces.Size > 0)
+						{
+							foreach (Face face in solid.Faces)
 							{
-								//ui.TaskDialog.Show("s", solid.Faces.Size.ToString()); +2
-								int[] elFaceIdArray = { idEl, face.Id };
-								idList.Add(elFaceIdArray);
+								if (Equals(rf.ConvertToStableRepresentation(dim.Document), face.Reference.ConvertToStableRepresentation(dim.Document)))
+								{
+									int[] elFaceIdArray = { idEl, face.Id };
+									idList.Add(elFaceIdArray);
+								}
 							}
-                        }
+						}
+						if (solid != null && solid.Edges.Size > 0)
+						{
+							foreach (Edge edge in solid.Edges)
+							{
+								if (Equals(rf.ConvertToStableRepresentation(dim.Document), edge.Reference.ConvertToStableRepresentation(dim.Document)))
+								{
+									int[] elEdgeIdArray = { idEl, edge.Id };
+									idList.Add(elEdgeIdArray);
+								}
+							}
+						}
+						else
+						{
+							idList.Add(elIdArray);
+						}
 					}
-					else
-                    {
-						idList.Add(elIdArray);
-                    }
+				}
+                #endregion
+                #region ReferencePlane
+                ReferencePlane refPlane = dim.Document.GetElement(rf.ElementId) as ReferencePlane;
+                if (refPlane != null)
+                {
+                    int[] refPlaneIdArray = { refPlane.Id.IntegerValue };
+                    idList.Add(refPlaneIdArray);
                 }
-				_props.ReferenceIds = idList;
+                #endregion
+                ModelCurve modelCurve = dim.Document.GetElement(rf.ElementId) as ModelCurve;
+                Line geoLine = modelCurve?.GeometryCurve as Line;
+                Arc geoArc = modelCurve?.GeometryCurve as Arc;
+                Ellipse geoEllipse = modelCurve?.GeometryCurve as Ellipse;
+                NurbSpline geoSpline = modelCurve?.GeometryCurve as NurbSpline;
+                if (geoLine != null)
+                {
+                    int[] refModelCurveIdArray = { modelCurve.Id.IntegerValue };
+                    idList.Add(refModelCurveIdArray);
+                    continue;
+                }
+                else if (geoArc != null)
+                {
+                    if (geoArc.Reference.ConvertToStableRepresentation(dim.Document) == rf.ConvertToStableRepresentation(dim.Document))
+                    {
+                        int[] refModelCurveIdArray = { modelCurve.Id.IntegerValue };
+                        idList.Add(refModelCurveIdArray);
+                    }
+                    else
+                    {
+                        int[] refModelCurveIdArray = { modelCurve.Id.IntegerValue, -1 }; // -1 means that should take centerpoint
+                        idList.Add(refModelCurveIdArray);
+                    }
+
+                }
+
+                _props.ReferenceIds = idList;
             }
 
 			_props.Id = dim.Id.IntegerValue;
