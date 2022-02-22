@@ -10,6 +10,6 @@ namespace Logics.Export{
 		public Dictionary<int, BlendWrap> Blends { get; set; }
 		public Dictionary<int, SweepWrap> Sweeps { get; set; }
 		public Dictionary<int, SweptBlendWrap> SweptBlends { get; set; }
-
+		public Dictionary<int, DimensionWrap> Dimensions { get; set; }
 	}
 }

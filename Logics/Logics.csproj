@@ -108,6 +108,7 @@
   <ItemGroup>
     <Compile Include="Export\ProjectExport\Extractors\Implementations\BeamExtracter.cs" />
     <Compile Include="Export\ProjectExport\Extractors\Implementations\ColumnExtracter.cs" />
+    <Compile Include="Export\ProjectExport\Extractors\Implementations\DimensionExtracter.cs" />
     <Compile Include="Export\ProjectExport\ProjectExporter.cs" />
     <Compile Include="Export\ProjectDocumentWrap.cs" />
     <Compile Include="Export\FamilyDocumentWrap.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Export\ProjectExport\Extractors\Implementations\ExtrusionExtracter.cs" />
     <Compile Include="Export\Wraps\Implementations\BeamWrap.cs" />
     <Compile Include="Export\Wraps\Implementations\ColumnWrap.cs" />
+    <Compile Include="Export\Wraps\Implementations\DimensionWrap.cs" />
     <Compile Include="Export\Wraps\Implementations\StructuralColumnWrap.cs" />
     <Compile Include="Export\Wraps\Implementations\SweptBlendWrap.cs" />
     <Compile Include="Export\Wraps\Implementations\SweepWrap.cs" />

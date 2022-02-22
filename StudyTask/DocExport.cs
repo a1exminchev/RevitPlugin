@@ -25,26 +25,29 @@ namespace StudyTask{
 			var uidoc = uiApp.ActiveUIDocument;
 			var doc = uidoc.Document;
 			Configure.ConfigureLogger( );
-			try
-			{
-				if (doc.IsFamilyDocument == true)
-				{
-					var familyExporter = new FamilyExporter(doc);
-					var familyWrap = familyExporter.GetFamDocWrap();
-					familyExporter.ExportToJson(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json", familyWrap);
-				}
-				else
-				{
-					var projExporter = new ProjectExporter(doc);
-					var projWrap = projExporter.GetProjDocWrap();
-					projExporter.ExportToJson(GlobalData.PluginDir + @"\StudyTask\Files\ProjectData.json", projWrap);
-				}
-			}
-			catch (Exception e) 
-			{
-				e.LogError();
-				return Result.Failed;
-			}
+			//try
+			//{
+			//	if (doc.IsFamilyDocument == true)
+			//	{
+			//		var familyExporter = new FamilyExporter(doc);
+			//		var familyWrap = familyExporter.GetFamDocWrap();
+			//		familyExporter.ExportToJson(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json", familyWrap);
+			//	}
+			//	else
+			//	{
+			//		var projExporter = new ProjectExporter(doc);
+			//		var projWrap = projExporter.GetProjDocWrap();
+			//		projExporter.ExportToJson(GlobalData.PluginDir + @"\StudyTask\Files\ProjectData.json", projWrap);
+			//	}
+			//}
+			//catch (Exception e) 
+			//{
+			//	e.LogError();
+			//	return Result.Failed;
+			//}
+			var familyExporter = new FamilyExporter(doc);
+			var familyWrap = familyExporter.GetFamDocWrap();
+			familyExporter.ExportToJson(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json", familyWrap);
 
 			return Result.Succeeded;
 		}
