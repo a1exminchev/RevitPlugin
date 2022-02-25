@@ -31,15 +31,16 @@ namespace StudyTask{
 
 			FamilyImporter familyImporter = new FamilyImporter(newDoc);
 
-			try
-            {
-				familyImporter.Import(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json");
-			}
-			catch(Exception e)
-            {
-				e.LogError();
-				return Result.Failed;
-            }
+			familyImporter.Import(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json");
+			//try
+   //         {
+			//	familyImporter.Import(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json");
+			//}
+			//catch(Exception e)
+   //         {
+			//	e.LogError();
+			//	return Result.Failed;
+   //         }
 
 			return Result.Succeeded;
 		}
