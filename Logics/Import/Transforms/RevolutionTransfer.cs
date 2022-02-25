@@ -4,6 +4,7 @@ using System.Linq;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Logics.Export;
+using Logics.Import.ModelImport;
 using imp = Logics.Geometry.Implementation;
 
 namespace Logics.Import.Transforms
@@ -112,7 +113,9 @@ namespace Logics.Import.Transforms
 			revParams.ProfileCurveArrArray = curArrArr;
 
 			imp.RevolutionCreator revolutionCreator = new imp.RevolutionCreator(docToImport, revParams);
-			revolutionCreator.Create();
+			Element el = revolutionCreator.Create();
+
+			el.SetIdEntityToElement(RevolutionWrapProperties.Id);
 		}
 	}
 }

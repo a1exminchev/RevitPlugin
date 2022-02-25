@@ -93,7 +93,6 @@ namespace Logics.Export{
 		public Dictionary<string, double[]>[] BaseSketchPlane { get; set; }
 		public List<Dictionary<string, double[]>> TopCurveArrArray { get; set; } //1 Array
 		public List<Dictionary<string, double[]>> BaseCurveArrArray { get; set; } //1 Array
-		private new int Id { get; set; }
-		private new bool IsSolid { get; set; }
+
 	}
 }

@@ -50,7 +50,6 @@ namespace Logics.Export{
 		public string BottomLevelName { get; set; }
 		public double BottomOffset { get; set; }
 		public double TopOffset { get; set; }
-		private new int Id { get; set; }
 
 	}
 }

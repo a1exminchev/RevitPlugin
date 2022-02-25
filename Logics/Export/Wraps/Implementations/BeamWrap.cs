@@ -59,7 +59,6 @@ namespace Logics.Export{
 		public double StartOffset { get; set; }
 		public double EndOffset { get; set; }
 		public double AngleProfile { get; set; }
-		private new int Id { get; set; }
 
 	}
 }

@@ -102,7 +102,6 @@ namespace Logics.Export{
 		public List<Dictionary<string, double[]>> ProfileCurveArrArray { get; set; }
 		public Dictionary<string, double[]>[] ProfileSketchPlane { get; set; }
 		public int WhichPathLineIsForProfile = 0;
-		private new int Id { get; set; }
-		private new bool IsSolid { get; set; }
+
 	}
 }

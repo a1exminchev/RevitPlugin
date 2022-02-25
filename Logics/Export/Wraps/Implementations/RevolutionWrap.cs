@@ -79,7 +79,6 @@ namespace Logics.Export{
 		public Dictionary<string, double[]> PathLineDict { get; set; }
 		public Dictionary<string, double[]>[] SketchPlane { get; set; }
 		public List<Dictionary<string, double[]>> CurveArrArray { get; set; } //Profile
-		private new int Id { get; set; }
-		private new bool IsSolid { get; set; }
+
 	}
 }

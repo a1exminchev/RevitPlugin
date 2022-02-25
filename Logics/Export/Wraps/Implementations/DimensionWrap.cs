@@ -134,7 +134,6 @@ namespace Logics.Export{
 		public Dictionary<string, double[]> LineAlongDim { get; set; }
 		public List<int[]> ReferenceIds { get; set; } //if there is 1 int - the reference in the object itself,
 													  //if there is 2 int - 1st is the element, 2nd is the geoObject of element
-		private new int Id { get; set; }
 
 	}
 }

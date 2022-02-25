@@ -5,6 +5,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using imp = Logics.Geometry.Implementation;
 using Logics.Export;
+using Logics.Import.ModelImport;
 
 namespace Logics.Import.Transforms
 {
@@ -138,7 +139,14 @@ namespace Logics.Import.Transforms
             blParams.Profile2CurveArray = curveArray2;
 
             imp.SweptBlendCreator sweptBlendCreator = new imp.SweptBlendCreator(docToImport, blParams);
-            sweptBlendCreator.Create();
+            Element el = null;
+            try
+            {
+                sweptBlendCreator.Create();
+            }
+            catch { }
+
+            el.SetIdEntityToElement(SweptBlendWrapProperties.Id);
         }
         private double DeltaModul(double elevation, double delta)
         {

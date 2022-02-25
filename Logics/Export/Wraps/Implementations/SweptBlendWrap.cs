@@ -113,7 +113,6 @@ namespace Logics.Export{
 		public List<Dictionary<string, double[]>> Profile2CurveArray { get; set; }
 		public Dictionary<string, double[]>[] Profile1SketchPlane { get; set; }
 		public Dictionary<string, double[]>[] Profile2SketchPlane { get; set; }
-		private new int Id { get; set; }
-		private new bool IsSolid { get; set; }
+
 	}
 }

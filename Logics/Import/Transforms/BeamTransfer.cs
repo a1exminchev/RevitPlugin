@@ -5,6 +5,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using imp = Logics.Geometry.Implementation;
 using Logics.Export;
+using Logics.Import.ModelImport;
 
 namespace Logics.Import.Transforms
 {
@@ -48,7 +49,8 @@ namespace Logics.Import.Transforms
 			var famSymFilter = new FilteredElementCollector(docToImport).OfCategory(BuiltInCategory.OST_Columns).WhereElementIsElementType();
 			FamilySymbol famSym = famSymFilter.Where(x => x.Name == BeamWrapProperties.FamilySymbolName) as FamilySymbol;
 
-			docToImport.Create.NewFamilyInstance(curve, famSym, baseLevel, Autodesk.Revit.DB.Structure.StructuralType.Beam);
-		}
+			Element el = docToImport.Create.NewFamilyInstance(curve, famSym, baseLevel, Autodesk.Revit.DB.Structure.StructuralType.Beam);
+            el.SetIdEntityToElement(BeamWrapProperties.Id);
+        }
 	}
 }

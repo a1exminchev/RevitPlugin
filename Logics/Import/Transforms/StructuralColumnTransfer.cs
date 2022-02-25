@@ -5,6 +5,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using imp = Logics.Geometry.Implementation;
 using Logics.Export;
+using Logics.Import.ModelImport;
 
 namespace Logics.Import.Transforms
 {
@@ -28,7 +29,9 @@ namespace Logics.Import.Transforms
 			var famSymFilter = new FilteredElementCollector(docToImport).OfCategory(BuiltInCategory.OST_StructuralColumns).WhereElementIsElementType();
 			FamilySymbol famSym = famSymFilter.Where(x => x.Name == StructuralColumnWrapProperties.FamilySymbolName) as FamilySymbol;
 
-			docToImport.Create.NewFamilyInstance(location, famSym, baseLevel, Autodesk.Revit.DB.Structure.StructuralType.Column);
+			Element el = docToImport.Create.NewFamilyInstance(location, famSym, baseLevel, Autodesk.Revit.DB.Structure.StructuralType.Column);
+
+			el.SetIdEntityToElement(StructuralColumnWrapProperties.Id);
 		}
 	}
 }

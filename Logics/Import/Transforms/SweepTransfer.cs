@@ -4,6 +4,7 @@ using System.Linq;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Logics.Export;
+using Logics.Import.ModelImport;
 using imp = Logics.Geometry.Implementation;
 
 namespace Logics.Import.Transforms
@@ -141,11 +142,14 @@ namespace Logics.Import.Transforms
             swParams.ProfileCurveArrArray = curArrArr;
 
             imp.SweepCreator sweepCreator = new imp.SweepCreator(docToImport, swParams);
+            Element el = null;
             try
             {
-                sweepCreator.Create();
+                el = sweepCreator.Create();
             }
             catch { }
+
+            el.SetIdEntityToElement(SweepWrapProperties.Id);
         }
         private double DeltaModul(double elevation, double delta)
         {

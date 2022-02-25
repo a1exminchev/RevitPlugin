@@ -5,6 +5,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using imp = Logics.Geometry.Implementation;
 using Logics.Export;
+using Logics.Import.ModelImport;
 
 namespace Logics.Import.Transforms
 {
@@ -97,7 +98,9 @@ namespace Logics.Import.Transforms
 			blParams.BaseCurveArray = botCurveArray;
 
 			imp.BlendCreator blendCreator = new imp.BlendCreator(docToImport, blParams);
-			blendCreator.Create();
+			Element el = blendCreator.Create();
+
+			el.SetIdEntityToElement(BlendWrapProperties.Id);
 		}
 	}
 }
