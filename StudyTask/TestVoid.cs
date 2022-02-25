@@ -16,6 +16,7 @@ using Logics.Import.Transforms;
 using PluginUtils;
 using Autodesk.Revit.UI.Selection;
 using Logics.Export.ModelExport;
+using Autodesk.Revit.DB.ExtensibleStorage;
 
 namespace StudyTask{
 	[TransactionAttribute(TransactionMode.Manual)]
@@ -28,26 +29,32 @@ namespace StudyTask{
 			var app   = commandData.Application.Application;
 			var uidoc = uiApp.ActiveUIDocument;
 			var doc = uidoc.Document;
-			crDocument crDoc = doc.Create;
+			//crDocument crDoc = doc.Create;
 			Configure.ConfigureLogger();
             Transaction t = new Transaction(doc, "test");
             using (t)
             {
                 t.Start();
 
-    //            var pick = uidoc.Selection.PickObject(ObjectType.Element);
+				//            var pick = uidoc.Selection.PickObject(ObjectType.Element);
 				//var el = doc.GetElement(pick) as FamilyInstance;
 				//string text = "";
 				//foreach (Parameter par in el.Parameters)
-    //            {
+				//            {
 				//	try
-    //                {
+				//                {
 				//		text += JsonConvert.SerializeObject(par);
 				//	}
-    //                catch { }
-    //            }
+				//                catch { }
+				//            }
 				//TextWriter textWriter = File.CreateText(GlobalData.PluginDir + @"\StudyTask\Files\FamilyData.json");
 				//textWriter.Write(text);
+
+				var pick = uidoc.Selection.PickObject(ObjectType.Element);
+				var el = doc.GetElement(pick);
+				string schemaName = "OldDocData";
+				Schema mySchema = Schema.ListSchemas().FirstOrDefault(x => x.SchemaName == schemaName);
+				TaskDialog.Show("Ids", el.Id + " - " + el.GetEntity(mySchema).Get<int>("OldId"));
 
 				t.Commit();
             }

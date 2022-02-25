@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using Autodesk.Revit.DB;
 using ui = Autodesk.Revit.UI;
-using CSharpFunctionalExtensions;
+using CSh = CSharpFunctionalExtensions;
 using Logics.Export.ModelExport.Extractors;
 using Logics.Export.ModelExport.Extractors.Implementations;
 using Logics.Export.Wraps.Implementations;
@@ -17,6 +17,7 @@ using Newtonsoft.Json;
 using Logics.Export;
 using Logics.Import.ModelImport.Importers;
 using Logics.Import.Transforms;
+using Autodesk.Revit.DB.ExtensibleStorage;
 
 namespace Logics.Import.ModelImport
 {
@@ -31,6 +32,18 @@ namespace Logics.Import.ModelImport
 			{
 				throw new Exception($"Document {doc.Title} is not family document");
 			}
+
+			string schemaName = "OldDocData";
+			Schema mySchema = Schema.ListSchemas().FirstOrDefault(x => x.SchemaName == schemaName);
+			if (mySchema == null)
+			{
+				Guid guid = new Guid("681AB6EA-AE56-41A1-A880-B3918B417B0F");
+				SchemaBuilder sb = new SchemaBuilder(guid);
+				sb.SetSchemaName(schemaName);
+				sb.AddSimpleField("OldId", typeof(int)); //oldId - newId
+				mySchema = sb.Finish();
+			}
+
 			//Creates constructor with new doc init
 			_doc = doc;
 		}
@@ -87,6 +100,18 @@ namespace Logics.Import.ModelImport
 							 .FirstOrDefault(x => x.GetParameters().FirstOrDefault().ParameterType == typeof(string));
 
 			return (IImporter)constr.Invoke(new object[] { _json });
+		}
+	}
+	public static class ImportMethods
+    {
+		public static void SetIdEntityToElement(this Element el, int oldId)
+		{
+			string schemaName = "OldDocData";
+			Schema mySchema = Schema.ListSchemas().FirstOrDefault(x => x.SchemaName == schemaName);
+			Entity entity = new Entity(mySchema);
+			Field OldId = mySchema.GetField("OldId");
+			entity.Set<int>(OldId, oldId);
+			el.SetEntity(entity);
 		}
 	}
 }

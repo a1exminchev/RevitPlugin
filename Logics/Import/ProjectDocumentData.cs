@@ -10,6 +10,7 @@ namespace Logics.Import
         public Dictionary<string, ColumnTransfer> Columns { get; set; }
         //public Dictionary<string, StructuralColumnTransfer> StructuralColumns { get; set; }
         //public Dictionary<string, BeamTransfer> Beams { get; set; }
+        public Dictionary<string, DimensionTransfer> Dimensions { get; set; }
 
     }
 }

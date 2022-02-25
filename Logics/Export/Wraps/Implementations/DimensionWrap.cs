@@ -67,6 +67,12 @@ namespace Logics.Export{
 									int[] elEdgeIdArray = { idEl, edge.Id };
 									idList.Add(elEdgeIdArray);
 								}
+								//if (Equals(rf.ConvertToStableRepresentation(dim.Document), 
+								//	edge.AsCurve().GetEndPointReference(0).ConvertToStableRepresentation(dim.Document)))
+        //                        {
+								//	int[] elPointIdArray = { idEl, edge.Id, Convert.ToInt32(rf.ConvertToStableRepresentation(dim.Document).Split('/')[1]) };
+								//	idList.Add(elPointIdArray);
+								//}
 							}
 						}
 						else

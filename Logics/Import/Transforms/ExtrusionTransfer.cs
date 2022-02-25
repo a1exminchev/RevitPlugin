@@ -5,6 +5,8 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using imp = Logics.Geometry.Implementation;
 using Logics.Export;
+using Autodesk.Revit.DB.ExtensibleStorage;
+using Logics.Import.ModelImport;
 
 namespace Logics.Import.Transforms
 {
@@ -104,7 +106,9 @@ namespace Logics.Import.Transforms
 			exParams.curveArrArray = curArrArr;
 
 			imp.ExtrusionCreator extrusionCreator = new imp.ExtrusionCreator(docToImport, exParams);
-			extrusionCreator.Create();
+			Element el = extrusionCreator.Create();
+
+			el.SetIdEntityToElement(ExtrusionWrapProperties.Id);
 		}
 	}
 }

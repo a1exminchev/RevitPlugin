@@ -133,6 +133,7 @@
     <Compile Include="Export\Wraps\Interfaces\AbstractGenericForm.cs" />
     <Compile Include="Export\Wraps\Interfaces\IElement.cs" />
     <Compile Include="Import\ModelImport\Importers\Implementations\ColumnImporter.cs" />
+    <Compile Include="Import\ModelImport\Importers\Implementations\DimensionImporter.cs" />
     <Compile Include="Import\ModelImport\ProjectImporter.cs" />
     <Compile Include="Import\ProjectDocumentData.cs" />
     <Compile Include="Import\FamilyDocumentData.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="Import\ModelImport\Importers\Implementations\RevolutionImporter.cs" />
     <Compile Include="Import\ModelImport\Importers\Implementations\ExtrusionImporter.cs" />
     <Compile Include="Import\Transforms\BeamTransfer.cs" />
+    <Compile Include="Import\Transforms\DimensionTransfer.cs" />
     <Compile Include="Import\Transforms\StructuralColumnTransfer.cs" />
     <Compile Include="Import\Transforms\ColumnTransfer.cs" />
     <Compile Include="Import\Transforms\SweptBlendTransfer.cs" />

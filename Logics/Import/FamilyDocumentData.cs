@@ -12,6 +12,7 @@ namespace Logics.Import
         public Dictionary<string, BlendTransfer> Blends { get; set; }
         public Dictionary<string, SweepTransfer> Sweeps { get; set; }
         public Dictionary<string, SweptBlendTransfer> SweptBlends { get; set; }
+        public Dictionary<string, DimensionTransfer> Dimensions { get; set; }
 
     }
 }
