@@ -19,14 +19,9 @@ namespace Logics.Export{
 			_props.ViewName = dim.View?.Name;
 
 			Line line = dim.Curve as Line;
-			Curve curve = Line.CreateBound(line.Origin, line.Direction);
-			if (!curve.IsCyclic)
+			if (!line.IsCyclic)
 			{
-				_props.LineAlongDim = new Dictionary<string, double[]>() { { "Line", curve.ToJsonDoubles() } };
-			}
-			else
-			{
-				_props.LineAlongDim = new Dictionary<string, double[]>() { { "Arc", curve.ToJsonDoubles() } };
+				_props.LineAlongDim = new Dictionary<string, double[]>() { { "Line", line.Origin.ToJsonDoubles().Concat((line.Direction).ToJsonDoubles()).ToArray() } };
 			}
 
 			ReferenceArray rfArr = dim.References;

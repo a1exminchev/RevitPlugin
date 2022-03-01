@@ -54,7 +54,11 @@ namespace StudyTask{
 				var el = doc.GetElement(pick);
 				string schemaName = "OldDocData";
 				Schema mySchema = Schema.ListSchemas().FirstOrDefault(x => x.SchemaName == schemaName);
-				TaskDialog.Show("Ids", el.Id + " - " + el.GetEntity(mySchema).Get<int>("OldId"));
+                try
+                {
+					TaskDialog.Show("Ids", el.Id + " - " + el?.GetEntity(mySchema)?.Get<int>("OldId"));
+				}
+                catch { }
 
 				t.Commit();
             }

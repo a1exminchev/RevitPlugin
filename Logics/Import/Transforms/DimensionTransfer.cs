@@ -23,7 +23,7 @@ namespace Logics.Import.Transforms
 			View view = clView.Where(x => x.Name == viewName).FirstOrDefault() as View;
 
 			var dict = DimensionWrapProperties.LineAlongDim;
-			Line line = Line.CreateBound(new XYZ(dict.FirstOrDefault().Value[0],
+			Line line = Line.CreateUnbound(new XYZ(dict.FirstOrDefault().Value[0],
 												 dict.FirstOrDefault().Value[1],
 												 dict.FirstOrDefault().Value[2]),
 										 new XYZ(dict.FirstOrDefault().Value[3],
@@ -31,7 +31,7 @@ namespace Logics.Import.Transforms
 												 dict.FirstOrDefault().Value[5]));
 
 			ReferenceArray refArr = new ReferenceArray();
-			var clEl = new FilteredElementCollector(docToImport).WhereElementIsNotElementType().ToElements();
+			var clEl = new FilteredElementCollector(docToImport).WhereElementIsNotElementType().ToElements().Where(x => x.Id.IntegerValue > 2200).ToList();
 			string schemaName = "OldDocData";
 			Schema mySchema = Schema.ListSchemas().FirstOrDefault(x => x.SchemaName == schemaName);
 			Options opt = new Options();
@@ -40,7 +40,8 @@ namespace Logics.Import.Transforms
 			opt.IncludeNonVisibleObjects = true;
 			foreach (int[] arr in DimensionWrapProperties.ReferenceIds)
             {
-				Element el = clEl.FirstOrDefault(x => x.GetEntity(mySchema).Get<int>("OldId") == arr[0]);
+				Element el = null;
+				el = clEl.Where(x => x.GetEntity(mySchema).IsValid()).FirstOrDefault(x => x?.GetEntity(mySchema)?.Get<int>("OldId")  == arr[0]);
 				if (arr.Length == 1)
                 {
 					ReferencePlane refPlane = el as ReferencePlane;
@@ -90,7 +91,8 @@ namespace Logics.Import.Transforms
 					}
 				}
 			}
-			docToImport.Create.NewDimension(view, line, refArr);
+			
+			Dimension dim = docToImport.FamilyCreate.NewDimension(view, line, refArr);
 		}
 	}
 }

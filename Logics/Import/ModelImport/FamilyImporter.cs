@@ -39,6 +39,8 @@ namespace Logics.Import.ModelImport
 			{
 				Guid guid = new Guid("681AB6EA-AE56-41A1-A880-B3918B417B0F");
 				SchemaBuilder sb = new SchemaBuilder(guid);
+				sb.SetWriteAccessLevel(AccessLevel.Public);
+				sb.SetReadAccessLevel(AccessLevel.Public);
 				sb.SetSchemaName(schemaName);
 				sb.AddSimpleField("OldId", typeof(int)); //oldId - newId
 				mySchema = sb.Finish();
@@ -55,10 +57,11 @@ namespace Logics.Import.ModelImport
 			var famDoc = JsonConvert.DeserializeObject<FamilyDocumentData>(_json);
 			_importers = CollectImporters();
 
-			Transaction t = new Transaction(_doc, "Import");
-			using (t)
+			Transaction t1 = new Transaction(_doc, "Import");
+			Transaction t2 = new Transaction(_doc, "Dimensions");
+			using (t1)
             {
-				t.Start();
+				t1.Start();
 				foreach (var imp in _importers?.Values)
 				{
 					if (imp.Import(famDoc) != null)
@@ -66,11 +69,33 @@ namespace Logics.Import.ModelImport
 						var dict = imp.Import(famDoc);
 						foreach (AbstractTransfer i in dict.Values)
 						{
-							i.Create(_doc);
+							if (!i.GetType().Equals(typeof(DimensionTransfer)))
+							{
+								i.Create(_doc);
+							}
 						}
 					}
 				}
-				t.Commit();
+				t1.Commit();
+			}
+			using (t2)
+            {
+				t2.Start();
+				foreach (var imp in _importers?.Values)
+				{
+					if (imp.Import(famDoc) != null)
+					{
+						var dict = imp.Import(famDoc);
+						foreach (AbstractTransfer i in dict.Values)
+						{
+							if (i.GetType().Equals(typeof(DimensionTransfer)))
+							{
+								i.Create(_doc);
+							}
+						}
+					}
+				}
+				t2.Commit();
 			}
 		}
 

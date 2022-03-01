@@ -123,7 +123,7 @@ namespace Logics.Export.ModelExport
 
 		public static double[] ToJsonDoubles(this Curve curve)
 		{
-			if (!curve.IsCyclic)
+			if (!curve.IsCyclic && curve.IsBound)
 			{
 				double[] a = curve.GetEndPoint(0).ToJsonDoubles().
 					  Concat(curve.GetEndPoint(1).ToJsonDoubles()).ToArray();
