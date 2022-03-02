@@ -43,6 +43,7 @@ namespace Logics.Import.ModelImport
 				sb.SetReadAccessLevel(AccessLevel.Public);
 				sb.SetSchemaName(schemaName);
 				sb.AddSimpleField("OldId", typeof(int)); //oldId - newId
+				sb.AddMapField("GeoObjIds", typeof(int), typeof(int)); //oldId - newId
 				mySchema = sb.Finish();
 			}
 
@@ -135,8 +136,10 @@ namespace Logics.Import.ModelImport
 			Schema mySchema = Schema.ListSchemas().FirstOrDefault(x => x.SchemaName == schemaName);
 			Entity entity = new Entity(mySchema);
 			Field OldId = mySchema.GetField("OldId");
-			entity.Set<int>(OldId, oldId);
+			Field geoElIds = mySchema.GetField("OldId");
+			entity.Set(OldId, oldId);
 			el.SetEntity(entity);
 		}
+
 	}
 }

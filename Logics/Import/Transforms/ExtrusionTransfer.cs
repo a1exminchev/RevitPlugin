@@ -109,6 +109,29 @@ namespace Logics.Import.Transforms
 			Element el = extrusionCreator.Create();
 
 			el.SetIdEntityToElement(ExtrusionWrapProperties.Id);
+
+			Options opt = new Options();
+			opt.ComputeReferences = true;
+			opt.DetailLevel = ViewDetailLevel.Fine;
+			opt.IncludeNonVisibleObjects = true;
+			foreach (GeometryObject gOb in el.get_Geometry(opt))
+            {
+				Solid solid = gOb as Solid;
+				if (solid != null && solid.Faces.Size > 0)
+				{
+					foreach (Face face in solid.Faces)
+					{
+						
+					}
+				}
+				if (solid != null && solid.Edges.Size > 0)
+				{
+					foreach (Edge edge in solid.Edges)
+					{
+						
+					}
+				}
+			}
 		}
 	}
 }

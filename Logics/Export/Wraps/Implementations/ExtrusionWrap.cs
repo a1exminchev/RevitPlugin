@@ -58,6 +58,68 @@ namespace Logics.Export{
 
 			_props.CurveArrArray = curDicList;
 
+			Options opt = new Options();
+			opt.ComputeReferences = true;
+			opt.DetailLevel = ViewDetailLevel.Fine;
+			opt.IncludeNonVisibleObjects = true;
+			List<Dictionary<int, double[]>> faceOriginsDict = new List<Dictionary<int, double[]>>();
+			List<Dictionary<int, double[]>> edgeCurvesDict = new List<Dictionary<int, double[]>>();
+			foreach (GeometryObject gOb in ex.get_Geometry(opt))
+			{
+				Solid solid = gOb as Solid;
+				if (solid != null && solid.Faces.Size > 0)
+				{
+					foreach (Face face in solid.Faces)
+					{
+						PlanarFace pFace = face as PlanarFace;
+						CylindricalFace cylFace = face as CylindricalFace;
+						ConicalFace conFace = face as ConicalFace;
+						RevolvedFace revFace = face as RevolvedFace;
+						if (pFace != null)
+                        {
+							var faceDict = new Dictionary<int, double[]>() { { face.Id, pFace.Origin.ToJsonDoubles() } };
+							faceOriginsDict.Add(faceDict);
+						}
+						if (cylFace != null)
+						{
+							var faceDict = new Dictionary<int, double[]>() { { face.Id, cylFace.Origin.ToJsonDoubles() } };
+							faceOriginsDict.Add(faceDict);
+						}
+						if (conFace != null)
+						{
+							var faceDict = new Dictionary<int, double[]>() { { face.Id, conFace.Origin.ToJsonDoubles() } };
+							faceOriginsDict.Add(faceDict);
+						}
+						if (revFace != null)
+						{
+							var faceDict = new Dictionary<int, double[]>() { { face.Id, revFace.Origin.ToJsonDoubles() } };
+							faceOriginsDict.Add(faceDict);
+						}
+					}
+				}
+				if (solid != null && solid.Edges.Size > 0)
+				{
+					foreach (Edge edge in solid.Edges)
+					{
+						Curve curve = edge.AsCurve();
+						Line line = curve as Line;
+						Arc arc = curve as Arc;
+						if (line != null && !curve.IsCyclic)
+                        {
+							var lineDict = new Dictionary<int, double[]>() { { edge.Id, line.Origin.ToJsonDoubles() } };
+							edgeCurvesDict.Add(lineDict);
+						}
+						if (arc != null && curve.IsCyclic)
+						{
+							var arcDict = new Dictionary<int, double[]>() { { edge.Id, arc.Center.ToJsonDoubles().Concat(arc.Normal.ToJsonDoubles()).ToArray().Append(arc.Radius).ToArray() } };
+							edgeCurvesDict.Add(arcDict);
+						}
+					}
+				}
+			}
+			_props.FacesOrigins = faceOriginsDict;
+			_props.EdgesCurves = edgeCurvesDict;
+
 			_props.Id = ex.Id.IntegerValue;
 			_props.IsSolid = ex.IsSolid;
 			ExtrusionWrapProperties = _props;
@@ -74,6 +136,8 @@ namespace Logics.Export{
 		public double EndOffset { get; set; }
 		public Dictionary<string, double[]>[] SketchPlane { get; set; }
 		public List<Dictionary<string, double[]>> CurveArrArray { get; set; } //Profile
+		public List<Dictionary<int, double[]>> FacesOrigins { get; set; }
+		public List<Dictionary<int, double[]>> EdgesCurves { get; set; }
 
 	}
 }
